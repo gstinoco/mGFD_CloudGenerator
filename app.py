@@ -71,14 +71,9 @@ babel    = Babel(app, locale_selector=get_locale)                               
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))                                                                                   # Determine true operating path
 
-if os.environ.get('VERCEL'):                                                                                                            # Check Vercel serverless context
-    LOG_DIR                     = os.path.join(tempfile.gettempdir(), 'logs')                                                           # Remap to ephemeral storage
-    app.config['UPLOAD_FOLDER'] = os.path.join(tempfile.gettempdir(), 'uploads')                                                        # Remap to ephemeral storage
-    app.config['OUTPUT_FOLDER'] = os.path.join(tempfile.gettempdir(), 'output')                                                         # Remap to ephemeral storage
-else:                                                                                                                                   # Running in standard state
-    LOG_DIR                     = os.environ.get('LOG_DIR', os.path.join(BASE_DIR, 'logs'))                                             # Fallback or override log path
-    app.config['UPLOAD_FOLDER'] = os.environ.get('UPLOAD_FOLDER', os.path.join(BASE_DIR, 'uploads'))                                    # Fallback or override upload path
-    app.config['OUTPUT_FOLDER'] = os.environ.get('OUTPUT_FOLDER', os.path.join(BASE_DIR, 'output'))                                     # Fallback or override output path
+LOG_DIR                     = os.environ.get('LOG_DIR', os.path.join(BASE_DIR, 'logs'))                                                 # Fallback or override log path
+app.config['UPLOAD_FOLDER'] = os.environ.get('UPLOAD_FOLDER', os.path.join(BASE_DIR, 'uploads'))                                        # Fallback or override upload path
+app.config['OUTPUT_FOLDER'] = os.environ.get('OUTPUT_FOLDER', os.path.join(BASE_DIR, 'output'))                                         # Fallback or override output path
 
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024                                                                                     # Disallow uploads > 16MB
 app.secret_key                   = 'mGFD_CloudGenerator_2026'                                                                           # Session cookie signature
@@ -88,39 +83,25 @@ os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)                         
 os.makedirs(LOG_DIR, exist_ok=True)                                                                                                     # Ensure structure
 
 if not app.debug:                                                                                                                       # Production routing mode
-    if os.environ.get('VERCEL'):                                                                                                        # Vercel mode limits
-        stream_handler = logging.StreamHandler()                                                                                        # Push to stdout
-        stream_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))           # Basic info layout
-        stream_handler.setLevel(logging.INFO)                                                                                           # Standard filter
-        app.logger.addHandler(stream_handler)                                                                                           # Register
-        app.logger.setLevel(logging.INFO)                                                                                               # Restrict severity
-    else:                                                                                                                               # Native mode
-        file_handler = RotatingFileHandler(                                                                                             # Write strictly to file
-            os.path.join(LOG_DIR, 'mGFD_CloudGenerator.log'),                                                                           # Set path
-            maxBytes    = 10240000,                                                                                                     # 10MB chunking limit
-            backupCount = 10                                                                                                            # Retain 10 archives
-        )
-        file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))             # Basic info layout
-        file_handler.setLevel(logging.INFO)                                                                                             # Standard filter
-        app.logger.addHandler(file_handler)                                                                                             # Register
-        app.logger.setLevel(logging.INFO)                                                                                               # Restrict severity
+    file_handler = RotatingFileHandler(                                                                                                 # Write strictly to file
+        os.path.join(LOG_DIR, 'mGFD_CloudGenerator.log'),                                                                               # Set path
+        maxBytes    = 10240000,                                                                                                         # 10MB chunking limit
+        backupCount = 10                                                                                                                # Retain 10 archives
+    )
+    file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))                 # Basic info layout
+    file_handler.setLevel(logging.INFO)                                                                                                 # Standard filter
+    app.logger.addHandler(file_handler)                                                                                                 # Register
+    app.logger.setLevel(logging.INFO)                                                                                                   # Restrict severity
 else:                                                                                                                                   # Debug routing mode
-    if os.environ.get('VERCEL'):                                                                                                        # Debug on serverless
-        stream_handler = logging.StreamHandler()                                                                                        # Push stdout
-        stream_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))           # Detailed layout
-        stream_handler.setLevel(logging.DEBUG)                                                                                          # Verbose output
-        app.logger.addHandler(stream_handler)                                                                                           # Register
-        app.logger.setLevel(logging.DEBUG)                                                                                              # Lower barrier
-    else:                                                                                                                               # Native debug mode
-        file_handler = RotatingFileHandler(                                                                                             # Trace file
-            os.path.join(LOG_DIR, 'mGFD_CloudGenerator_debug.log'),                                                                     # Target trace file
-            maxBytes    = 10240000,                                                                                                     # 10MB threshold
-            backupCount = 5                                                                                                             # Track less
-        )
-        file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))             # Detailed layout
-        file_handler.setLevel(logging.DEBUG)                                                                                            # Verbose output
-        app.logger.addHandler(file_handler)                                                                                             # Register
-        app.logger.setLevel(logging.DEBUG)                                                                                              # Lower barrier
+    file_handler = RotatingFileHandler(                                                                                                 # Trace file
+        os.path.join(LOG_DIR, 'mGFD_CloudGenerator_debug.log'),                                                                         # Target trace file
+        maxBytes    = 10240000,                                                                                                         # 10MB threshold
+        backupCount = 5                                                                                                                 # Track less
+    )
+    file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))                 # Detailed layout
+    file_handler.setLevel(logging.DEBUG)                                                                                                # Verbose output
+    app.logger.addHandler(file_handler)                                                                                                 # Register
+    app.logger.setLevel(logging.DEBUG)                                                                                                  # Lower barrier
 
 app.logger.info(f"App started. BASE_DIR: {BASE_DIR}")                                                                                   # Mark start lifecycle
 app.logger.info(f"LOG_DIR: {LOG_DIR}")                                                                                                  # Announce parameters

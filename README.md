@@ -413,7 +413,6 @@ x,y,region,classification
 :package: mGFD_CloudGenerator/
 ├── app.py                                  # Flask app + API routes
 ├── requirements.txt                        # Python dependencies
-├── vercel.json                             # Vercel deployment config (writes to /tmp)
 │
 ├── contour_modules/                        # ContourCreator (segmentation + contour extraction)
 │   └── detection.py
@@ -428,7 +427,7 @@ x,y,region,classification
 │   ├── images/
 │   └── examples/
 │
-├── logs/                                   # local rotating logs (not used on Vercel)
+├── logs/                                   # local rotating logs
 │
 └── docs/                                   # Project branding + team images
     ├── logo/
@@ -493,7 +492,7 @@ This repository is organized as a web application plus reusable Python modules. 
 ```
 uploads/                               # temporary uploaded images/CSVs
 output/                                # generated CSV/PNG/SVG artifacts
-logs/                                  # local rotating logs (if not in Vercel)
+logs/                                  # local rotating logs
 static/examples/                       # versioned example inputs/outputs
 ```
 

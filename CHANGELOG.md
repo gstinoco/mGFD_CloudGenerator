@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed the deprecated `cloud_modules/` directory completely from the repository root.
 - Cleaned up obsolete temporary scratch and formatting scripts (e.g., `format_all.py`, `check_comments.py`, `fix_syntax.py`) from the workspace.
 - Removed deprecated region card rendering logic and placeholder scripts.
+- Removed `vercel.json`, `.vercelignore`, and all Vercel serverless environment bindings in `app.py`, as the project exceeds AWS Lambda limits and is moving to containerized PaaS/VPS hosting.
 
 ### Fixed
 - Fixed `ModuleNotFoundError: No module named 'cloud_modules.data_processing'` in `routes/viewer.py` by pointing to the newly refactored `read_cloud_data` function in `analysis_modules.neighbors`.
