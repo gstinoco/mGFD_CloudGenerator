@@ -1,55 +1,31 @@
 /**
- * @fileoverview Navigation Bar Interactive Component System
+ * Navbar — Core functionality for Navbar
  * 
- * Comprehensive navigation system for the mGFD CloudGenerator web application,
- * providing responsive mobile menu functionality, dropdown interactions, and
- * enhanced user experience across different device sizes and screen resolutions.
+ * Overview:
+ *     This module provides functionality related to the Navigation Bar Interactive Component System.
+ *     It handles mobile menu toggle, dropdowns, and responsive behaviors.
  * 
- * Core Functionality:
- * - Responsive mobile navigation with hamburger menu toggle
- * - Dropdown menu system with touch and click support
- * - Automatic menu closure on navigation and outside clicks
- * - Body scroll prevention during mobile menu display
- * - Cross-device compatibility and accessibility features
+ * Public API:
+ *     None (Event-driven DOM interactions)
  * 
- * Mobile Features:
- * - Hamburger menu animation and state management
- * - Touch-friendly dropdown interactions
- * - Automatic menu closure on link navigation
- * - Responsive breakpoint handling (768px threshold)
- * - Body scroll lock during menu display
+ * Credits:
+ *     All the codes presented below were developed by:
+ *         Dr. Gerardo Tinoco-Guerrero
+ *         Dr. Francisco Javier Domínguez-Mota
+ *         Dr. José Alberto Guzmán-Torres
+ *         Universidad Michoacana de San Nicolás de Hidalgo
+ *         gerardo.tinoco@umich.mx
  * 
- * Desktop Features:
- * - Standard dropdown hover and click interactions
- * - Keyboard navigation support
- * - Smooth transitions and animations
- * - Accessibility compliance with ARIA standards
+ *     With the funding of:
+ *         Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+ *         Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+ *         Aula CIMNE-Morelia. México.
+ *         SIIIA-MATH: Soluciones de Ingeniería. México.
  * 
- * Technical Implementation:
- * - Event-driven architecture with DOM manipulation
- * - CSS class-based state management
- * - Responsive design with media query integration
- * - Performance-optimized event listeners
- * - Cross-browser compatibility support
- * 
- * Browser Support:
- * - Modern browsers (Chrome, Firefox, Safari, Edge)
- * - Mobile browsers (iOS Safari, Chrome Mobile)
- * - Responsive design for tablets and smartphones
- * - Graceful degradation for older browsers
- * 
- * @author Gerardo Tinoco-Guerrero
- * @version 2.0.0
- * @since 2025-05-01
- * @lastModified 2026-01-21
- * 
- * @requires DOM API for element manipulation and event handling
- * @requires CSS classes for visual state management
- * @requires Responsive CSS framework for mobile compatibility
- * 
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model} DOM API Reference
- * @see {@link https://www.w3.org/WAI/ARIA/} ARIA Accessibility Guidelines
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries} CSS Media Queries
+ * Date:
+ *     March, 2026.
+ * Last Modification:
+ *     September, 2026.
  */
 /**
  * Initialize Navigation Bar Interactive System
@@ -90,12 +66,12 @@
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth} Window.innerWidth Property
  * 
  */
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    const navbar = document.querySelector('.navbar');
-    
+document.addEventListener('DOMContentLoaded', function () {                                                                             // Bind event listener DOM state
+    const navToggle = document.querySelector('.nav-toggle');                                                                            // Initialize immutable variable state reference
+    const navMenu = document.querySelector('.nav-menu');                                                                                // Initialize immutable variable state reference
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');                                                              // Initialize immutable variable state reference
+    const navbar = document.querySelector('.navbar');                                                                                   // Initialize immutable variable state reference
+
     /**
      * Mobile Menu Toggle Functionality
      * 
@@ -111,20 +87,20 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
+    if (navToggle && navMenu) {                                                                                                         // Evaluate boolean condition check logic
+        navToggle.addEventListener('click', function () {                                                                               // Bind event listener DOM state
+            navToggle.classList.toggle('active');                                                                                       // Modify element class list collection
+            navMenu.classList.toggle('active');                                                                                         // Modify element class list collection
+
             // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-    }
-    
+            if (navMenu.classList.contains('active')) {                                                                                 // Evaluate boolean condition check logic
+                document.body.style.overflow = 'hidden';                                                                                // Modify element visual style property
+            } else {                                                                                                                    // Terminate block scope execution context
+                document.body.style.overflow = '';                                                                                      // Modify element visual style property
+            }                                                                                                                           // Terminate block scope execution context
+        });                                                                                                                             // Terminate block scope execution context
+    }                                                                                                                                   // Terminate block scope execution context
+
     /**
      * Automatic Mobile Menu Closure on Navigation
      * 
@@ -140,17 +116,17 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-    
+    const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');                                                      // Initialize immutable variable state reference
+    navLinks.forEach(link => {                                                                                                          // Execute sequential evaluation stream node
+        link.addEventListener('click', function () {                                                                                    // Bind event listener DOM state
+            if (window.innerWidth <= 768) {                                                                                             // Evaluate boolean condition check logic
+                navToggle.classList.remove('active');                                                                                   // Modify element class list collection
+                navMenu.classList.remove('active');                                                                                     // Modify element class list collection
+                document.body.style.overflow = '';                                                                                      // Modify element visual style property
+            }                                                                                                                           // Terminate block scope execution context
+        });                                                                                                                             // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * Mobile Dropdown Menu Functionality
      * 
@@ -166,16 +142,16 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const dropdown = this.closest('.dropdown');
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-    
+    dropdownToggles.forEach(toggle => {                                                                                                 // Execute sequential evaluation stream node
+        toggle.addEventListener('click', function (e) {                                                                                 // Bind event listener DOM state
+            if (window.innerWidth <= 768) {                                                                                             // Evaluate boolean condition check logic
+                e.preventDefault();                                                                                                     // Execute sequential statement instruction block
+                const dropdown = this.closest('.dropdown');                                                                             // Initialize immutable variable state reference
+                dropdown.classList.toggle('active');                                                                                    // Modify element class list collection
+            }                                                                                                                           // Terminate block scope execution context
+        });                                                                                                                             // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * Outside Click Detection for Mobile Menu Closure
      * 
@@ -191,16 +167,16 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-    });
-    
+    document.addEventListener('click', function (e) {                                                                                   // Bind event listener DOM state
+        if (window.innerWidth <= 768) {                                                                                                 // Evaluate boolean condition check logic
+            if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {                                                   // Evaluate boolean condition check logic
+                navToggle.classList.remove('active');                                                                                   // Modify element class list collection
+                navMenu.classList.remove('active');                                                                                     // Modify element class list collection
+                document.body.style.overflow = '';                                                                                      // Modify element visual style property
+            }                                                                                                                           // Terminate block scope execution context
+        }                                                                                                                               // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * Responsive Window Resize Handler
      * 
@@ -216,19 +192,19 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-            
+    window.addEventListener('resize', function () {                                                                                     // Bind event listener DOM state
+        if (window.innerWidth > 768) {                                                                                                  // Evaluate boolean condition check logic
+            navToggle.classList.remove('active');                                                                                       // Modify element class list collection
+            navMenu.classList.remove('active');                                                                                         // Modify element class list collection
+            document.body.style.overflow = '';                                                                                          // Modify element visual style property
+
             // Remove active class from dropdowns
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        }
-    });
-    
+            document.querySelectorAll('.dropdown').forEach(dropdown => {                                                                // Query document selector node reference
+                dropdown.classList.remove('active');                                                                                    // Modify element class list collection
+            });                                                                                                                         // Terminate block scope execution context
+        }                                                                                                                               // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * Dynamic Navbar Scroll Effects
      * 
@@ -244,17 +220,17 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+    window.addEventListener('scroll', function () {                                                                                     // Bind event listener DOM state
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;                                                     // Initialize immutable variable state reference
+
         // Add scrolled class for styling
-        if (scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
+        if (scrollTop > 50) {                                                                                                           // Evaluate boolean condition check logic
+            navbar.classList.add('scrolled');                                                                                           // Modify element class list collection
+        } else {                                                                                                                        // Terminate block scope execution context
+            navbar.classList.remove('scrolled');                                                                                        // Modify element class list collection
+        }                                                                                                                               // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * Smooth Scrolling for Anchor Links
      * 
@@ -271,32 +247,32 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#') && href.length > 1) {
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-                    
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                    
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');                                                                      // Initialize immutable variable state reference
+    anchorLinks.forEach(link => {                                                                                                       // Execute sequential evaluation stream node
+        link.addEventListener('click', function (e) {                                                                                   // Bind event listener DOM state
+            const href = this.getAttribute('href');                                                                                     // Initialize immutable variable state reference
+            if (href.startsWith('#') && href.length > 1) {                                                                              // Evaluate boolean condition check logic
+                const target = document.querySelector(href);                                                                            // Initialize immutable variable state reference
+                if (target) {                                                                                                           // Evaluate boolean condition check logic
+                    e.preventDefault();                                                                                                 // Execute sequential statement instruction block
+                    const offsetTop = target.offsetTop - 80;                                                                            // Account for fixed navbar
+
+                    window.scrollTo({                                                                                                   // Execute sequential evaluation stream node
+                        top: offsetTop,                                                                                                 // Execute sequential evaluation stream node
+                        behavior: 'smooth'                                                                                              // Execute sequential evaluation stream node
+                    });                                                                                                                 // Terminate block scope execution context
+
                     // Close mobile menu if open
-                    if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
-                        navToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                }
-            }
-        });
-    });
-    
+                    if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {                                             // Evaluate boolean condition check logic
+                        navToggle.classList.remove('active');                                                                           // Modify element class list collection
+                        navMenu.classList.remove('active');                                                                             // Modify element class list collection
+                        document.body.style.overflow = '';                                                                              // Modify element visual style property
+                    }                                                                                                                   // Terminate block scope execution context
+                }                                                                                                                       // Terminate block scope execution context
+            }                                                                                                                           // Terminate block scope execution context
+        });                                                                                                                             // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+
     /**
      * CTA Button Interaction Feedback
      * 
@@ -312,14 +288,14 @@ document.addEventListener('DOMContentLoaded', function() {
      * @since 2025-05-01
      * @lastModified 2026-01-21
      */
-    const ctaButtons = document.querySelectorAll('.nav-cta, .btn-primary');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function() {
+    const ctaButtons = document.querySelectorAll('.nav-cta, .btn-primary');                                                             // Initialize immutable variable state reference
+    ctaButtons.forEach(button => {                                                                                                      // Execute sequential evaluation stream node
+        button.addEventListener('click', function () {                                                                                  // Bind event listener DOM state
             // Add a subtle loading effect
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
-    });
-});
+            this.style.transform = 'scale(0.98)';                                                                                       // Modify element visual style property
+            setTimeout(() => {                                                                                                          // Execute sequential evaluation stream node
+                this.style.transform = '';                                                                                              // Modify element visual style property
+            }, 150);                                                                                                                    // Terminate block scope execution context
+        });                                                                                                                             // Terminate block scope execution context
+    });                                                                                                                                 // Terminate block scope execution context
+});                                                                                                                                     // Terminate block scope execution context

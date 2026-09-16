@@ -1,3 +1,30 @@
+{#
+# examples.html — Core functionality for examples.html
+#
+# Overview:
+# This template provides the structure and UI elements for the examples.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 {% extends 'base.html' %}
 
 {% block styles %}
@@ -6,65 +33,71 @@
 
 {% block content %}
 <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-main">
-                    <div class="hero-logo">
-                        <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo" class="logo-image">
-                    </div>
-                    <h1 class="hero-title">{{ _('Examples & Case Studies') }}</h1>
-                    <p class="hero-subtitle">
-                        {{ _('Explore our collection of generated point clouds from diverse geographical regions. Download datasets and visualizations to test and validate your research.') }}
-                    </p>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
+                        class="logo-image">
                 </div>
+                <h1 class="hero-title">{{ _('Examples & Case Studies') }}</h1>
+                <p class="hero-subtitle">
+                    {{ _('Explore our collection of generated point clouds from diverse geographical regions. Download
+                    datasets and visualizations to test and validate your research.') }}
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Examples Section -->
-    <section class="section-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">{{ _('Case Studies') }}</h2>
-                <p class="section-subtitle">{{ _('Real-world applications of mGFD CloudGenerator') }}</p>
-            </div>
-            
-            <div class="examples-grid">
-                {% for example in examples %}
-                <div class="example-card">
-                    <div class="example-visuals">
-                        <div class="example-image-container">
-                            <img src="{{ url_for('static', filename='examples/' + example.image) }}" alt="{{ example.title }} Original" loading="lazy">
-                            <div class="image-label">{{ _('Original') }}</div>
-                        </div>
-                        <div class="example-image-container">
-                            <img src="{{ url_for('static', filename='examples/' + example.cloud_image) }}" alt="{{ example.title }} Point Cloud" loading="lazy">
-                            <div class="image-label">{{ _('Point Cloud') }}</div>
-                        </div>
+<!-- Examples Section -->
+<section class="section-light">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">{{ _('Case Studies') }}</h2>
+            <p class="section-subtitle">{{ _('Real-world applications of mGFD CloudGenerator') }}</p>
+        </div>
+
+        <div class="examples-grid">
+            {% for example in examples %}
+            <div class="example-card">
+                <div class="example-visuals">
+                    <div class="example-image-container">
+                        <img src="{{ url_for('static', filename='examples/' + example.image) }}"
+                            alt="{{ example.title }} Original" loading="lazy">
+                        <div class="image-label">{{ _('Original') }}</div>
                     </div>
-                    
-                    <div class="example-content">
-                        <h3 class="example-title">{{ example.title }}</h3>
-                        <p class="example-description">{{ example.description }}</p>
-                        
-                        <div class="example-downloads">
-                            <a href="{{ url_for('static', filename='examples/' + example.contours_csv) }}" class="download-btn contours" download>
-                                <i class="fas fa-file-csv"></i> {{ _('Contours') }}
-                            </a>
-                            <a href="{{ url_for('static', filename='examples/' + example.cloud_csv) }}" class="download-btn cloud" download>
-                                <i class="fas fa-file-csv"></i> {{ _('Cloud') }}
-                            </a>
-                            <!--<a href="{{ url_for('static', filename='examples/' + example.cloud_svg) }}" class="download-btn svg" download>
+                    <div class="example-image-container">
+                        <img src="{{ url_for('static', filename='examples/' + example.cloud_image) }}"
+                            alt="{{ example.title }} Point Cloud" loading="lazy">
+                        <div class="image-label">{{ _('Point Cloud') }}</div>
+                    </div>
+                </div>
+
+                <div class="example-content">
+                    <h3 class="example-title">{{ example.title }}</h3>
+                    <p class="example-description">{{ example.description }}</p>
+
+                    <div class="example-downloads">
+                        <a href="{{ url_for('static', filename='examples/' + example.contours_csv) }}"
+                            class="download-btn contours" download>
+                            <i class="fas fa-file-csv"></i> {{ _('Contours') }}
+                        </a>
+                        <a href="{{ url_for('static', filename='examples/' + example.cloud_csv) }}"
+                            class="download-btn cloud" download>
+                            <i class="fas fa-file-csv"></i> {{ _('Cloud') }}
+                        </a>
+                        <!--<a href="{{ url_for('static', filename='examples/' + example.cloud_svg) }}" class="download-btn svg" download>
                                 <i class="fas fa-vector-square"></i> {{ _('SVG') }}
                             </a>-->
-                        </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}

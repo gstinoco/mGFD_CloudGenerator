@@ -1,4 +1,4 @@
-# mGFD CloudGenerator 2.1 :cloud:
+# mGFD CloudGenerator 2.2 :cloud:
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 *From images to contours to classified point clouds — with visualization and neighbor analysis*
 
 ### :link: Quick Links
-[![🌐 Live Demo](https://img.shields.io/badge/🌐-Live%20Demo-brightgreen)](https://malla.umich.mx/CloudGenerator/) [![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🗂️ Dataset](https://img.shields.io/badge/🗂️-Dataset-blue)](#file_cabinet-dataset-structure) [![📈 Benchmarks](https://img.shields.io/badge/📈-Benchmarks-purple)](#chart_with_upwards_trend-performance-benchmarks) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team) [![🤝 Contribute](https://img.shields.io/badge/🤝-Contributing-orange)](#handshake-contributing) [![🏭 Partners](https://img.shields.io/badge/🏭-Industry%20Partners-0B1B3A)](#factory-industry-partners-supporting-innovation) [![🙏 Thanks](https://img.shields.io/badge/🙏-Acknowledgments-darkgreen)](#pray-acknowledgments)
+[![🌐 Live Demo](https://img.shields.io/badge/🌐-Live%20Demo-brightgreen)](https://malla.umich.mx/CloudGenerator/) [![📝 Changelog](https://img.shields.io/badge/📝-Changelog-gray)](CHANGELOG.md) [![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🗂️ Dataset](https://img.shields.io/badge/🗂️-Dataset-blue)](#file_cabinet-dataset-structure) [![📈 Benchmarks](https://img.shields.io/badge/📈-Benchmarks-purple)](#chart_with_upwards_trend-performance-benchmarks) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team) [![🤝 Contribute](https://img.shields.io/badge/🤝-Contributing-orange)](#handshake-contributing) [![🏭 Partners](https://img.shields.io/badge/🏭-Industry%20Partners-0B1B3A)](#factory-industry-partners-supporting-innovation) [![🙏 Thanks](https://img.shields.io/badge/🙏-Acknowledgments-darkgreen)](#pray-acknowledgments)
 
 </div>
 
@@ -43,7 +43,7 @@
 
 ## :star2: Overview
 
-**mGFD CloudGenerator 2.1** is a Flask-based web platform that converts **images → contours → classified point clouds** designed for **meshless Generalized Finite Differences (mGFD)** workflows. It provides interactive contour extraction, multi-region management (including interior holes), cloud generation with two distribution strategies, high-quality visualizations (PNG/SVG), and region-aware neighbor computation.
+**mGFD CloudGenerator 2.2** is a Flask-based web platform that converts **images → contours → classified point clouds** designed for **meshless Generalized Finite Differences (mGFD)** workflows. It provides interactive contour extraction, multi-region management (including interior holes), cloud generation with two distribution strategies, high-quality visualizations (PNG/SVG), and region-aware neighbor computation.
 
 > :globe_with_meridians: **Try it now!** Live demo: **https://malla.umich.mx/CloudGenerator/**
 
@@ -123,6 +123,9 @@ shapely==2.1.1
 numpy==2.2.6
 scipy==1.15.2
 matplotlib==3.10.0
+
+# Mathematical algorithms for generating clouds
+mGFD==0.12.1
 ```
 
 ### Quick Installation
@@ -414,16 +417,6 @@ x,y,region,classification
 │
 ├── contour_modules/                        # ContourCreator (segmentation + contour extraction)
 │   └── detection.py
-│
-├── cloud_modules/                          # Cloud generation pipeline (Regular / Natural)
-│   ├── generator.py                        # Orchestrates the full cloud workflow
-│   ├── point_generation.py                 # Sampling algorithms (grid / Poisson disk)
-│   ├── classification.py                   # Boundary vs interior labeling
-│   ├── data_processing.py                  # CSV loaders / validation
-│   ├── reduction.py                        # Contour reduction (optional)
-│   ├── export.py                           # CSV export utilities
-│   ├── visualization.py                    # PNG/SVG rendering
-│   └── utils.py
 │
 ├── analysis_modules/                       # Post-processing tools
 │   └── neighbors.py                        # Region-constrained kNN neighbor computation

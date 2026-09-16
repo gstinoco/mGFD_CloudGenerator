@@ -1,3 +1,30 @@
+{#
+# cloud_generator.html — Core functionality for cloud_generator.html
+#
+# Overview:
+# This template provides the structure and UI elements for the cloud_generator.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 {% extends 'base.html' %}
 
 {% block styles %}
@@ -142,10 +169,12 @@
                         <div class="tip-icon">
                             <i class="fas fa-download"></i>
                         </div>
-                            <div class="tip-text">
-                                <strong>{{ _('Sample File:') }}</strong>
-                                {{ _('Download our <a href="%(url)s" download="example_1_contour.csv" class="download-link"><i class="fas fa-file-csv"></i> example_1.csv</a> reference example', url=url_for('static', filename='examples/example_1_contour.csv'))|safe }}
-                            </div>
+                        <div class="tip-text">
+                            <strong>{{ _('Sample File:') }}</strong>
+                            {{ _('Download our <a href="%(url)s" download="example_1_contour.csv"
+                                class="download-link"><i class="fas fa-file-csv"></i> example_1.csv</a> reference
+                            example', url=url_for('static', filename='examples/example_1_contour.csv'))|safe }}
+                        </div>
                     </div>
                 </div>
             </div>

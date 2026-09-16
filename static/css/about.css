@@ -1,410 +1,814 @@
 /* About Page Styles */
 /* ===== TEAM SECTION STYLES ===== */
 .team-category {
+    /* Declare class selector style rule */
     margin-bottom: 4rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .category-title {
+    /* Declare class selector style rule */
     font-size: 2rem;
+    /* Define typography style properties */
     font-weight: 700;
+    /* Define typography style properties */
     color: #1e293b;
+    /* Declare element selector style rule */
     margin-bottom: 2rem;
+    /* Define external spacing box model property */
     text-align: center;
+    /* Define text layout and styling */
     position: relative;
+    /* Declare element selector style rule */
     padding-bottom: 1rem;
+    /* Define internal spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .category-title::after {
+    /* Declare class selector style rule */
     content: '';
+    /* Declare element selector style rule */
     position: absolute;
+    /* Declare element selector style rule */
     bottom: 0;
+    /* Declare element selector style rule */
     left: 50%;
+    /* Declare element selector style rule */
     transform: translateX(-50%);
+    /* Declare element selector style rule */
     width: 80px;
+    /* Declare element selector style rule */
     height: 3px;
+    /* Declare element selector style rule */
     background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    /* Declare element selector style rule */
     border-radius: 2px;
+    /* Define border visual stroke property */
 }
+
+/* Terminate CSS rule block context */
 
 .team-grid {
+    /* Declare class selector style rule */
     display: grid;
+    /* Declare element selector style rule */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Define CSS grid layout behavior */
     gap: 1.5rem;
+    /* Declare element selector style rule */
     margin-top: 3rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member {
+    /* Declare class selector style rule */
     background: white;
+    /* Declare element selector style rule */
     padding: 1.5rem;
+    /* Declare element selector style rule */
     border-radius: 20px;
+    /* Define border visual stroke property */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    /* Define element visual depth shadow */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Declare element selector style rule */
     border: 1px solid rgba(226, 232, 240, 0.6);
+    /* Declare element selector style rule */
     position: relative;
+    /* Declare element selector style rule */
     overflow: hidden;
+    /* Declare element selector style rule */
     text-align: center;
+    /* Define text layout and styling */
     backdrop-filter: blur(10px);
+    /* Define cascaded style sheet property */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member::before {
+    /* Declare class selector style rule */
     content: '';
+    /* Declare element selector style rule */
     position: absolute;
+    /* Declare element selector style rule */
     top: 0;
+    /* Declare element selector style rule */
     left: 0;
+    /* Declare element selector style rule */
     right: 0;
+    /* Declare element selector style rule */
     height: 4px;
+    /* Declare element selector style rule */
     background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);
+    /* Declare element selector style rule */
     transform: scaleX(0);
+    /* Declare element selector style rule */
     transition: transform 0.4s ease;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member:hover::before {
+    /* Declare class selector style rule */
     transform: scaleX(1);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member:hover {
+    /* Declare class selector style rule */
     transform: translateY(-12px) scale(1.02);
+    /* Declare element selector style rule */
     box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+    /* Define element visual depth shadow */
     border-color: rgba(59, 130, 246, 0.2);
+    /* Define border visual stroke property */
 }
+
+/* Terminate CSS rule block context */
 
 .member-avatar {
+    /* Declare class selector style rule */
     width: 80px;
+    /* Declare element selector style rule */
     height: 80px;
+    /* Declare element selector style rule */
     background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);
+    /* Declare element selector style rule */
     border-radius: 50%;
+    /* Define border visual stroke property */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     margin: 0 auto 1.5rem;
+    /* Declare element selector style rule */
     color: white;
+    /* Declare element selector style rule */
     font-size: 1.5rem;
+    /* Define typography style properties */
     font-weight: 700;
+    /* Define typography style properties */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Declare element selector style rule */
     position: relative;
+    /* Declare element selector style rule */
     overflow: hidden;
+    /* Declare element selector style rule */
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 .member-avatar::before {
+    /* Declare class selector style rule */
     content: '';
+    /* Declare element selector style rule */
     position: absolute;
+    /* Declare element selector style rule */
     top: -50%;
+    /* Declare element selector style rule */
     left: -50%;
+    /* Declare element selector style rule */
     width: 200%;
+    /* Declare element selector style rule */
     height: 200%;
+    /* Declare element selector style rule */
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    /* Declare element selector style rule */
     transform: rotate(-45deg);
+    /* Declare element selector style rule */
     transition: transform 0.6s ease;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member:hover .member-avatar::before {
+    /* Declare class selector style rule */
     transform: rotate(-45deg) translate(100%, 100%);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member:hover .member-avatar {
+    /* Declare class selector style rule */
     transform: scale(1.1) rotate(5deg);
+    /* Declare element selector style rule */
     box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 .member-name {
+    /* Declare class selector style rule */
     font-size: 1.4rem;
+    /* Define typography style properties */
     font-weight: 700;
+    /* Define typography style properties */
     color: #1e293b;
+    /* Declare element selector style rule */
     margin-bottom: 0.5rem;
+    /* Define external spacing box model property */
     transition: color 0.3s ease;
+    /* Declare element selector style rule */
     min-height: 3.4rem;
+    /* Define element dimension constraints */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     line-height: 1.2;
+    /* Define element dimension constraints */
 }
+
+/* Terminate CSS rule block context */
 
 .member-role {
+    /* Declare class selector style rule */
     font-size: 1rem;
+    /* Define typography style properties */
     font-weight: 600;
+    /* Define typography style properties */
     color: #3b82f6;
+    /* Declare element selector style rule */
     margin-bottom: 1rem;
+    /* Define external spacing box model property */
     text-transform: uppercase;
+    /* Define text layout and styling */
     letter-spacing: 0.5px;
+    /* Define cascaded style sheet property */
 }
+
+/* Terminate CSS rule block context */
 
 .member-description {
+    /* Declare class selector style rule */
     font-size: 0.95rem;
+    /* Define typography style properties */
     color: #64748b;
+    /* Declare element selector style rule */
     line-height: 1.6;
+    /* Define element dimension constraints */
     margin-bottom: 1.5rem;
+    /* Define external spacing box model property */
     text-align: left;
+    /* Define text layout and styling */
 }
+
+/* Terminate CSS rule block context */
 
 .member-contact {
+    /* Declare class selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     gap: 0.5rem;
+    /* Declare element selector style rule */
     margin-bottom: 1rem;
+    /* Define external spacing box model property */
     padding: 0.5rem;
+    /* Declare element selector style rule */
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+    /* Declare element selector style rule */
     border-radius: 12px;
+    /* Define border visual stroke property */
     border: 1px solid rgba(59, 130, 246, 0.1);
+    /* Declare element selector style rule */
     transition: all 0.3s ease;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .member-contact:hover {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+    /* Declare element selector style rule */
     border-color: rgba(59, 130, 246, 0.2);
+    /* Define border visual stroke property */
     transform: translateY(-2px);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .member-contact i {
+    /* Declare class selector style rule */
     color: #3b82f6;
+    /* Declare element selector style rule */
     font-size: 0.9rem;
+    /* Define typography style properties */
 }
+
+/* Terminate CSS rule block context */
 
 .member-contact a {
+    /* Declare class selector style rule */
     color: #3b82f6;
+    /* Declare element selector style rule */
     text-decoration: none;
+    /* Define text layout and styling */
     font-size: 0.7rem;
+    /* Define typography style properties */
     font-weight: 500;
+    /* Define typography style properties */
     transition: color 0.3s ease;
+    /* Declare element selector style rule */
 }
 
+/* Terminate CSS rule block context */
+
 .member-contact a:hover {
+    /* Declare class selector style rule */
     color: #2563eb;
+    /* Declare element selector style rule */
     text-decoration: underline;
+    /* Define text layout and styling */
 }
+
+/* Terminate CSS rule block context */
 
 /* Researcher specific styles */
 .team-member.researcher {
+    /* Declare class selector style rule */
     border-left: 4px solid #10b981;
+    /* Define border visual stroke property */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member.researcher::before {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member.researcher .member-avatar {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Declare element selector style rule */
     box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    /* Define element visual depth shadow */
 }
 
+/* Terminate CSS rule block context */
+
 .team-member.researcher:hover .member-avatar {
+    /* Declare class selector style rule */
     box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 /* Student specific styles */
 .team-member.student {
+    /* Declare class selector style rule */
     border-left: 4px solid #f59e0b;
+    /* Define border visual stroke property */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member.student::before {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .team-member.student .member-avatar {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    /* Declare element selector style rule */
     box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+    /* Define element visual depth shadow */
 }
 
+/* Terminate CSS rule block context */
+
 .team-member.student:hover .member-avatar {
+    /* Declare class selector style rule */
     box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 /* License Info */
 .license-info {
+    /* Declare class selector style rule */
     margin-top: 3rem;
+    /* Define external spacing box model property */
     background: white;
+    /* Declare element selector style rule */
     border-radius: 20px;
+    /* Define border visual stroke property */
     border: 1px solid rgba(226, 232, 240, 0.6);
+    /* Declare element selector style rule */
     overflow: hidden;
+    /* Declare element selector style rule */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 .license-content {
+    /* Declare class selector style rule */
     display: grid;
+    /* Declare element selector style rule */
     grid-template-columns: auto 1fr auto;
+    /* Define CSS grid layout behavior */
     gap: 2rem;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     padding: 2.5rem;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .license-icon {
+    /* Declare class selector style rule */
     width: 60px;
+    /* Declare element selector style rule */
     height: 60px;
+    /* Declare element selector style rule */
     border-radius: 50%;
+    /* Define border visual stroke property */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Declare element selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     color: white;
+    /* Declare element selector style rule */
     font-size: 1.5rem;
+    /* Define typography style properties */
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 .license-text h4 {
+    /* Declare class selector style rule */
     font-size: 1.3rem;
+    /* Define typography style properties */
     font-weight: 700;
+    /* Define typography style properties */
     color: #1e293b;
+    /* Declare element selector style rule */
     margin-bottom: 0.5rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .license-text p {
+    /* Declare class selector style rule */
     color: #64748b;
+    /* Declare element selector style rule */
     margin: 0;
+    /* Declare element selector style rule */
     font-size: 1rem;
+    /* Define typography style properties */
     line-height: 1.6;
+    /* Define element dimension constraints */
 }
+
+/* Terminate CSS rule block context */
 
 .license-text strong {
+    /* Declare class selector style rule */
     color: #10b981;
+    /* Declare element selector style rule */
     font-weight: 600;
+    /* Define typography style properties */
 }
+
+/* Terminate CSS rule block context */
 
 .license-badge {
+    /* Declare class selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     flex-direction: column;
+    /* Define flexbox layout behavior properties */
     gap: 0.5rem;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .license-badge .badge {
+    /* Declare class selector style rule */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Declare element selector style rule */
     color: white;
+    /* Declare element selector style rule */
     padding: 0.5rem 1rem;
+    /* Declare element selector style rule */
     border-radius: 20px;
+    /* Define border visual stroke property */
     font-size: 0.85rem;
+    /* Define typography style properties */
     font-weight: 600;
+    /* Define typography style properties */
     text-align: center;
+    /* Define text layout and styling */
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    /* Define element visual depth shadow */
     transition: all 0.3s ease;
+    /* Declare element selector style rule */
 }
 
+/* Terminate CSS rule block context */
+
 .license-badge .badge:hover {
+    /* Declare class selector style rule */
     transform: translateY(-2px);
+    /* Declare element selector style rule */
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 /* Member Social Links */
 .member-social {
+    /* Declare class selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     gap: 1rem;
+    /* Declare element selector style rule */
     margin-top: 0.5rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .member-social a {
+    /* Declare class selector style rule */
     color: #64748b;
+    /* Declare element selector style rule */
     font-size: 1.2rem;
+    /* Define typography style properties */
     transition: all 0.3s ease;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .member-social a:hover {
+    /* Declare class selector style rule */
     color: #3b82f6;
+    /* Declare element selector style rule */
     transform: translateY(-2px);
+    /* Declare element selector style rule */
 }
 
+/* Terminate CSS rule block context */
+
 .team-member.researcher .member-social a:hover {
+    /* Declare class selector style rule */
     color: #10b981;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 /* Citation Section */
 .citation-section {
+    /* Declare class selector style rule */
     padding: 5rem 0;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-grid-single {
+    /* Declare class selector style rule */
     margin-top: 3rem;
+    /* Define external spacing box model property */
     width: 100%;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-card {
+    /* Declare class selector style rule */
     background: white;
+    /* Declare element selector style rule */
     border-radius: 20px;
+    /* Define border visual stroke property */
     padding: 2.5rem;
+    /* Declare element selector style rule */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    /* Define element visual depth shadow */
     height: 100%;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-header {
+    /* Declare class selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     gap: 1rem;
+    /* Declare element selector style rule */
     margin-bottom: 1.5rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-icon {
+    /* Declare class selector style rule */
     width: 40px;
+    /* Declare element selector style rule */
     height: 40px;
+    /* Declare element selector style rule */
     border-radius: 50%;
+    /* Define border visual stroke property */
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    /* Declare element selector style rule */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     color: white;
+    /* Declare element selector style rule */
     font-size: 1rem;
+    /* Define typography style properties */
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    /* Define element visual depth shadow */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-header h4 {
+    /* Declare class selector style rule */
     font-size: 1.2rem;
+    /* Define typography style properties */
     font-weight: 700;
+    /* Define typography style properties */
     color: #1e293b;
+    /* Declare element selector style rule */
     margin: 0;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .citation-text {
+    /* Declare class selector style rule */
     font-size: 1rem;
+    /* Define typography style properties */
     color: #475569;
+    /* Declare element selector style rule */
     line-height: 1.6;
+    /* Define element dimension constraints */
     margin-bottom: 1.5rem;
+    /* Define external spacing box model property */
     padding-left: 1rem;
+    /* Define internal spacing box model property */
     border-left: 3px solid #e2e8f0;
+    /* Define border visual stroke property */
 }
+
+/* Terminate CSS rule block context */
 
 .code-block-container {
+    /* Declare class selector style rule */
     position: relative;
+    /* Declare element selector style rule */
     background: #1e293b;
+    /* Declare element selector style rule */
     border-radius: 12px;
+    /* Define border visual stroke property */
     padding: 1.5rem;
+    /* Declare element selector style rule */
     margin-top: 1rem;
+    /* Define external spacing box model property */
     overflow-x: auto;
+    /* Define content overflow visibility behavior */
 }
+
+/* Terminate CSS rule block context */
 
 .code-block-container pre {
+    /* Declare class selector style rule */
     margin: 0;
+    /* Declare element selector style rule */
     font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    /* Define typography style properties */
     font-size: 0.9rem;
+    /* Define typography style properties */
     color: #e2e8f0;
+    /* Declare element selector style rule */
     line-height: 1.5;
+    /* Define element dimension constraints */
 }
+
+/* Terminate CSS rule block context */
 
 .copy-btn {
+    /* Declare class selector style rule */
     position: absolute;
+    /* Declare element selector style rule */
     top: 10px;
+    /* Declare element selector style rule */
     right: 10px;
+    /* Declare element selector style rule */
     background: rgba(255, 255, 255, 0.1);
+    /* Declare element selector style rule */
     border: none;
+    /* Declare element selector style rule */
     color: #cbd5e1;
+    /* Declare element selector style rule */
     width: 32px;
+    /* Declare element selector style rule */
     height: 32px;
+    /* Declare element selector style rule */
     border-radius: 6px;
+    /* Define border visual stroke property */
     display: flex;
+    /* Declare element selector style rule */
     align-items: center;
+    /* Define cross-axis alignment rule */
     justify-content: center;
+    /* Define main-axis alignment rule */
     cursor: pointer;
+    /* Declare element selector style rule */
     transition: all 0.2s ease;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .copy-btn:hover {
+    /* Declare class selector style rule */
     background: rgba(255, 255, 255, 0.2);
+    /* Declare element selector style rule */
     color: white;
+    /* Declare element selector style rule */
 }
+
+/* Terminate CSS rule block context */
 
 .copy-btn.copied {
+    /* Declare class selector style rule */
     background: #10b981;
+    /* Declare element selector style rule */
     color: white;
+    /* Declare element selector style rule */
 }
 
+/* Terminate CSS rule block context */
+
 .doi-link-container {
+    /* Declare class selector style rule */
     margin-top: 1.5rem;
+    /* Define external spacing box model property */
 }
+
+/* Terminate CSS rule block context */

@@ -17,3 +17,6 @@ shapely==2.1.1
 
 # Plotting and visualization
 matplotlib==3.10.0
+
+# Mathematical algorithms for generating clouds
+mGFD==0.12.1

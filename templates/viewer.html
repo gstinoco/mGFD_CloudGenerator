@@ -1,3 +1,30 @@
+{#
+# viewer.html — Core functionality for viewer.html
+#
+# Overview:
+# This template provides the structure and UI elements for the viewer.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 {% extends 'base.html' %}
 
 {% block styles %}
@@ -9,231 +36,234 @@
 
 {% block content %}
 <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-main">
-                    <div class="hero-logo">
-                        <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                            class="logo-image">
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
+                        class="logo-image">
+                </div>
+                <h1 class="hero-title">{{ _('CloudViewer') }}</h1>
+                <p class="hero-subtitle">
+                    {{ _('Instantly visualize your point clouds and contour data. Upload CSV files to inspect geometries
+                    and verify distributions before simulation.') }}
+                </p>
+                <div class="hero-features">
+                    <div class="feature-highlight">
+                        <i class="fas fa-file-csv"></i>
+                        <span>{{ _('CSV Viewer') }}</span>
                     </div>
-                    <h1 class="hero-title">{{ _('CloudViewer') }}</h1>
-                    <p class="hero-subtitle">
-                        {{ _('Instantly visualize your point clouds and contour data. Upload CSV files to inspect geometries
-                        and verify distributions before simulation.') }}
-                    </p>
-                    <div class="hero-features">
-                        <div class="feature-highlight">
-                            <i class="fas fa-file-csv"></i>
-                            <span>{{ _('CSV Viewer') }}</span>
+                    <div class="feature-highlight">
+                        <i class="fas fa-eye"></i>
+                        <span>{{ _('Instant Plot') }}</span>
+                    </div>
+                    <div class="feature-highlight">
+                        <i class="fas fa-download"></i>
+                        <span>{{ _('Export Plots') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="section-dark">
+    <div class="container">
+
+        <!-- Upload Section -->
+        <div class="app-card upload-card">
+            <div class="card-header">
+                <div class="card-icon gradient-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="card-title">
+                    <h3>{{ _('Upload Data File') }}</h3>
+                    <p>{{ _('Select a CSV file containing point cloud or contour data') }}</p>
+                </div>
+            </div>
+
+            <div class="upload-zone-container">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon-container">
+                            <i class="fas fa-file-csv upload-icon" id="uploadIcon"></i>
+                            <div class="upload-animation">
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                            </div>
                         </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-eye"></i>
-                            <span>{{ _('Instant Plot') }}</span>
+                        <h4 class="upload-title" id="uploadTitle">{{ _('Drop your CSV file here') }}</h4>
+                        <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
+                        <div class="upload-formats">
+                            <span class="format-badge">{{ _('CSV') }}</span>
                         </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-download"></i>
-                            <span>{{ _('Export Plots') }}</span>
+                        <div class="upload-size-limit">
+                            <i class="fas fa-info-circle"></i>
+                            <span>{{ _('Maximum file size: 10MB') }}</span>
+                        </div>
+                        <div class="upload-button">
+                            <i class="fas fa-folder-open"></i>
+                            <span>{{ _('Browse Files') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="file" id="csvFileInput" name="file" accept=".csv" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Loading Section -->
+        <div id="loadingSection" class="app-card loading-card hidden">
+            <div class="card-header">
+                <div class="card-icon gradient-icon processing">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <div class="card-title">
+                    <h3>{{ _('Generating Visualization') }}</h3>
+                    <p>{{ _('Processing your data points...') }}</p>
+                </div>
+            </div>
+            <div class="progress-content">
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="hidden">
+            <!-- Full Width Workspace Layout -->
+            <div class="workspace-fullwidth">
+                <!-- Unified Workspace Container -->
+                <div class="app-card workspace-unified">
+                    <!-- Horizontal Controls Bar -->
+                    <div class="controls-bar">
+                        <div class="controls-group">
+                            <button id="toolPan" class="control-btn primary active"
+                                title="{{ _('Pan (Click and drag)') }}">
+                                <i class="fas fa-hand-paper"></i>
+                            </button>
+                            <button id="toolMove" class="control-btn interactive"
+                                title="{{ _('Move Point (Click point and drag)') }}">
+                                <i class="fas fa-arrows-alt"></i>
+                            </button>
+                            <button id="toolAdd" class="control-btn success"
+                                title="{{ _('Add Point (Click empty space)') }}">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <button id="toolDelete" class="control-btn warning"
+                                title="{{ _('Delete Point (Click point)') }}">
+                                <i class="fas fa-eraser"></i>
+                            </button>
+
+                            <div style="width: 1px; height: 24px; background: rgba(59,130,246,0.2); margin: 0 4px;">
+                            </div>
+
+                            <button id="btnUndo" class="control-btn" title="{{ _('Undo (Ctrl+Z)') }}" disabled
+                                style="background: transparent; border: 1px solid rgba(59,130,246,0.3); color: #333;">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                            <button id="btnRedo" class="control-btn" title="{{ _('Redo (Ctrl+Y)') }}" disabled
+                                style="background: transparent; border: 1px solid rgba(59,130,246,0.3); color: #333;">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+
+                        <div class="zoom-controls">
+                            <button id="btnResetView" class="zoom-btn" title="{{ _('Reset View') }}"
+                                style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
+
+                        <!-- Display toggles moved to bottom -->
+                    </div>
+
+                    <!-- Main Canvas Area -->
+                    <div class="canvas-area">
+                        <div class="canvas-wrapper interactive-canvas"
+                            style="position: relative; height: 75vh; width: 100%; background: #1a1f24; overflow: hidden; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+
+                            <!-- Floating Metrics Overlay -->
+                            <div class="canvas-metrics-overlay"
+                                style="position: absolute; top: 15px; right: 15px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 16px; color: #e2e8f0; font-family: monospace; font-size: 0.9rem; z-index: 10; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);">
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Total Points:') }}</span>
+                                    <strong id="pointCountDisplay" style="color: #60a5fa;">0</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Min Dist:') }}</span>
+                                    <strong id="minDistDisplay" style="color: #34d399;">0.000</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Avg Dist:') }}</span>
+                                    <strong id="avgDistDisplay" style="color: #fbbf24;">0.000</strong>
+                                </div>
+                                <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0;"></div>
+                                <div
+                                    style="display: flex; justify-content: space-between; gap: 20px; font-size: 0.85rem;">
+                                    <span style="color: #94a3b8;">{{ _('Cursor:') }}</span>
+                                    <strong id="coordinatesDisplay">{{ _('X: 0.00, Y: 0.00') }}</strong>
+                                </div>
+                            </div>
+
+                            <canvas id="cloudCanvas" style="display: block;"></canvas>
+                            <div id="nodeTooltip" class="canvas-tooltip hidden"
+                                style="position: fixed; background: rgba(0,0,0,0.8); color: white; padding: 5px 10px; border-radius: 4px; pointer-events: none; font-size: 12px; z-index: 1000; white-space: pre-wrap;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Export Bar -->
+                    <div class="controls-bar"
+                        style="border-top: 1px solid rgba(59, 130, 246, 0.1); border-bottom: none; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); justify-content: space-between; padding: 1.5rem;">
+
+                        <div class="controls-group" style="margin: 0;">
+                            <label title="{{ _('Toggle Print Mode (White Background)') }}"
+                                style="cursor: pointer; margin-right: 10px;">
+                                <input type="checkbox" id="togglePrintMode" style="display: none;">
+                                <span id="printModeBtn" class="control-btn refine"
+                                    style="background: white; border: 1px solid #cbd5e1; color: #333; padding: 0.75rem 1.5rem; font-size: 1rem;">
+                                    <i class="fas fa-print"></i> {{ _('Print Mode') }}
+                                </span>
+                            </label>
+                            <label title="{{ _('Toggle Region Colors') }}" style="cursor: pointer;">
+                                <input type="checkbox" id="toggleColorRegions" style="display: none;">
+                                <span id="colorModeBtn" class="control-btn interactive"
+                                    style="border: 1px solid transparent; padding: 0.75rem 1.5rem; font-size: 1rem;">
+                                    <i class="fas fa-palette"></i> {{ _('Colors') }}
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="controls-group download-actions" style="margin: 0;">
+                            <a id="downloadModifiedCsv" href="#" class="control-btn refine"
+                                style="text-decoration: none; padding: 0.75rem 1.5rem; font-size: 1.1rem;">
+                                <i class="fas fa-file-csv"></i>
+                                <span>{{ _('Export CSV') }}</span>
+                            </a>
+                            <a id="downloadCanvasPng" href="#" class="control-btn success"
+                                style="text-decoration: none; padding: 0.75rem 1.5rem; font-size: 1.1rem;">
+                                <i class="fas fa-file-image"></i>
+                                <span>{{ _('Export PNG') }}</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <section class="section-dark">
-        <div class="container">
-
-            <!-- Upload Section -->
-            <div class="app-card upload-card">
-                <div class="card-header">
-                    <div class="card-icon gradient-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>{{ _('Upload Data File') }}</h3>
-                        <p>{{ _('Select a CSV file containing point cloud or contour data') }}</p>
-                    </div>
-                </div>
-
-                <div class="upload-zone-container">
-                    <div class="upload-zone" id="uploadZone">
-                        <div class="upload-content" id="uploadContent">
-                            <div class="upload-icon-container">
-                                <i class="fas fa-file-csv upload-icon" id="uploadIcon"></i>
-                                <div class="upload-animation">
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                </div>
-                            </div>
-                            <h4 class="upload-title" id="uploadTitle">{{ _('Drop your CSV file here') }}</h4>
-                            <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
-                            <div class="upload-formats">
-                                <span class="format-badge">{{ _('CSV') }}</span>
-                            </div>
-                            <div class="upload-size-limit">
-                                <i class="fas fa-info-circle"></i>
-                                <span>{{ _('Maximum file size: 10MB') }}</span>
-                            </div>
-                            <div class="upload-button">
-                                <i class="fas fa-folder-open"></i>
-                                <span>{{ _('Browse Files') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="file" id="csvFileInput" name="file" accept=".csv" style="display: none;">
-                </div>
-            </div>
-
-            <!-- Loading Section -->
-            <div id="loadingSection" class="app-card loading-card hidden">
-                <div class="card-header">
-                    <div class="card-icon gradient-icon processing">
-                        <i class="fas fa-cog fa-spin"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>{{ _('Generating Visualization') }}</h3>
-                        <p>{{ _('Processing your data points...') }}</p>
-                    </div>
-                </div>
-                <div class="progress-content">
-                    <div class="spinner-container">
-                        <div class="spinner"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Result Section -->
-            <div id="resultSection" class="hidden">
-                <!-- Full Width Workspace Layout -->
-                <div class="workspace-fullwidth">
-                    <!-- Unified Workspace Container -->
-                    <div class="app-card workspace-unified">
-                        <!-- Horizontal Controls Bar -->
-                        <div class="controls-bar">
-                            <div class="controls-group">
-                                <button id="toolPan" class="control-btn primary active" title="{{ _('Pan (Click and drag)') }}">
-                                    <i class="fas fa-hand-paper"></i>
-                                </button>
-                                <button id="toolMove" class="control-btn interactive"
-                                    title="{{ _('Move Point (Click point and drag)') }}">
-                                    <i class="fas fa-arrows-alt"></i>
-                                </button>
-                                <button id="toolAdd" class="control-btn success" title="{{ _('Add Point (Click empty space)') }}">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                                <button id="toolDelete" class="control-btn warning" title="{{ _('Delete Point (Click point)') }}">
-                                    <i class="fas fa-eraser"></i>
-                                </button>
-
-                                <div style="width: 1px; height: 24px; background: rgba(59,130,246,0.2); margin: 0 4px;">
-                                </div>
-
-                                <button id="btnUndo" class="control-btn" title="{{ _('Undo (Ctrl+Z)') }}" disabled
-                                    style="background: transparent; border: 1px solid rgba(59,130,246,0.3); color: #333;">
-                                    <i class="fas fa-undo"></i>
-                                </button>
-                                <button id="btnRedo" class="control-btn" title="{{ _('Redo (Ctrl+Y)') }}" disabled
-                                    style="background: transparent; border: 1px solid rgba(59,130,246,0.3); color: #333;">
-                                    <i class="fas fa-redo"></i>
-                                </button>
-                            </div>
-
-                            <div class="zoom-controls">
-                                <button id="btnResetView" class="zoom-btn" title="{{ _('Reset View') }}"
-                                    style="padding: 0.5rem 1rem;">
-                                    <i class="fas fa-expand-arrows-alt"></i>
-                                </button>
-                            </div>
-
-                            <!-- Display toggles moved to bottom -->
-                        </div>
-
-                        <!-- Main Canvas Area -->
-                        <div class="canvas-area">
-                            <div class="canvas-wrapper interactive-canvas"
-                                style="position: relative; height: 75vh; width: 100%; background: #1a1f24; overflow: hidden; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-
-                                <!-- Floating Metrics Overlay -->
-                                <div class="canvas-metrics-overlay"
-                                    style="position: absolute; top: 15px; right: 15px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 16px; color: #e2e8f0; font-family: monospace; font-size: 0.9rem; z-index: 10; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);">
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Total Points:') }}</span>
-                                        <strong id="pointCountDisplay" style="color: #60a5fa;">0</strong>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Min Dist:') }}</span>
-                                        <strong id="minDistDisplay" style="color: #34d399;">0.000</strong>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Avg Dist:') }}</span>
-                                        <strong id="avgDistDisplay" style="color: #fbbf24;">0.000</strong>
-                                    </div>
-                                    <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0;"></div>
-                                    <div
-                                        style="display: flex; justify-content: space-between; gap: 20px; font-size: 0.85rem;">
-                                        <span style="color: #94a3b8;">{{ _('Cursor:') }}</span>
-                                        <strong id="coordinatesDisplay">{{ _('X: 0.00, Y: 0.00') }}</strong>
-                                    </div>
-                                </div>
-
-                                <canvas id="cloudCanvas" style="display: block;"></canvas>
-                                <div id="nodeTooltip" class="canvas-tooltip hidden"
-                                    style="position: fixed; background: rgba(0,0,0,0.8); color: white; padding: 5px 10px; border-radius: 4px; pointer-events: none; font-size: 12px; z-index: 1000; white-space: pre-wrap;">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Export Bar -->
-                        <div class="controls-bar"
-                            style="border-top: 1px solid rgba(59, 130, 246, 0.1); border-bottom: none; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); justify-content: space-between; padding: 1.5rem;">
-
-                            <div class="controls-group" style="margin: 0;">
-                                <label title="{{ _('Toggle Print Mode (White Background)') }}"
-                                    style="cursor: pointer; margin-right: 10px;">
-                                    <input type="checkbox" id="togglePrintMode" style="display: none;">
-                                    <span id="printModeBtn" class="control-btn refine"
-                                        style="background: white; border: 1px solid #cbd5e1; color: #333; padding: 0.75rem 1.5rem; font-size: 1rem;">
-                                        <i class="fas fa-print"></i> {{ _('Print Mode') }}
-                                    </span>
-                                </label>
-                                <label title="{{ _('Toggle Region Colors') }}" style="cursor: pointer;">
-                                    <input type="checkbox" id="toggleColorRegions" style="display: none;">
-                                    <span id="colorModeBtn" class="control-btn interactive"
-                                        style="border: 1px solid transparent; padding: 0.75rem 1.5rem; font-size: 1rem;">
-                                        <i class="fas fa-palette"></i> {{ _('Colors') }}
-                                    </span>
-                                </label>
-                            </div>
-
-                            <div class="controls-group download-actions" style="margin: 0;">
-                                <a id="downloadModifiedCsv" href="#" class="control-btn refine"
-                                    style="text-decoration: none; padding: 0.75rem 1.5rem; font-size: 1.1rem;">
-                                    <i class="fas fa-file-csv"></i>
-                                    <span>{{ _('Export CSV') }}</span>
-                                </a>
-                                <a id="downloadCanvasPng" href="#" class="control-btn success"
-                                    style="text-decoration: none; padding: 0.75rem 1.5rem; font-size: 1.1rem;">
-                                    <i class="fas fa-file-image"></i>
-                                    <span>{{ _('Export PNG') }}</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="errorSection" class="alert alert-error hidden"></div>
-        </div>
-    </section>
+        <div id="errorSection" class="alert alert-error hidden"></div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-        const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
-    </script>
+    const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
+</script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/viewer.js') }}"></script>
 {% endblock %}

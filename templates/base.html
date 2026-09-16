@@ -1,3 +1,30 @@
+{#
+# base.html — Core functionality for base.html
+#
+# Overview:
+# This template provides the structure and UI elements for the base.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +37,7 @@
 
     <!-- SEO Meta Tags -->
     {% block meta %}
-    <title>{{ _('mGFD: CloudGenerator 2.1 | Advanced Point Cloud Generation') }}</title>
+    <title>{{ _('mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation') }}</title>
     <meta name="description"
         content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research, engineering, and data visualization.">
     <meta name="keywords"
@@ -21,7 +48,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.url }}">
-    <meta property="og:title" content="mGFD: CloudGenerator 2.1 | Advanced Point Cloud Generation">
+    <meta property="og:title" content="mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation">
     <meta property="og:description"
         content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research and engineering.">
     <meta property="og:image" content="{{ url_for('static', filename='images/logo.webp', _external=True) }}">
@@ -30,7 +57,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ request.url }}">
-    <meta property="twitter:title" content="mGFD: CloudGenerator 2.1 | Advanced Point Cloud Generation">
+    <meta property="twitter:title" content="mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation">
     <meta property="twitter:description"
         content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research and engineering.">
     <meta property="twitter:image" content="{{ url_for('static', filename='images/logo.webp', _external=True) }}">

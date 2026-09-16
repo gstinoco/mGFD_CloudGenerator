@@ -1,43 +1,79 @@
 /**
- * Utility functions for mGFD CloudGenerator
- * Contains common helper functions used across different modules.
+ * Utils — Core functionality for Utils
  * 
- * @namespace Utils
+ * Overview:
+ *     This module provides utility functions for mGFD CloudGenerator.
+ *     Contains common helper functions used across different modules.
+ * 
+ * Public API:
+ *     formatFileSize
+ *     showUploadError
+ * 
+ * Credits:
+ *     All the codes presented below were developed by:
+ *         Dr. Gerardo Tinoco-Guerrero
+ *         Dr. Francisco Javier Domínguez-Mota
+ *         Dr. José Alberto Guzmán-Torres
+ *         Universidad Michoacana de San Nicolás de Hidalgo
+ *         gerardo.tinoco@umich.mx
+ * 
+ *     With the funding of:
+ *         Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+ *         Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+ *         Aula CIMNE-Morelia. México.
+ *         SIIIA-MATH: Soluciones de Ingeniería. México.
+ * 
+ * Date:
+ *     March, 2026.
+ * Last Modification:
+ *     September, 2026.
  */
 
-const Utils = {
+const Utils = {                                                                                                                         // Define global Utils object scope
     /**
+     * formatFileSize
      * Formats a file size in bytes to a human-readable string with appropriate units.
+     * 
      * Converts bytes to the most appropriate unit (Bytes, KB, MB, GB) and formats
      * the result with proper decimal precision for optimal readability.
      * 
-     * @param {number} bytes - The file size in bytes to be formatted
-     * @returns {string} The formatted file size string with appropriate unit
+     * Input:
+     *     bytes        number          The file size in bytes to be formatted.
+     * 
+     * Output:
+     *     formatted    string          The formatted file size string with appropriate unit.
      */
-    formatFileSize: function(bytes) {
-        if (bytes === 0) return '0 Bytes';
-        const k = 1024;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    },
+    formatFileSize: function (bytes) {                                                                                                  // Define formatFileSize function
+        if (bytes === 0) return '0 Bytes';                                                                                              // Handle zero size edge case
+        const k = 1024;                                                                                                                 // Set kilobyte threshold mapping
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];                                                                                // Array of size string labels
+        const i = Math.floor(Math.log(bytes) / Math.log(k));                                                                            // Calculate mathematical exponent factor
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];                                                        // Return formatted scaled text string
+    },                                                                                                                                  // End formatFileSize block
 
     /**
+     * showUploadError
      * Shows an error message in the upload zone.
-     * Standardizes the error display across different modules.
      * 
-     * @param {HTMLElement} zone - The upload zone element
-     * @param {HTMLElement} content - The content element to update
-     * @param {string} title - The error title
-     * @param {string} message - The error message
-     * @param {string} [resetFn='resetUpload'] - The name of the global function to call to reset
+     * Standardizes the error display across different modules by replacing the
+     * upload zone content with a standardized error template.
+     * 
+     * Input:
+     *     zone         HTMLElement     The upload zone element.
+     *     content      HTMLElement     The content element to update.
+     *     title        string          The error title.
+     *     message      string          The error message.
+     *     resetFn      string          The name of the global function to call to reset (default: 'resetUpload').
+     * 
+     * Output:
+     *     None
      */
-    showUploadError: function(zone, content, title, message, resetFn = 'resetUpload') {
-        if (!zone || !content) return;
+    showUploadError: function (zone, content, title, message, resetFn = 'resetUpload') {                                                // Define error UI display function
+        if (!zone || !content) return;                                                                                                  // Guard against missing DOM elements
 
-        zone.classList.remove('uploading', 'success');
-        zone.classList.add('error');
-        
+        zone.classList.remove('uploading', 'success');                                                                                  // Strip existing status class names
+        zone.classList.add('error');                                                                                                    // Inject error state class identifier
+
         content.innerHTML = `
             <div class="upload-error">
                 <div class="error-icon">
@@ -50,6 +86,6 @@ const Utils = {
                     Try Again
                 </button>
             </div>
-        `;
-    }
-};
+        `;                                                                                                                              // Set literal template block content
+    }                                                                                                                                   // End function block
+};                                                                                                                                      // End object scope closure

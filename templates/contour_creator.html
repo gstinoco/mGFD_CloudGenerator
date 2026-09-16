@@ -1,3 +1,30 @@
+{#
+# contour_creator.html — Core functionality for contour_creator.html
+#
+# Overview:
+# This template provides the structure and UI elements for the contour_creator.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 {% extends 'base.html' %}
 
 {% block styles %}
@@ -7,245 +34,244 @@
 
 {% block content %}
 <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-main">
-                    <div class="hero-logo">
-                        <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                            class="logo-image">
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
+                        class="logo-image">
+                </div>
+                <h1 class="hero-title">{{ _('ContourCreator') }}</h1>
+                <p class="hero-subtitle">{{ _('Transform images into precise geometric contours using advanced automatic
+                    segmentation algorithms. Perfect for computational modeling and point cloud generation
+                    workflows.') }}</p>
+                <div class="hero-features">
+                    <div class="feature-highlight">
+                        <i class="fas fa-magic"></i>
+                        <span>{{ _('Automatic Segmentation') }}</span>
                     </div>
-                    <h1 class="hero-title">{{ _('ContourCreator') }}</h1>
-                    <p class="hero-subtitle">{{ _('Transform images into precise geometric contours using advanced automatic
-                        segmentation algorithms. Perfect for computational modeling and point cloud generation
-                        workflows.') }}</p>
-                    <div class="hero-features">
-                        <div class="feature-highlight">
-                            <i class="fas fa-magic"></i>
-                            <span>{{ _('Automatic Segmentation') }}</span>
-                        </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-vector-square"></i>
-                            <span>{{ _('Precise Contours') }}</span>
-                        </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-download"></i>
-                            <span>{{ _('Export Ready') }}</span>
-                        </div>
+                    <div class="feature-highlight">
+                        <i class="fas fa-vector-square"></i>
+                        <span>{{ _('Precise Contours') }}</span>
+                    </div>
+                    <div class="feature-highlight">
+                        <i class="fas fa-download"></i>
+                        <span>{{ _('Export Ready') }}</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Main Application Section -->
-    <section class="section-dark">
-        <div class="container">
-            <!-- Upload Section -->
-            <div class="app-card upload-card" id="uploadSection">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
+<!-- Main Application Section -->
+<section class="section-dark">
+    <div class="container">
+        <!-- Upload Section -->
+        <div class="app-card upload-card" id="uploadSection">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="card-title">
+                    <h3>{{ _('Upload Image') }}</h3>
+                    <p>{{ _('Drag and drop your image or click to browse') }}</p>
+                </div>
+            </div>
+            <div class="upload-zone-container">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon-container">
+                            <i class="fas fa-cloud-upload-alt upload-icon" id="uploadIcon"></i>
+                            <div class="upload-animation">
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                            </div>
+                        </div>
+                        <h4 class="upload-title" id="uploadTitle">{{ _('Drop your image here') }}</h4>
+                        <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
+                        <div class="upload-formats">
+                            <span class="format-badge">{{ _('JPG') }}</span>
+                            <span class="format-badge">{{ _('PNG') }}</span>
+                        </div>
+                        <div class="upload-size-limit">
+                            <i class="fas fa-info-circle"></i>
+                            <span>{{ _('Maximum file size: 10MB') }}</span>
+                        </div>
+                        <div class="upload-button">
+                            <i class="fas fa-folder-open"></i>
+                            <span>{{ _('Browse Files') }}</span>
+                        </div>
                     </div>
-                    <div class="card-title">
-                        <h3>{{ _('Upload Image') }}</h3>
-                        <p>{{ _('Drag and drop your image or click to browse') }}</p>
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="60" height="60">
+                                <circle class="progress-ring-circle" stroke="#3b82f6" stroke-width="4"
+                                    fill="transparent" r="26" cx="30" cy="30" />
+                            </svg>
+                            <span class="progress-text" id="progressText">0%</span>
+                        </div>
+                        <p class="progress-message" id="progressMessage">{{ _('Uploading image...') }}</p>
+                    </div>
+                    <div class="upload-success" id="uploadSuccess" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>{{ _('Upload Successful!') }}</h4>
+                        <p id="uploadedFileName">{{ _('Image uploaded successfully') }}</p>
+                    </div>
+                    <div class="upload-error" id="uploadError" style="display: none;">
+                        <div class="error-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4>{{ _('Upload Error') }}</h4>
+                        <p id="errorMessage">{{ _('Please try again') }}</p>
+                        <button class="btn btn-secondary btn-small" onclick="resetUpload()">
+                            <i class="fas fa-redo"></i>
+                            {{ _('Try Again') }}
+                        </button>
                     </div>
                 </div>
-                <div class="upload-zone-container">
-                    <div class="upload-zone" id="uploadZone">
-                        <div class="upload-content" id="uploadContent">
-                            <div class="upload-icon-container">
-                                <i class="fas fa-cloud-upload-alt upload-icon" id="uploadIcon"></i>
-                                <div class="upload-animation">
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                </div>
-                            </div>
-                            <h4 class="upload-title" id="uploadTitle">{{ _('Drop your image here') }}</h4>
-                            <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
-                            <div class="upload-formats">
-                                <span class="format-badge">{{ _('JPG') }}</span>
-                                <span class="format-badge">{{ _('PNG') }}</span>
-                            </div>
-                            <div class="upload-size-limit">
-                                <i class="fas fa-info-circle"></i>
-                                <span>{{ _('Maximum file size: 10MB') }}</span>
-                            </div>
-                            <div class="upload-button">
-                                <i class="fas fa-folder-open"></i>
-                                <span>{{ _('Browse Files') }}</span>
-                            </div>
+                <input type="file" id="fileInput" accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp"
+                    style="display: none;">
+            </div>
+            <div class="upload-actions">
+                <button class="btn btn-secondary" id="clearButton" onclick="clearUpload()" style="display: none;">
+                    <i class="fas fa-times"></i>
+                    <span>{{ _('Clear') }}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Image Processing Section -->
+        <div id="imageSection" class="hidden">
+            <!-- Full Width Workspace Layout -->
+            <div class="workspace-fullwidth">
+                <!-- Unified Workspace Container -->
+                <div class="app-card workspace-unified">
+                    <!-- Horizontal Controls Bar -->
+                    <div class="controls-bar">
+                        <div class="controls-group">
+                            <button class="control-btn primary" onclick="addRegion()" id="addRegionBtn" disabled>
+                                <i class="fas fa-plus-circle"></i>
+                                <span>{{ _('Add Region') }}</span>
+                            </button>
+                            <button class="control-btn refine" onclick="toggleRefineMode()" id="refineModeToggle"
+                                disabled>
+                                <i class="fas fa-edit"></i>
+                                <span>{{ _('Refine Selection') }}</span>
+                            </button>
+                            <button class="control-btn warning" onclick="clearAllRegions()" id="clearBtn" disabled>
+                                <i class="fas fa-trash-alt"></i>
+                                <span>{{ _('Clear All') }}</span>
+                            </button>
+
                         </div>
-                        <div class="upload-progress" id="uploadProgress" style="display: none;">
-                            <div class="progress-circle">
-                                <svg class="progress-ring" width="60" height="60">
-                                    <circle class="progress-ring-circle" stroke="#3b82f6" stroke-width="4"
-                                        fill="transparent" r="26" cx="30" cy="30" />
-                                </svg>
-                                <span class="progress-text" id="progressText">0%</span>
-                            </div>
-                            <p class="progress-message" id="progressMessage">{{ _('Uploading image...') }}</p>
-                        </div>
-                        <div class="upload-success" id="uploadSuccess" style="display: none;">
-                            <div class="success-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h4>{{ _('Upload Successful!') }}</h4>
-                            <p id="uploadedFileName">{{ _('Image uploaded successfully') }}</p>
-                        </div>
-                        <div class="upload-error" id="uploadError" style="display: none;">
-                            <div class="error-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                            <h4>{{ _('Upload Error') }}</h4>
-                            <p id="errorMessage">{{ _('Please try again') }}</p>
-                            <button class="btn btn-secondary btn-small" onclick="resetUpload()">
-                                <i class="fas fa-redo"></i>
-                                {{ _('Try Again') }}
+
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" onclick="zoomOut()" title="{{ _('Zoom Out') }}">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <span id="zoomLevel" class="zoom-level">100%</span>
+                            <button class="zoom-btn" onclick="zoomIn()" title="{{ _('Zoom In') }}">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="zoom-btn" onclick="resetZoom()" title="{{ _('Reset Zoom') }}">
+                                <i class="fas fa-expand-arrows-alt"></i>
                             </button>
                         </div>
                     </div>
-                    <input type="file" id="fileInput"
-                        accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp" style="display: none;">
-                </div>
-                <div class="upload-actions">
-                    <button class="btn btn-secondary" id="clearButton" onclick="clearUpload()" style="display: none;">
-                        <i class="fas fa-times"></i>
-                        <span>{{ _('Clear') }}</span>
-                    </button>
-                </div>
-            </div>
 
-            <!-- Image Processing Section -->
-            <div id="imageSection" class="hidden">
-                <!-- Full Width Workspace Layout -->
-                <div class="workspace-fullwidth">
-                    <!-- Unified Workspace Container -->
-                    <div class="app-card workspace-unified">
-                        <!-- Horizontal Controls Bar -->
-                        <div class="controls-bar">
-                            <div class="controls-group">
-                                <button class="control-btn primary" onclick="addRegion()" id="addRegionBtn" disabled>
-                                    <i class="fas fa-plus-circle"></i>
-                                    <span>{{ _('Add Region') }}</span>
-                                </button>
-                                <button class="control-btn refine" onclick="toggleRefineMode()" id="refineModeToggle"
-                                    disabled>
-                                    <i class="fas fa-edit"></i>
-                                    <span>{{ _('Refine Selection') }}</span>
-                                </button>
-                                <button class="control-btn warning" onclick="clearAllRegions()" id="clearBtn" disabled>
-                                    <i class="fas fa-trash-alt"></i>
-                                    <span>{{ _('Clear All') }}</span>
-                                </button>
-
-                            </div>
-
-                            <div class="zoom-controls">
-                                <button class="zoom-btn" onclick="zoomOut()" title="{{ _('Zoom Out') }}">
-                                    <i class="fas fa-search-minus"></i>
-                                </button>
-                                <span id="zoomLevel" class="zoom-level">100%</span>
-                                <button class="zoom-btn" onclick="zoomIn()" title="{{ _('Zoom In') }}">
-                                    <i class="fas fa-search-plus"></i>
-                                </button>
-                                <button class="zoom-btn" onclick="resetZoom()" title="{{ _('Reset Zoom') }}">
-                                    <i class="fas fa-expand-arrows-alt"></i>
-                                </button>
-                            </div>
+                    <!-- Refine Controls -->
+                    <div class="refine-controls-bar" id="refineControls" style="display: none;">
+                        <div class="refine-instructions">
+                            <span class="refine-text">
+                                <i class="fas fa-info-circle"></i>
+                                {{ _('Click to add areas (+) or hold Shift to remove (-)') }}
+                            </span>
                         </div>
 
-                        <!-- Refine Controls -->
-                        <div class="refine-controls-bar" id="refineControls" style="display: none;">
-                            <div class="refine-instructions">
-                                <span class="refine-text">
-                                    <i class="fas fa-info-circle"></i>
-                                    {{ _('Click to add areas (+) or hold Shift to remove (-)') }}
-                                </span>
-                            </div>
-
-                            <div class="refine-tools">
-                                <div class="brush-size-control">
-                                    <label>
-                                        <i class="fas fa-paint-brush"></i>
-                                        <input type="range" id="refineBrushSize" min="1" max="20" value="10"
-                                            onchange="updateBrushSize(this.value)">
-                                        <span id="brushSizeValue">{{ _('10') }}px</span>
-                                    </label>
-                                </div>
-
-                                <button class="refine-btn undo" onclick="undoLastStroke()" id="undoLastBtn" disabled>
-                                    <i class="fas fa-undo-alt"></i>
-                                    <span>{{ _('Undo Last') }}</span>
-                                </button>
-
-                                <button class="refine-btn clear" onclick="clearAllRefinements()">
-                                    <i class="fas fa-undo"></i>
-                                    <span>{{ _('Clear All') }}</span>
-                                </button>
-
-                                <button class="refine-btn apply" onclick="applyRefinements()" id="applyRefineBtn"
-                                    disabled>
-                                    <i class="fas fa-check"></i>
-                                    <span>{{ _('Apply') }}</span>
-                                </button>
-
-                                <button class="refine-btn cancel" onclick="exitRefineMode()">
-                                    <i class="fas fa-times"></i>
-                                    <span>{{ _('Exit') }}</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Canvas Area -->
-                        <div class="canvas-container">
-                            <canvas id="imageCanvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detected Regions Section -->
-                <div id="regionsDisplay" class="app-card regions-card hidden">
-                    <div class="card-header"
-                        style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div style="display: flex; gap: 1rem; align-items: center;">
-                            <div class="card-icon">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <div class="card-title">
-                                <h3 style="margin: 0; padding: 0;">{{ _('Detected Regions') }}</h3>
-                                <p style="margin: 0; padding: 0;">{{ _('Review and manage your contours') }}</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 1rem; align-items: center;">
-                            <div class="toggle-container" title="{{ _('Scale coordinates to [0, 1] range') }}">
-                                <span class="toggle-label">{{ _('Normalize Results') }}</span>
-                                <label class="switch">
-                                    <input type="checkbox" id="normalizeCoords" checked>
-                                    <span class="slider round"></span>
+                        <div class="refine-tools">
+                            <div class="brush-size-control">
+                                <label>
+                                    <i class="fas fa-paint-brush"></i>
+                                    <input type="range" id="refineBrushSize" min="1" max="20" value="10"
+                                        onchange="updateBrushSize(this.value)">
+                                    <span id="brushSizeValue">{{ _('10') }}px</span>
                                 </label>
                             </div>
 
-                            <button class="control-btn success" onclick="saveAllCoordinates()" id="saveBtn" disabled
-                                style="height: 42px;">
-                                <i class="fas fa-download"></i>
-                                <span>{{ _('Export All') }}</span>
+                            <button class="refine-btn undo" onclick="undoLastStroke()" id="undoLastBtn" disabled>
+                                <i class="fas fa-undo-alt"></i>
+                                <span>{{ _('Undo Last') }}</span>
+                            </button>
+
+                            <button class="refine-btn clear" onclick="clearAllRefinements()">
+                                <i class="fas fa-undo"></i>
+                                <span>{{ _('Clear All') }}</span>
+                            </button>
+
+                            <button class="refine-btn apply" onclick="applyRefinements()" id="applyRefineBtn" disabled>
+                                <i class="fas fa-check"></i>
+                                <span>{{ _('Apply') }}</span>
+                            </button>
+
+                            <button class="refine-btn cancel" onclick="exitRefineMode()">
+                                <i class="fas fa-times"></i>
+                                <span>{{ _('Exit') }}</span>
                             </button>
                         </div>
                     </div>
-                    <div id="regionsList" class="regions-list-enhanced"></div>
-                </div>
 
+                    <!-- Canvas Area -->
+                    <div class="canvas-container">
+                        <canvas id="imageCanvas"></canvas>
+                    </div>
+                </div>
             </div>
 
-            <!-- Floating Notifications Container -->
-            <div id="floatingNotifications" class="floating-notifications"></div>
+            <!-- Detected Regions Section -->
+            <div id="regionsDisplay" class="app-card regions-card hidden">
+                <div class="card-header"
+                    style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="card-title">
+                            <h3 style="margin: 0; padding: 0;">{{ _('Detected Regions') }}</h3>
+                            <p style="margin: 0; padding: 0;">{{ _('Review and manage your contours') }}</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div class="toggle-container" title="{{ _('Scale coordinates to [0, 1] range') }}">
+                            <span class="toggle-label">{{ _('Normalize Results') }}</span>
+                            <label class="switch">
+                                <input type="checkbox" id="normalizeCoords" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
 
-            <div id="alertContainer" class="alert-container"></div>
+                        <button class="control-btn success" onclick="saveAllCoordinates()" id="saveBtn" disabled
+                            style="height: 42px;">
+                            <i class="fas fa-download"></i>
+                            <span>{{ _('Export All') }}</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="regionsList" class="regions-list-enhanced"></div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Floating Notifications Container -->
+        <div id="floatingNotifications" class="floating-notifications"></div>
+
+        <div id="alertContainer" class="alert-container"></div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
@@ -288,10 +314,10 @@
             "nodesText": {{ _('nodes') | tojson }}
         }
     </script>
-    <script>
-        const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
-        window.I18N = JSON.parse(document.getElementById('i18n-data').textContent);
-    </script>
+<script>
+    const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
+    window.I18N = JSON.parse(document.getElementById('i18n-data').textContent);
+</script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/contour_creator.js') }}"></script>
 {% endblock %}

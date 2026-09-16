@@ -1,1115 +1,1115 @@
 /* Home Page Styles */
 /* ===== FEATURES CARDS ===== */
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    align-items: stretch;
-}
+.features-grid {                                                                                                                        /* Declare class selector style rule */
+    display: grid;                                                                                                                      /* Declare element selector style rule */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));                                                                        /* Define CSS grid layout behavior */
+    gap: 2.5rem;                                                                                                                        /* Declare element selector style rule */
+    align-items: stretch;                                                                                                               /* Define cross-axis alignment rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card {
-    background: white;
-    padding: 2rem 2.5rem 2.5rem 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 650px;
-}
+.feature-card {                                                                                                                         /* Declare class selector style rule */
+    background: white;                                                                                                                  /* Declare element selector style rule */
+    padding: 2rem 2.5rem 2.5rem 2.5rem;                                                                                                 /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);                                                                                         /* Define element visual depth shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    border: 1px solid rgba(226, 232, 240, 0.6);                                                                                         /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    backdrop-filter: blur(10px);                                                                                                        /* Define cascaded style sheet property */
+    z-index: 1;                                                                                                                         /* Define stacking context layer index */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    flex-direction: column;                                                                                                             /* Define flexbox layout behavior properties */
+    height: 100%;                                                                                                                       /* Declare element selector style rule */
+    min-height: 650px;                                                                                                                  /* Define element dimension constraints */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.feature-card::before {                                                                                                                 /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);                                                         /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
+.feature-card::after {                                                                                                                  /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: -50%;                                                                                                                          /* Declare element selector style rule */
+    left: -50%;                                                                                                                         /* Declare element selector style rule */
+    width: 200%;                                                                                                                        /* Declare element selector style rule */
+    height: 200%;                                                                                                                       /* Declare element selector style rule */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);                                                  /* Declare element selector style rule */
+    opacity: 0;                                                                                                                         /* Declare element selector style rule */
+    transition: opacity 0.4s ease;                                                                                                      /* Declare element selector style rule */
+    pointer-events: none;                                                                                                               /* Define cascaded style sheet property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover::before {
-    transform: scaleX(1);
-}
+.feature-card:hover::before {                                                                                                           /* Declare class selector style rule */
+    transform: scaleX(1);                                                                                                               /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover::after {
-    opacity: 1;
-}
+.feature-card:hover::after {                                                                                                            /* Declare class selector style rule */
+    opacity: 1;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.2);
-}
+.feature-card:hover {                                                                                                                   /* Declare class selector style rule */
+    transform: translateY(-12px) scale(1.02);                                                                                           /* Declare element selector style rule */
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    color: white;
-    font-size: 1.75rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
-    flex-shrink: 0;
-}
+.feature-icon {                                                                                                                         /* Declare class selector style rule */
+    width: 70px;                                                                                                                        /* Declare element selector style rule */
+    height: 70px;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);                                                         /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+    margin-bottom: 1.5rem;                                                                                                              /* Define external spacing box model property */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    font-size: 1.75rem;                                                                                                                 /* Define typography style properties */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);                                                                                     /* Define element visual depth shadow */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-icon::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transform: rotate(-45deg);
-    transition: transform 0.6s ease;
-}
+.feature-icon::before {                                                                                                                 /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: -50%;                                                                                                                          /* Declare element selector style rule */
+    left: -50%;                                                                                                                         /* Declare element selector style rule */
+    width: 200%;                                                                                                                        /* Declare element selector style rule */
+    height: 200%;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);                                             /* Declare element selector style rule */
+    transform: rotate(-45deg);                                                                                                          /* Declare element selector style rule */
+    transition: transform 0.6s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover .feature-icon::before {
-    transform: rotate(-45deg) translate(100%, 100%);
-}
+.feature-card:hover .feature-icon::before {                                                                                             /* Declare class selector style rule */
+    transform: rotate(-45deg) translate(100%, 100%);                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover .feature-icon {
-    transform: scale(1.15) rotate(8deg);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-    background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #3b82f6 100%);
-}
+.feature-card:hover .feature-icon {                                                                                                     /* Declare class selector style rule */
+    transform: scale(1.15) rotate(8deg);                                                                                                /* Declare element selector style rule */
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);                                                                                    /* Define element visual depth shadow */
+    background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #3b82f6 100%);                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    height: 2.6rem;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
+.feature-title {                                                                                                                        /* Declare class selector style rule */
+    font-size: 1.5rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 700;                                                                                                                   /* Define typography style properties */
+    color: #1e293b;                                                                                                                     /* Declare element selector style rule */
+    margin-bottom: 1rem;                                                                                                                /* Define external spacing box model property */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    height: 2.6rem;                                                                                                                     /* Declare element selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover .feature-title {
-    color: #3b82f6;
-    transform: translateX(4px);
-}
+.feature-card:hover .feature-title {                                                                                                    /* Declare class selector style rule */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+    transform: translateX(4px);                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-description {
-    color: #64748b;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    height: 8rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    flex-shrink: 0;
-}
+.feature-description {                                                                                                                  /* Declare class selector style rule */
+    color: #64748b;                                                                                                                     /* Declare element selector style rule */
+    line-height: 1.7;                                                                                                                   /* Define element dimension constraints */
+    margin-bottom: 2rem;                                                                                                                /* Define external spacing box model property */
+    font-size: 1rem;                                                                                                                    /* Define typography style properties */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+    height: 8rem;                                                                                                                       /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    display: -webkit-box;                                                                                                               /* Declare element selector style rule */
+    -webkit-line-clamp: 3;                                                                                                              /* Define cascaded style sheet property */
+    line-clamp: 3;                                                                                                                      /* Define cascaded style sheet property */
+    -webkit-box-orient: vertical;                                                                                                       /* Define cascaded style sheet property */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card:hover .feature-description {
-    color: #475569;
-    transform: translateY(-2px);
-}
+.feature-card:hover .feature-description {                                                                                              /* Declare class selector style rule */
+    color: #475569;                                                                                                                     /* Declare element selector style rule */
+    transform: translateY(-2px);                                                                                                        /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-stats {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    height: 5rem;
-    align-items: flex-start;
-    flex-shrink: 0;
-}
+.feature-stats {                                                                                                                        /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    gap: 1rem;                                                                                                                          /* Declare element selector style rule */
+    margin-bottom: 2rem;                                                                                                                /* Define external spacing box model property */
+    flex-wrap: wrap;                                                                                                                    /* Define flexbox layout behavior properties */
+    height: 5rem;                                                                                                                       /* Declare element selector style rule */
+    align-items: flex-start;                                                                                                            /* Define cross-axis alignment rule */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    transition: all 0.3s ease;
-    flex: 1;
-    min-width: 140px;
-    position: relative;
-    overflow: hidden;
-    height: 4.1rem;
-}
+.stat-item {                                                                                                                            /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    gap: 0.5rem;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);                                                                      /* Declare element selector style rule */
+    padding: 0.75rem 1rem;                                                                                                              /* Declare element selector style rule */
+    border-radius: 12px;                                                                                                                /* Define border visual stroke property */
+    border: 1px solid rgba(59, 130, 246, 0.1);                                                                                          /* Declare element selector style rule */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+    flex: 1;                                                                                                                            /* Declare element selector style rule */
+    min-width: 140px;                                                                                                                   /* Define cascaded style sheet property */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    height: 4.1rem;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-    transition: left 0.5s ease;
-}
+.stat-item::before {                                                                                                                    /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: -100%;                                                                                                                        /* Declare element selector style rule */
+    width: 100%;                                                                                                                        /* Declare element selector style rule */
+    height: 100%;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);                                              /* Declare element selector style rule */
+    transition: left 0.5s ease;                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item:hover::before {
-    left: 100%;
-}
+.stat-item:hover::before {                                                                                                              /* Declare class selector style rule */
+    left: 100%;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.2);
-}
+.stat-item:hover {                                                                                                                      /* Declare class selector style rule */
+    transform: translateY(-2px);                                                                                                        /* Declare element selector style rule */
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);                                                                                    /* Define element visual depth shadow */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item i {
-    color: #3b82f6;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
+.stat-item i {                                                                                                                          /* Declare class selector style rule */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+    font-size: 1rem;                                                                                                                    /* Define typography style properties */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item:hover i {
-    transform: scale(1.1);
-    color: #2563eb;
-}
+.stat-item:hover i {                                                                                                                    /* Declare class selector style rule */
+    transform: scale(1.1);                                                                                                              /* Declare element selector style rule */
+    color: #2563eb;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item span {
-    font-weight: 600;
-    color: #1e293b;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
+.stat-item span {                                                                                                                       /* Declare class selector style rule */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    color: #1e293b;                                                                                                                     /* Declare element selector style rule */
+    font-size: 0.9rem;                                                                                                                  /* Define typography style properties */
+    transition: color 0.3s ease;                                                                                                        /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-item:hover span {
-    color: #3b82f6;
-}
+.stat-item:hover span {                                                                                                                 /* Declare class selector style rule */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    position: relative;
-    overflow: hidden;
-    border: none;
-    margin-top: auto;
-    align-self: flex-start;
-}
+.feature-btn {                                                                                                                          /* Declare class selector style rule */
+    display: inline-flex;                                                                                                               /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    gap: 0.75rem;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    padding: 1rem 1.5rem;                                                                                                               /* Declare element selector style rule */
+    border-radius: 12px;                                                                                                                /* Define border visual stroke property */
+    text-decoration: none;                                                                                                              /* Define text layout and styling */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    font-size: 0.95rem;                                                                                                                 /* Define typography style properties */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    border: none;                                                                                                                       /* Declare element selector style rule */
+    margin-top: auto;                                                                                                                   /* Define external spacing box model property */
+    align-self: flex-start;                                                                                                             /* Define cascaded style sheet property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Featured card styles */
-.feature-card.featured {
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(239, 246, 255, 0.95) 100%);
-    transform: scale(1.02);
-}
+.feature-card.featured {                                                                                                                /* Declare class selector style rule */
+    border: 2px solid rgba(59, 130, 246, 0.3);                                                                                          /* Declare element selector style rule */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(239, 246, 255, 0.95) 100%);                                  /* Declare element selector style rule */
+    transform: scale(1.02);                                                                                                             /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-card.featured:hover {
-    border-color: rgba(59, 130, 246, 0.5);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(219, 234, 254, 0.98) 100%);
-}
+.feature-card.featured:hover {                                                                                                          /* Declare class selector style rule */
+    border-color: rgba(59, 130, 246, 0.5);                                                                                              /* Define border visual stroke property */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(219, 234, 254, 0.98) 100%);                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-    z-index: 2;
-}
+.feature-badge {                                                                                                                        /* Declare class selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 1rem;                                                                                                                          /* Declare element selector style rule */
+    right: 1rem;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    padding: 0.5rem 1rem;                                                                                                               /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    font-size: 0.8rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);                                                                                     /* Define element visual depth shadow */
+    z-index: 2;                                                                                                                         /* Define stacking context layer index */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn {
-    cursor: pointer;
-    width: 100%;
-    justify-content: center;
-}
+.feature-btn {                                                                                                                          /* Declare class selector style rule */
+    cursor: pointer;                                                                                                                    /* Declare element selector style rule */
+    width: 100%;                                                                                                                        /* Declare element selector style rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
+.feature-btn::before {                                                                                                                  /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: -100%;                                                                                                                        /* Declare element selector style rule */
+    width: 100%;                                                                                                                        /* Declare element selector style rule */
+    height: 100%;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);                                             /* Declare element selector style rule */
+    transition: left 0.5s ease;                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn:hover::before {
-    left: 100%;
-}
+.feature-btn:hover::before {                                                                                                            /* Declare class selector style rule */
+    left: 100%;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-}
+.feature-btn:hover {                                                                                                                    /* Declare class selector style rule */
+    transform: translateY(-3px);                                                                                                        /* Declare element selector style rule */
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);                                                                                    /* Define element visual depth shadow */
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn i {
-    transition: transform 0.3s ease;
-    font-size: 0.9rem;
-}
+.feature-btn i {                                                                                                                        /* Declare class selector style rule */
+    transition: transform 0.3s ease;                                                                                                    /* Declare element selector style rule */
+    font-size: 0.9rem;                                                                                                                  /* Define typography style properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn:hover i {
-    transform: translateX(4px);
-}
+.feature-btn:hover i {                                                                                                                  /* Declare class selector style rule */
+    transform: translateX(4px);                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-btn span {
-    font-weight: 600;
-}
+.feature-btn span {                                                                                                                     /* Declare class selector style rule */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.stat-badge {
-    background: #eff6ff;
-    color: #2563eb;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
+.stat-badge {                                                                                                                           /* Declare class selector style rule */
+    background: #eff6ff;                                                                                                                /* Declare element selector style rule */
+    color: #2563eb;                                                                                                                     /* Declare element selector style rule */
+    padding: 0.25rem 0.75rem;                                                                                                           /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    font-size: 0.85rem;                                                                                                                 /* Define typography style properties */
+    font-weight: 500;                                                                                                                   /* Define typography style properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-link {
-    color: #2563eb;
-    text-decoration: none;
-}
+.feature-link {                                                                                                                         /* Declare class selector style rule */
+    color: #2563eb;                                                                                                                     /* Declare element selector style rule */
+    text-decoration: none;                                                                                                              /* Define text layout and styling */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 
 /* ===== TECHNOLOGY SECTION ===== */
-.technology {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: white;
-}
+.technology {                                                                                                                           /* Declare class selector style rule */
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.technology .section-title {
-    color: white;
-}
+.technology .section-title {                                                                                                            /* Declare class selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.technology .section-title::after {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-}
+.technology .section-title::after {                                                                                                     /* Declare class selector style rule */
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.technology .section-subtitle {
-    color: #cbd5e1;
-}
+.technology .section-subtitle {                                                                                                         /* Declare class selector style rule */
+    color: #cbd5e1;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
+.tech-grid {                                                                                                                            /* Declare class selector style rule */
+    display: grid;                                                                                                                      /* Declare element selector style rule */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));                                                                        /* Define CSS grid layout behavior */
+    gap: 2rem;                                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-category {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
+.tech-category {                                                                                                                        /* Declare class selector style rule */
+    background: rgba(255, 255, 255, 0.05);                                                                                              /* Declare element selector style rule */
+    backdrop-filter: blur(10px);                                                                                                        /* Define cascaded style sheet property */
+    border: 1px solid rgba(255, 255, 255, 0.1);                                                                                         /* Declare element selector style rule */
+    border-radius: 16px;                                                                                                                /* Define border visual stroke property */
+    padding: 2rem;                                                                                                                      /* Declare element selector style rule */
+    text-align: center;                                                                                                                 /* Define text layout and styling */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-category:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
+.tech-category:hover {                                                                                                                  /* Declare class selector style rule */
+    transform: translateY(-5px);                                                                                                        /* Declare element selector style rule */
+    background: rgba(255, 255, 255, 0.1);                                                                                               /* Declare element selector style rule */
+    border-color: rgba(255, 255, 255, 0.2);                                                                                             /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #60a5fa;
-}
+.tech-icon {                                                                                                                            /* Declare class selector style rule */
+    font-size: 3rem;                                                                                                                    /* Define typography style properties */
+    margin-bottom: 1rem;                                                                                                                /* Define external spacing box model property */
+    color: #60a5fa;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: white;
-}
+.tech-title {                                                                                                                           /* Declare class selector style rule */
+    font-size: 1.25rem;                                                                                                                 /* Define typography style properties */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    margin-bottom: 1rem;                                                                                                                /* Define external spacing box model property */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-}
+.tech-stack {                                                                                                                           /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    flex-wrap: wrap;                                                                                                                    /* Define flexbox layout behavior properties */
+    gap: 0.5rem;                                                                                                                        /* Declare element selector style rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-badge {
-    background: rgba(96, 165, 250, 0.2);
-    color: #93c5fd;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid rgba(96, 165, 250, 0.3);
-}
+.tech-badge {                                                                                                                           /* Declare class selector style rule */
+    background: rgba(96, 165, 250, 0.2);                                                                                                /* Declare element selector style rule */
+    color: #93c5fd;                                                                                                                     /* Declare element selector style rule */
+    padding: 0.5rem 1rem;                                                                                                               /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    font-size: 0.9rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 500;                                                                                                                   /* Define typography style properties */
+    border: 1px solid rgba(96, 165, 250, 0.3);                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 
 /* ===== ENHANCED TECH GRID STYLES ===== */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
+.tech-grid {                                                                                                                            /* Declare class selector style rule */
+    display: grid;                                                                                                                      /* Declare element selector style rule */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));                                                                        /* Define CSS grid layout behavior */
+    gap: 2rem;                                                                                                                          /* Declare element selector style rule */
+    margin-top: 3rem;                                                                                                                   /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Base tech category styles */
-.tech-category {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-}
+.tech-category {                                                                                                                        /* Declare class selector style rule */
+    background: white;                                                                                                                  /* Declare element selector style rule */
+    padding: 2.5rem;                                                                                                                    /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);                                                                                         /* Define element visual depth shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    border: 1px solid rgba(226, 232, 240, 0.6);                                                                                         /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    backdrop-filter: blur(10px);                                                                                                        /* Define cascaded style sheet property */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);                                  /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Category-specific gradients and colors */
-.backend-category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.backend-category::before {                                                                                                             /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.frontend-category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.frontend-category::before {                                                                                                            /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);                                                                      /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.scientific-category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.scientific-category::before {                                                                                                          /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);                                                                      /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tools-category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.tools-category::before {                                                                                                               /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-category:hover::before {
-    transform: scaleX(1);
-}
+.tech-category:hover::before {                                                                                                          /* Declare class selector style rule */
+    transform: scaleX(1);                                                                                                               /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.backend-category:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-    border-color: rgba(16, 185, 129, 0.2);
-}
+.backend-category:hover {                                                                                                               /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(16, 185, 129, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.frontend-category:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.2);
-}
+.frontend-category:hover {                                                                                                              /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.scientific-category:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.2);
-}
+.scientific-category:hover {                                                                                                            /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(139, 92, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tools-category:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
-    border-color: rgba(245, 158, 11, 0.2);
-}
+.tools-category:hover {                                                                                                                 /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(245, 158, 11, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Category header styles */
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
+.category-header {                                                                                                                      /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    gap: 1rem;                                                                                                                          /* Declare element selector style rule */
+    margin-bottom: 2rem;                                                                                                                /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.category-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
+.category-icon {                                                                                                                        /* Declare class selector style rule */
+    width: 50px;                                                                                                                        /* Declare element selector style rule */
+    height: 50px;                                                                                                                       /* Declare element selector style rule */
+    border-radius: 12px;                                                                                                                /* Define border visual stroke property */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+    font-size: 1.5rem;                                                                                                                  /* Define typography style properties */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.backend-category .category-icon {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-}
+.backend-category .category-icon {                                                                                                      /* Declare class selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.frontend-category .category-icon {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-}
+.frontend-category .category-icon {                                                                                                     /* Declare class selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.scientific-category .category-icon {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-}
+.scientific-category .category-icon {                                                                                                   /* Declare class selector style rule */
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tools-category .category-icon {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-}
+.tools-category .category-icon {                                                                                                        /* Declare class selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.category-header h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0;
-}
+.category-header h4 {                                                                                                                   /* Declare class selector style rule */
+    font-size: 1.5rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 700;                                                                                                                   /* Define typography style properties */
+    color: #1e293b;                                                                                                                     /* Declare element selector style rule */
+    margin: 0;                                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Tech badges container */
-.tech-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
+.tech-badges {                                                                                                                          /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    flex-wrap: wrap;                                                                                                                    /* Define flexbox layout behavior properties */
+    gap: 0.75rem;                                                                                                                       /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Tech badge styles */
-.tech-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid transparent;
-}
+.tech-badge {                                                                                                                           /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    gap: 0.5rem;                                                                                                                        /* Declare element selector style rule */
+    padding: 0.75rem 1rem;                                                                                                              /* Declare element selector style rule */
+    border-radius: 12px;                                                                                                                /* Define border visual stroke property */
+    font-weight: 500;                                                                                                                   /* Define typography style properties */
+    font-size: 0.9rem;                                                                                                                  /* Define typography style properties */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    cursor: pointer;                                                                                                                    /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    border: 1px solid transparent;                                                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s ease;
-}
+.tech-badge::before {                                                                                                                   /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: -100%;                                                                                                                        /* Declare element selector style rule */
+    width: 100%;                                                                                                                        /* Declare element selector style rule */
+    height: 100%;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);                                             /* Declare element selector style rule */
+    transition: left 0.6s ease;                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-badge:hover::before {
-    left: 100%;
-}
+.tech-badge:hover::before {                                                                                                             /* Declare class selector style rule */
+    left: 100%;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Backend badges */
-.backend-category .tech-badge {
-    background: rgba(16, 185, 129, 0.1);
-    color: #065f46;
-    border-color: rgba(16, 185, 129, 0.2);
-}
+.backend-category .tech-badge {                                                                                                         /* Declare class selector style rule */
+    background: rgba(16, 185, 129, 0.1);                                                                                                /* Declare element selector style rule */
+    color: #065f46;                                                                                                                     /* Declare element selector style rule */
+    border-color: rgba(16, 185, 129, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.backend-category .tech-badge.primary {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
+.backend-category .tech-badge.primary {                                                                                                 /* Declare class selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.backend-category .tech-badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
-}
+.backend-category .tech-badge:hover {                                                                                                   /* Declare class selector style rule */
+    transform: translateY(-2px) scale(1.05);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);                                                                                    /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Frontend badges */
-.frontend-category .tech-badge {
-    background: rgba(59, 130, 246, 0.1);
-    color: #1e40af;
-    border-color: rgba(59, 130, 246, 0.2);
-}
+.frontend-category .tech-badge {                                                                                                        /* Declare class selector style rule */
+    background: rgba(59, 130, 246, 0.1);                                                                                                /* Declare element selector style rule */
+    color: #1e40af;                                                                                                                     /* Declare element selector style rule */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.frontend-category .tech-badge.primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
+.frontend-category .tech-badge.primary {                                                                                                /* Declare class selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.frontend-category .tech-badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
-}
+.frontend-category .tech-badge:hover {                                                                                                  /* Declare class selector style rule */
+    transform: translateY(-2px) scale(1.05);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);                                                                                    /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Scientific badges */
-.scientific-category .tech-badge {
-    background: rgba(139, 92, 246, 0.1);
-    color: #6b21a8;
-    border-color: rgba(139, 92, 246, 0.2);
-}
+.scientific-category .tech-badge {                                                                                                      /* Declare class selector style rule */
+    background: rgba(139, 92, 246, 0.1);                                                                                                /* Declare element selector style rule */
+    color: #6b21a8;                                                                                                                     /* Declare element selector style rule */
+    border-color: rgba(139, 92, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.scientific-category .tech-badge.primary {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-}
+.scientific-category .tech-badge.primary {                                                                                              /* Declare class selector style rule */
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.scientific-category .tech-badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);
-}
+.scientific-category .tech-badge:hover {                                                                                                /* Declare class selector style rule */
+    transform: translateY(-2px) scale(1.05);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);                                                                                    /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Tools badges */
-.tools-category .tech-badge {
-    background: rgba(245, 158, 11, 0.1);
-    color: #92400e;
-    border-color: rgba(245, 158, 11, 0.2);
-}
+.tools-category .tech-badge {                                                                                                           /* Declare class selector style rule */
+    background: rgba(245, 158, 11, 0.1);                                                                                                /* Declare element selector style rule */
+    color: #92400e;                                                                                                                     /* Declare element selector style rule */
+    border-color: rgba(245, 158, 11, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tools-category .tech-badge.primary {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-}
+.tools-category .tech-badge.primary {                                                                                                   /* Declare class selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tools-category .tech-badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
-}
+.tools-category .tech-badge:hover {                                                                                                     /* Declare class selector style rule */
+    transform: translateY(-2px) scale(1.05);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);                                                                                    /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.tech-badge i {
-    font-size: 1rem;
-    flex-shrink: 0;
-}
+.tech-badge i {                                                                                                                         /* Declare class selector style rule */
+    font-size: 1rem;                                                                                                                    /* Define typography style properties */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 
 /* ===== CONTACT SECTION ENHANCEMENTS ===== */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
+.contact-grid {                                                                                                                         /* Declare class selector style rule */
+    display: grid;                                                                                                                      /* Declare element selector style rule */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));                                                                        /* Define CSS grid layout behavior */
+    gap: 2.5rem;                                                                                                                        /* Declare element selector style rule */
+    margin-top: 3rem;                                                                                                                   /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-}
+.contact-item {                                                                                                                         /* Declare class selector style rule */
+    background: white;                                                                                                                  /* Declare element selector style rule */
+    padding: 2.5rem;                                                                                                                    /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);                                                                                         /* Define element visual depth shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    border: 1px solid rgba(226, 232, 240, 0.6);                                                                                         /* Declare element selector style rule */
+    text-align: left;                                                                                                                   /* Define text layout and styling */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    backdrop-filter: blur(10px);                                                                                                        /* Define cascaded style sheet property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
+.contact-item::before {                                                                                                                 /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    height: 4px;                                                                                                                        /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #2563eb 100%);                                                         /* Declare element selector style rule */
+    transform: scaleX(0);                                                                                                               /* Declare element selector style rule */
+    transition: transform 0.4s ease;                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item:hover::before {
-    transform: scaleX(1);
-}
+.contact-item:hover::before {                                                                                                           /* Declare class selector style rule */
+    transform: scaleX(1);                                                                                                               /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.2);
-}
+.contact-item:hover {                                                                                                                   /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Contact Item Specific Colors */
-.research-contact::before {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-}
+.research-contact::before {                                                                                                             /* Declare class selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.research-contact:hover {
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-    border-color: rgba(16, 185, 129, 0.2);
-}
+.research-contact:hover {                                                                                                               /* Declare class selector style rule */
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(16, 185, 129, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.development-contact::before {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-}
+.development-contact::before {                                                                                                          /* Declare class selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.development-contact:hover {
-    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
-    border-color: rgba(245, 158, 11, 0.2);
-}
+.development-contact:hover {                                                                                                            /* Declare class selector style rule */
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(245, 158, 11, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.documentation-contact::before {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-}
+.documentation-contact::before {                                                                                                        /* Declare class selector style rule */
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.documentation-contact:hover {
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.2);
-}
+.documentation-contact:hover {                                                                                                          /* Declare class selector style rule */
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(139, 92, 246, 0.2);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: white;
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    transition: all 0.3s ease;
-}
+.contact-icon {                                                                                                                         /* Declare class selector style rule */
+    width: 60px;                                                                                                                        /* Declare element selector style rule */
+    height: 60px;                                                                                                                       /* Declare element selector style rule */
+    border-radius: 50%;                                                                                                                 /* Define border visual stroke property */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+    margin-bottom: 1.5rem;                                                                                                              /* Define external spacing box model property */
+    font-size: 1.5rem;                                                                                                                  /* Define typography style properties */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);                                                                      /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.research-contact .contact-icon {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-}
+.research-contact .contact-icon {                                                                                                       /* Declare class selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.development-contact .contact-icon {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-}
+.development-contact .contact-icon {                                                                                                    /* Declare class selector style rule */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);                                                                      /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.documentation-contact .contact-icon {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-}
+.documentation-contact .contact-icon {                                                                                                  /* Declare class selector style rule */
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);                                                                      /* Declare element selector style rule */
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item:hover .contact-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-}
+.contact-item:hover .contact-icon {                                                                                                     /* Declare class selector style rule */
+    transform: scale(1.1) rotate(5deg);                                                                                                 /* Declare element selector style rule */
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-item h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
+.contact-item h4 {                                                                                                                      /* Declare class selector style rule */
+    font-size: 1.4rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 700;                                                                                                                   /* Define typography style properties */
+    color: #1e293b;                                                                                                                     /* Declare element selector style rule */
+    margin-bottom: 1rem;                                                                                                                /* Define external spacing box model property */
+    line-height: 1.3;                                                                                                                   /* Define element dimension constraints */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-description {
-    color: #64748b;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
+.contact-description {                                                                                                                  /* Declare class selector style rule */
+    color: #64748b;                                                                                                                     /* Declare element selector style rule */
+    line-height: 1.6;                                                                                                                   /* Define element dimension constraints */
+    margin-bottom: 1.5rem;                                                                                                              /* Define external spacing box model property */
+    font-size: 1rem;                                                                                                                    /* Define typography style properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-details {
-    margin-bottom: 1.5rem;
-}
+.contact-details {                                                                                                                      /* Declare class selector style rule */
+    margin-bottom: 1.5rem;                                                                                                              /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-method {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-    padding: 0.75rem;
-    background: rgba(248, 250, 252, 0.8);
-    border-radius: 12px;
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    transition: all 0.3s ease;
-}
+.contact-method {                                                                                                                       /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    gap: 0.75rem;                                                                                                                       /* Declare element selector style rule */
+    margin-bottom: 0.75rem;                                                                                                             /* Define external spacing box model property */
+    padding: 0.75rem;                                                                                                                   /* Declare element selector style rule */
+    background: rgba(248, 250, 252, 0.8);                                                                                               /* Declare element selector style rule */
+    border-radius: 12px;                                                                                                                /* Define border visual stroke property */
+    border: 1px solid rgba(226, 232, 240, 0.6);                                                                                         /* Declare element selector style rule */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-method:hover {
-    background: rgba(59, 130, 246, 0.05);
-    border-color: rgba(59, 130, 246, 0.2);
-    transform: translateX(5px);
-}
+.contact-method:hover {                                                                                                                 /* Declare class selector style rule */
+    background: rgba(59, 130, 246, 0.05);                                                                                               /* Declare element selector style rule */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+    transform: translateX(5px);                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-method i {
-    color: #3b82f6;
-    font-size: 1rem;
-    width: 20px;
-    text-align: center;
-}
+.contact-method i {                                                                                                                     /* Declare class selector style rule */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+    font-size: 1rem;                                                                                                                    /* Define typography style properties */
+    width: 20px;                                                                                                                        /* Declare element selector style rule */
+    text-align: center;                                                                                                                 /* Define text layout and styling */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.contact-method span {
-    color: #374151;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
+.contact-method span {                                                                                                                  /* Declare class selector style rule */
+    color: #374151;                                                                                                                     /* Declare element selector style rule */
+    font-weight: 500;                                                                                                                   /* Define typography style properties */
+    font-size: 0.95rem;                                                                                                                 /* Define typography style properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 
 
 
 /* ===== KEY FEATURES SECTION ===== */
-.key-features-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+.key-features-grid {                                                                                                                    /* Declare class selector style rule */
+    display: grid;                                                                                                                      /* Declare element selector style rule */
+    grid-template-columns: 1fr;                                                                                                         /* Define CSS grid layout behavior */
+    gap: 2rem;                                                                                                                          /* Declare element selector style rule */
+    max-width: 1000px;                                                                                                                  /* Define cascaded style sheet property */
+    margin: 0 auto;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    gap: 2.5rem;
-    min-height: 200px;
-}
+.key-feature-card {                                                                                                                     /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    background: rgba(255, 255, 255, 0.95);                                                                                              /* Declare element selector style rule */
+    border-radius: 24px;                                                                                                                /* Define border visual stroke property */
+    padding: 2rem;                                                                                                                      /* Declare element selector style rule */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);                                                                                         /* Define element visual depth shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2);                                                                                         /* Declare element selector style rule */
+    backdrop-filter: blur(20px);                                                                                                        /* Define cascaded style sheet property */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+    gap: 2.5rem;                                                                                                                        /* Declare element selector style rule */
+    min-height: 200px;                                                                                                                  /* Define element dimension constraints */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(99, 102, 241, 0.02) 100%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
+.key-feature-card::before {                                                                                                             /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    bottom: 0;                                                                                                                          /* Declare element selector style rule */
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(99, 102, 241, 0.02) 100%);                                    /* Declare element selector style rule */
+    opacity: 0;                                                                                                                         /* Declare element selector style rule */
+    transition: opacity 0.5s ease;                                                                                                      /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover::before {
-    opacity: 1;
-}
+.key-feature-card:hover::before {                                                                                                       /* Declare class selector style rule */
+    opacity: 1;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
-}
+.key-feature-card:hover {                                                                                                               /* Declare class selector style rule */
+    transform: translateY(-8px) scale(1.02);                                                                                            /* Declare element selector style rule */
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);                                                                                   /* Define element visual depth shadow */
+    border-color: rgba(59, 130, 246, 0.3);                                                                                              /* Define border visual stroke property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:nth-child(even) {
-    flex-direction: row-reverse;
-}
+.key-feature-card:nth-child(even) {                                                                                                     /* Declare class selector style rule */
+    flex-direction: row-reverse;                                                                                                        /* Define flexbox layout behavior properties */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-visual {
-    flex-shrink: 0;
-    width: 160px;
-    height: 160px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.key-feature-visual {                                                                                                                   /* Declare class selector style rule */
+    flex-shrink: 0;                                                                                                                     /* Define flexbox layout behavior properties */
+    width: 160px;                                                                                                                       /* Declare element selector style rule */
+    height: 160px;                                                                                                                      /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    position: relative;
-    z-index: 2;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
-}
+.key-feature-icon {                                                                                                                     /* Declare class selector style rule */
+    width: 80px;                                                                                                                        /* Declare element selector style rule */
+    height: 80px;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);                                                         /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    justify-content: center;                                                                                                            /* Define main-axis alignment rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    font-size: 2rem;                                                                                                                    /* Define typography style properties */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    z-index: 2;                                                                                                                         /* Define stacking context layer index */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);                                                                                  /* Declare element selector style rule */
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover .key-feature-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.4);
-}
+.key-feature-card:hover .key-feature-icon {                                                                                             /* Declare class selector style rule */
+    transform: scale(1.1) rotate(5deg);                                                                                                 /* Declare element selector style rule */
+    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.4);                                                                                    /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: pulse 3s ease-in-out infinite;
-}
+.key-feature-pattern {                                                                                                                  /* Declare class selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: 0;                                                                                                                            /* Declare element selector style rule */
+    right: 0;                                                                                                                           /* Declare element selector style rule */
+    bottom: 0;                                                                                                                          /* Declare element selector style rule */
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);                                         /* Declare element selector style rule */
+    border-radius: 50%;                                                                                                                 /* Define border visual stroke property */
+    animation: pulse 3s ease-in-out infinite;                                                                                           /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.8;
-    }
-}
+@keyframes pulse {                                                                                                                      /* Declare animation keyframe sequence rules */
+    0%, 100% {                                                                                                                          /* Execute sequential evaluation stream node */
+        transform: scale(1);                                                                                                            /* Declare element selector style rule */
+        opacity: 0.5;                                                                                                                   /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
+    50% {                                                                                                                               /* Execute sequential evaluation stream node */
+        transform: scale(1.2);                                                                                                          /* Declare element selector style rule */
+        opacity: 0.8;                                                                                                                   /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+.key-feature-content {                                                                                                                  /* Declare class selector style rule */
+    flex: 1;                                                                                                                            /* Declare element selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    flex-direction: column;                                                                                                             /* Define flexbox layout behavior properties */
+    gap: 1rem;                                                                                                                          /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-header {
-    margin-bottom: 0.5rem;
-}
+.key-feature-header {                                                                                                                   /* Declare class selector style rule */
+    margin-bottom: 0.5rem;                                                                                                              /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0;
-    transition: color 0.3s ease;
-}
+.key-feature-title {                                                                                                                    /* Declare class selector style rule */
+    font-size: 1.75rem;                                                                                                                 /* Define typography style properties */
+    font-weight: 700;                                                                                                                   /* Define typography style properties */
+    color: #1e293b;                                                                                                                     /* Declare element selector style rule */
+    margin: 0;                                                                                                                          /* Declare element selector style rule */
+    transition: color 0.3s ease;                                                                                                        /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover .key-feature-title {
-    color: #3b82f6;
-}
+.key-feature-card:hover .key-feature-title {                                                                                            /* Declare class selector style rule */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    transition: all 0.3s ease;
-    z-index: 10;
-}
+.key-feature-badge {                                                                                                                    /* Declare class selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 1.5rem;                                                                                                                        /* Declare element selector style rule */
+    right: 1.5rem;                                                                                                                      /* Declare element selector style rule */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);                                                                      /* Declare element selector style rule */
+    color: white;                                                                                                                       /* Declare element selector style rule */
+    padding: 0.5rem 1rem;                                                                                                               /* Declare element selector style rule */
+    border-radius: 20px;                                                                                                                /* Define border visual stroke property */
+    font-size: 0.85rem;                                                                                                                 /* Define typography style properties */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);                                                                                     /* Define element visual depth shadow */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+    z-index: 10;                                                                                                                        /* Define stacking context layer index */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover .key-feature-badge {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
+.key-feature-card:hover .key-feature-badge {                                                                                            /* Declare class selector style rule */
+    transform: scale(1.05);                                                                                                             /* Declare element selector style rule */
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-description {
-    color: #64748b;
-    line-height: 1.7;
-    font-size: 1.05rem;
-    margin: 0;
-    transition: color 0.3s ease;
-}
+.key-feature-description {                                                                                                              /* Declare class selector style rule */
+    color: #64748b;                                                                                                                     /* Declare element selector style rule */
+    line-height: 1.7;                                                                                                                   /* Define element dimension constraints */
+    font-size: 1.05rem;                                                                                                                 /* Define typography style properties */
+    margin: 0;                                                                                                                          /* Declare element selector style rule */
+    transition: color 0.3s ease;                                                                                                        /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-card:hover .key-feature-description {
-    color: #475569;
-}
+.key-feature-card:hover .key-feature-description {                                                                                      /* Declare class selector style rule */
+    color: #475569;                                                                                                                     /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.key-feature-metrics {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1rem;
-}
+.key-feature-metrics {                                                                                                                  /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    gap: 2rem;                                                                                                                          /* Declare element selector style rule */
+    margin-top: 1rem;                                                                                                                   /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
+.metric-item {                                                                                                                          /* Declare class selector style rule */
+    display: flex;                                                                                                                      /* Declare element selector style rule */
+    flex-direction: column;                                                                                                             /* Define flexbox layout behavior properties */
+    align-items: center;                                                                                                                /* Define cross-axis alignment rule */
+    padding: 1rem 1.5rem;                                                                                                               /* Declare element selector style rule */
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);                                                                      /* Declare element selector style rule */
+    border-radius: 16px;                                                                                                                /* Define border visual stroke property */
+    border: 1px solid rgba(59, 130, 246, 0.1);                                                                                          /* Declare element selector style rule */
+    transition: all 0.3s ease;                                                                                                          /* Declare element selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-    transition: left 0.5s ease;
-}
+.metric-item::before {                                                                                                                  /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: 0;                                                                                                                             /* Declare element selector style rule */
+    left: -100%;                                                                                                                        /* Declare element selector style rule */
+    width: 100%;                                                                                                                        /* Declare element selector style rule */
+    height: 100%;                                                                                                                       /* Declare element selector style rule */
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);                                              /* Declare element selector style rule */
+    transition: left 0.5s ease;                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-item:hover::before {
-    left: 100%;
-}
+.metric-item:hover::before {                                                                                                            /* Declare class selector style rule */
+    left: 100%;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-item:hover {
-    transform: translateY(-2px);
-    border-color: rgba(59, 130, 246, 0.2);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
-}
+.metric-item:hover {                                                                                                                    /* Declare class selector style rule */
+    transform: translateY(-2px);                                                                                                        /* Declare element selector style rule */
+    border-color: rgba(59, 130, 246, 0.2);                                                                                              /* Define border visual stroke property */
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);                                                                                     /* Define element visual depth shadow */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-value {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #3b82f6;
-    margin-bottom: 0.25rem;
-    position: relative;
-    z-index: 1;
-}
+.metric-value {                                                                                                                         /* Declare class selector style rule */
+    font-size: 1.5rem;                                                                                                                  /* Define typography style properties */
+    font-weight: 800;                                                                                                                   /* Define typography style properties */
+    color: #3b82f6;                                                                                                                     /* Declare element selector style rule */
+    margin-bottom: 0.25rem;                                                                                                             /* Define external spacing box model property */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    z-index: 1;                                                                                                                         /* Define stacking context layer index */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.metric-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 1;
-}
+.metric-label {                                                                                                                         /* Declare class selector style rule */
+    font-size: 0.85rem;                                                                                                                 /* Define typography style properties */
+    font-weight: 600;                                                                                                                   /* Define typography style properties */
+    color: #64748b;                                                                                                                     /* Declare element selector style rule */
+    text-transform: uppercase;                                                                                                          /* Define text layout and styling */
+    letter-spacing: 0.5px;                                                                                                              /* Define cascaded style sheet property */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    z-index: 1;                                                                                                                         /* Define stacking context layer index */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Responsive Design for Key Features */
-@media (max-width: 768px) {
-    .key-feature-card {
-        flex-direction: column !important;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
+@media (max-width: 768px) {                                                                                                             /* Declare media query responsive breakpoint */
+    .key-feature-card {                                                                                                                 /* Declare class selector style rule */
+        flex-direction: column !important;                                                                                              /* Define flexbox layout behavior properties */
+        text-align: center;                                                                                                             /* Define text layout and styling */
+        gap: 1.5rem;                                                                                                                    /* Declare element selector style rule */
+        padding: 1.5rem;                                                                                                                /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-visual {
-        width: 120px;
-        height: 120px;
-    }
+    .key-feature-visual {                                                                                                               /* Declare class selector style rule */
+        width: 120px;                                                                                                                   /* Declare element selector style rule */
+        height: 120px;                                                                                                                  /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
+    .key-feature-icon {                                                                                                                 /* Declare class selector style rule */
+        width: 60px;                                                                                                                    /* Declare element selector style rule */
+        height: 60px;                                                                                                                   /* Declare element selector style rule */
+        font-size: 1.5rem;                                                                                                              /* Define typography style properties */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-header {
-        margin-bottom: 0.5rem;
-    }
+    .key-feature-header {                                                                                                               /* Declare class selector style rule */
+        margin-bottom: 0.5rem;                                                                                                          /* Define external spacing box model property */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-badge {
-        top: 1rem;
-        right: 1rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
+    .key-feature-badge {                                                                                                                /* Declare class selector style rule */
+        top: 1rem;                                                                                                                      /* Declare element selector style rule */
+        right: 1rem;                                                                                                                    /* Declare element selector style rule */
+        padding: 0.4rem 0.8rem;                                                                                                         /* Declare element selector style rule */
+        font-size: 0.8rem;                                                                                                              /* Define typography style properties */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-title {
-        font-size: 1.5rem;
-    }
+    .key-feature-title {                                                                                                                /* Declare class selector style rule */
+        font-size: 1.5rem;                                                                                                              /* Define typography style properties */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .key-feature-metrics {
-        justify-content: center;
-        gap: 1rem;
-    }
+    .key-feature-metrics {                                                                                                              /* Declare class selector style rule */
+        justify-content: center;                                                                                                        /* Define main-axis alignment rule */
+        gap: 1rem;                                                                                                                      /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .metric-item {
-        padding: 0.75rem 1rem;
-    }
+    .metric-item {                                                                                                                      /* Declare class selector style rule */
+        padding: 0.75rem 1rem;                                                                                                          /* Declare element selector style rule */
+    }                                                                                                                                   /* Terminate CSS rule block context */
     
-    .metric-value {
-        font-size: 1.25rem;
-    }
-}
+    .metric-value {                                                                                                                     /* Declare class selector style rule */
+        font-size: 1.25rem;                                                                                                             /* Define typography style properties */
+    }                                                                                                                                   /* Terminate CSS rule block context */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Legacy styles for backward compatibility */
-.features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+.features-grid {                                                                                                                        /* Declare class selector style rule */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                                                                        /* Define CSS grid layout behavior */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.feature-highlight {
-    margin-top: 1rem;
-}
+.feature-highlight {                                                                                                                    /* Declare class selector style rule */
+    margin-top: 1rem;                                                                                                                   /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Enhanced Project Overview Cards */
-.project-overview .features-grid {
-    margin-top: 3rem;
-}
+.project-overview .features-grid {                                                                                                      /* Declare class selector style rule */
+    margin-top: 3rem;                                                                                                                   /* Define external spacing box model property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.project-overview .feature-card {
-    position: relative;
-    overflow: hidden;
-}
+.project-overview .feature-card {                                                                                                       /* Declare class selector style rule */
+    position: relative;                                                                                                                 /* Declare element selector style rule */
+    overflow: hidden;                                                                                                                   /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.project-overview .feature-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
+.project-overview .feature-card::after {                                                                                                /* Declare class selector style rule */
+    content: '';                                                                                                                        /* Declare element selector style rule */
+    position: absolute;                                                                                                                 /* Declare element selector style rule */
+    top: -50%;                                                                                                                          /* Declare element selector style rule */
+    left: -50%;                                                                                                                         /* Declare element selector style rule */
+    width: 200%;                                                                                                                        /* Declare element selector style rule */
+    height: 200%;                                                                                                                       /* Declare element selector style rule */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);                                                  /* Declare element selector style rule */
+    opacity: 0;                                                                                                                         /* Declare element selector style rule */
+    transition: opacity 0.4s ease;                                                                                                      /* Declare element selector style rule */
+    pointer-events: none;                                                                                                               /* Define cascaded style sheet property */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
-.project-overview .feature-card:hover::after {
-    opacity: 1;
-}
+.project-overview .feature-card:hover::after {                                                                                          /* Declare class selector style rule */
+    opacity: 1;                                                                                                                         /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 
 /* Enhanced Section Transitions - Now handled by standardized section types */
 
 
 /* ===== CONTACT AND COLLABORATION SECTION ===== */
-.contact-collaboration {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 4rem 0;
-}
+.contact-collaboration {                                                                                                                /* Declare class selector style rule */
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);                                                                      /* Declare element selector style rule */
+    padding: 4rem 0;                                                                                                                    /* Declare element selector style rule */
+}                                                                                                                                       /* Terminate CSS rule block context */
 

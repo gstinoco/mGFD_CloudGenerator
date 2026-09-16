@@ -1,3 +1,30 @@
+{#
+# neighbors.html — Core functionality for neighbors.html
+#
+# Overview:
+# This template provides the structure and UI elements for the neighbors.html view.
+#
+# Credits:
+# All the codes presented below were developed by:
+# Dr. Gerardo Tinoco-Guerrero
+# Dr. Francisco Javier Domínguez-Mota
+# Dr. José Alberto Guzmán-Torres
+# Universidad Michoacana de San Nicolás de Hidalgo
+# gerardo.tinoco@umich.mx
+#
+# With the funding of:
+# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
+Innovación). México.
+# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
+Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+# Aula CIMNE-Morelia. México.
+# SIIIA-MATH: Soluciones de Ingeniería. México.
+#
+# Date:
+# March, 2026.
+# Last Modification:
+# September, 2026.
+#}
 {% extends 'base.html' %}
 
 {% block styles %}
@@ -7,253 +34,266 @@
 
 {% block content %}
 <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-main">
-                    <div class="hero-logo">
-                        <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                            class="logo-image">
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
+                        class="logo-image">
+                </div>
+                <h1 class="hero-title">{{ _('NeighborsCalculator') }}</h1>
+                <p class="hero-subtitle">
+                    {{ _('Calculate neighbors for your point clouds with strict region isolation. Upload CSV files to
+                    generate neighbor lists and visualize the results.') }}
+                </p>
+                <div class="hero-features">
+                    <div class="feature-highlight">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>{{ _('Region Aware') }}</span>
                     </div>
-                    <h1 class="hero-title">{{ _('NeighborsCalculator') }}</h1>
-                    <p class="hero-subtitle">
-                        {{ _('Calculate neighbors for your point clouds with strict region isolation. Upload CSV files to
-                        generate neighbor lists and visualize the results.') }}
-                    </p>
-                    <div class="hero-features">
-                        <div class="feature-highlight">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>{{ _('Region Aware') }}</span>
-                        </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-list-ol"></i>
-                            <span>{{ _('Global Indexing') }}</span>
-                        </div>
-                        <div class="feature-highlight">
-                            <i class="fas fa-file-csv"></i>
-                            <span>{{ _('CSV Export') }}</span>
-                        </div>
+                    <div class="feature-highlight">
+                        <i class="fas fa-list-ol"></i>
+                        <span>{{ _('Global Indexing') }}</span>
+                    </div>
+                    <div class="feature-highlight">
+                        <i class="fas fa-file-csv"></i>
+                        <span>{{ _('CSV Export') }}</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Main Content -->
-    <section class="section-dark">
-        <div class="container">
-            <!-- Module Information -->
-            <div id="moduleInfoCard" class="app-card format-info-card" style="margin-bottom: 25px;">
-                <div class="card-header">
-                    <div class="card-icon gradient-icon">
-                        <i class="fas fa-square-root-alt"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>{{ _('Mathematical Foundations') }}</h3>
-                        <p>{{ _('Understanding the topological requirements for the mGFD method') }}</p>
-                    </div>
+<!-- Main Content -->
+<section class="section-dark">
+    <div class="container">
+        <!-- Module Information -->
+        <div id="moduleInfoCard" class="app-card format-info-card" style="margin-bottom: 25px;">
+            <div class="card-header">
+                <div class="card-icon gradient-icon">
+                    <i class="fas fa-square-root-alt"></i>
                 </div>
-
-                <div class="format-content" style="padding: 20px;">
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 20px; line-height: 1.6;">
-                        {{ _('The <strong>meshless Generalized Finite Difference (mGFD)</strong> method relies on a Taylor polynomial expansion to approximate derivatives over a cloud of points.')|safe }}
-                    </p>
-
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 20px; line-height: 1.6;">
-                        {{ _('To ensure that the resulting system of equations is algebraically determined and
-                        well-conditioned, it is crucial to select a sufficient number of nearest neighbors, denoted as
-                        \( n \), based on the chosen polynomial degree \( m \).') }}
-                    </p>
-
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(59, 130, 246, 0.4); padding: 12px 25px; border-radius: 8px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
-                        <p style="color: #ffffff; font-size: 1rem; font-weight: 500; margin: 0;">{{ _('Minimum recommended neighbors:') }}</p>
-                        <div style="font-size: 1.25rem; font-weight: 600; color: #93c5fd; background: rgba(0, 0, 0, 0.4); padding: 5px 15px; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.3);">
-                            \[ n \ge \frac{(m+1)(m+2)}{2} \]
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <div
-                            style="flex: 1; background: rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;"><i
-                                    class="fas fa-info-circle"
-                                    style="color: var(--accent-blue); margin-right: 8px;"></i>{{ _('For \( m = 2 \)') }}</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">{{ _('A second-degree
-                                polynomial requires at least \( n = 6 \) neighbors.') }}</p>
-                        </div>
-                        <div
-                            style="flex: 1; background: rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;"><i
-                                    class="fas fa-info-circle"
-                                    style="color: var(--accent-blue); margin-right: 8px;"></i>{{ _('For \( m = 3 \)') }}</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">{{ _('A third-degree
-                                polynomial requires at least \( n = 10 \) neighbors.') }}</p>
-                        </div>
-                    </div>
+                <div class="card-title">
+                    <h3>{{ _('Mathematical Foundations') }}</h3>
+                    <p>{{ _('Understanding the topological requirements for the mGFD method') }}</p>
                 </div>
             </div>
 
-            <!-- Upload Section -->
-            <div class="app-card upload-card">
-                <div class="card-header">
-                    <div class="card-icon gradient-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>{{ _('Upload Point Cloud') }}</h3>
-                        <p>{{ _('Select a CSV file with x, y, classification, region columns') }}</p>
+            <div class="format-content" style="padding: 20px;">
+                <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 20px; line-height: 1.6;">
+                    {{ _('The <strong>meshless Generalized Finite Difference (mGFD)</strong> method relies on a Taylor
+                    polynomial expansion to approximate derivatives over a cloud of points.')|safe }}
+                </p>
+
+                <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 20px; line-height: 1.6;">
+                    {{ _('To ensure that the resulting system of equations is algebraically determined and
+                    well-conditioned, it is crucial to select a sufficient number of nearest neighbors, denoted as
+                    \( n \), based on the chosen polynomial degree \( m \).') }}
+                </p>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 20px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(59, 130, 246, 0.4); padding: 12px 25px; border-radius: 8px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
+                    <p style="color: #ffffff; font-size: 1rem; font-weight: 500; margin: 0;">{{ _('Minimum recommended
+                        neighbors:') }}</p>
+                    <div
+                        style="font-size: 1.25rem; font-weight: 600; color: #93c5fd; background: rgba(0, 0, 0, 0.4); padding: 5px 15px; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                        \[ n \ge \frac{(m+1)(m+2)}{2} \]
                     </div>
                 </div>
 
-                <div class="configuration-panel" style="padding: 15px 25px; margin: 0 20px 25px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 10px; border-left: 5px solid #3b82f6; border-top: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 2; min-width: 300px;">
-                            <h4 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-network-wired" style="color: #60a5fa;"></i> {{ _('Neighborhood Settings') }}
-                            </h4>
-                            <p style="color: #e2e8f0; font-size: 0.9rem; margin: 0;">{{ _('Specify the exact number of nearest neighbors to connect for each node.') }}</p>
-                        </div>
-                        <div style="flex: 1; min-width: 150px; max-width: 200px;">
-                            <div style="display: flex; align-items: center; background: rgba(15, 23, 42, 0.95); border: 2px solid rgba(59, 130, 246, 0.5); border-radius: 8px; overflow: hidden; transition: border-color 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);">
-                                <span style="padding: 10px 15px; background: rgba(59, 130, 246, 0.2); color: #ffffff; font-family: monospace; font-weight: 700; border-right: 2px solid rgba(59, 130, 246, 0.3);">{{ _('\( n = \)') }} </span>
-                                <input type="number" id="numNeighbors" value="9" min="3" max="100" style="width: 100%; background: transparent; border: none; color: #ffffff; padding: 10px 15px; font-family: monospace; font-size: 1.2rem; font-weight: 600; outline: none;">
-                            </div>
-                        </div>
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <div
+                        style="flex: 1; background: rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                        <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;"><i
+                                class="fas fa-info-circle" style="color: var(--accent-blue); margin-right: 8px;"></i>{{
+                            _('For \( m = 2 \)') }}</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">{{ _('A second-degree
+                            polynomial requires at least \( n = 6 \) neighbors.') }}</p>
                     </div>
-                </div>
-
-                <div class="upload-zone-container">
-                    <div class="upload-zone" id="uploadZone">
-                        <div class="upload-content" id="uploadContent">
-                            <div class="upload-icon-container">
-                                <i class="fas fa-file-csv upload-icon" id="uploadIcon"></i>
-                                <div class="upload-animation">
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                    <div class="upload-pulse"></div>
-                                </div>
-                            </div>
-                            <h4 class="upload-title" id="uploadTitle">{{ _('Drop your CSV file here') }}</h4>
-                            <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
-                            <div class="upload-formats">
-                                <span class="format-badge">{{ _('CSV') }}</span>
-                            </div>
-                            <div class="upload-size-limit">
-                                <i class="fas fa-info-circle"></i>
-                                <span>{{ _('Maximum file size: 10MB') }}</span>
-                            </div>
-                            <div class="upload-button">
-                                <i class="fas fa-folder-open"></i>
-                                <span>{{ _('Browse Files') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="file" id="csvFileInput" name="file" accept=".csv" style="display: none;">
-                </div>
-            </div>
-
-            <!-- Loading Section -->
-            <div id="loadingSection" class="app-card loading-card hidden">
-                <div class="card-header">
-                    <div class="card-icon gradient-icon processing">
-                        <i class="fas fa-cog fa-spin"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>{{ _('Calculating Neighbors') }}</h3>
-                        <p>{{ _('Processing regions and computing distances...') }}</p>
-                    </div>
-                </div>
-                <div class="progress-content">
-                    <div class="spinner-container">
-                        <div class="spinner"></div>
+                    <div
+                        style="flex: 1; background: rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                        <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;"><i
+                                class="fas fa-info-circle" style="color: var(--accent-blue); margin-right: 8px;"></i>{{
+                            _('For \( m = 3 \)') }}</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">{{ _('A third-degree
+                            polynomial requires at least \( n = 10 \) neighbors.') }}</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Result Section -->
-            <div id="resultSection" class="hidden">
-                <!-- Stats Container Row -->
-                <div id="statsContainer" class="stats-container" style="margin-bottom: 20px;">
-                    <!-- Stats will be inserted here by JS -->
-                </div>
-
-                <!-- Full Width Workspace Layout -->
-                <div class="workspace-fullwidth">
-                    <div class="app-card workspace-unified">
-                        <!-- Horizontal Controls Bar -->
-                        <div class="controls-bar"
-                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(15, 23, 42, 0.3);">
-                            <div class="controls-group" style="display: flex; gap: 10px; align-items: center;">
-                                <div class="card-icon gradient-icon success"
-                                    style="width: 32px; height: 32px; font-size: 0.9rem; padding: 0;">
-                                    <i class="fas fa-check-circle" style="margin: 0; padding: 0;"></i>
-                                </div>
-                                <h3 style="font-size: 1.1rem; margin: 0; color: var(--text-primary);">{{ _('Neighbors
-                                    Visualization') }}</h3>
-                            </div>
-                            <div class="zoom-controls">
-                                <button id="btnResetView" class="control-btn success small" title="{{ _('Reset View') }}">
-                                    <i class="fas fa-expand-arrows-alt"></i> {{ _('Reset View') }}
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Main Canvas Area -->
-                        <div class="canvas-area">
-                            <div class="canvas-wrapper interactive-canvas"
-                                style="position: relative; height: 70vh; width: 100%; background: #1a1f24; border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden;">
-
-                                <!-- Floating Metrics Overlay -->
-                                <div class="canvas-metrics-overlay"
-                                    style="position: absolute; top: 15px; right: 15px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 16px; color: #e2e8f0; font-family: monospace; font-size: 0.9rem; z-index: 10; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);">
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Center ID:') }}</span>
-                                        <strong id="centerIdDisplay" style="color: #ef4444;">{{ _('None') }}</strong>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Region:') }}</span>
-                                        <strong id="regionDisplay" style="color: #60a5fa;">-</strong>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; gap: 20px;">
-                                        <span style="color: #94a3b8;">{{ _('Neighbors Found:') }}</span>
-                                        <strong id="neighborsFoundDisplay" style="color: #10b981;">0</strong>
-                                    </div>
-                                    <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0;"></div>
-                                    <div
-                                        style="display: flex; justify-content: space-between; gap: 20px; font-size: 0.85rem;">
-                                        <span style="color: #94a3b8;">{{ _('Cursor:') }}</span>
-                                        <strong id="coordinatesDisplay">{{ _('X: 0.00, Y: 0.00') }}</strong>
-                                    </div>
-                                </div>
-
-                                <canvas id="cloudCanvas" style="display: block; cursor: crosshair;"></canvas>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Options Bar (Export) -->
-                        <div class="bottom-options-bar"
-                            style="display: flex; justify-content: center; padding: 15px 20px; background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-                            <a id="downloadNeighbors" href="#" class="control-btn primary" download
-                                style="display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 500;">
-                                <i class="fas fa-download"></i>
-                                {{ _('Download Neighbors CSV') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="errorSection" class="alert alert-error hidden"></div>
         </div>
-    </section>
+
+        <!-- Upload Section -->
+        <div class="app-card upload-card">
+            <div class="card-header">
+                <div class="card-icon gradient-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="card-title">
+                    <h3>{{ _('Upload Point Cloud') }}</h3>
+                    <p>{{ _('Select a CSV file with x, y, classification, region columns') }}</p>
+                </div>
+            </div>
+
+            <div class="configuration-panel"
+                style="padding: 15px 25px; margin: 0 20px 25px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 10px; border-left: 5px solid #3b82f6; border-top: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 2; min-width: 300px;">
+                        <h4
+                            style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-network-wired" style="color: #60a5fa;"></i> {{ _('Neighborhood Settings')
+                            }}
+                        </h4>
+                        <p style="color: #e2e8f0; font-size: 0.9rem; margin: 0;">{{ _('Specify the exact number of
+                            nearest neighbors to connect for each node.') }}</p>
+                    </div>
+                    <div style="flex: 1; min-width: 150px; max-width: 200px;">
+                        <div
+                            style="display: flex; align-items: center; background: rgba(15, 23, 42, 0.95); border: 2px solid rgba(59, 130, 246, 0.5); border-radius: 8px; overflow: hidden; transition: border-color 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);">
+                            <span
+                                style="padding: 10px 15px; background: rgba(59, 130, 246, 0.2); color: #ffffff; font-family: monospace; font-weight: 700; border-right: 2px solid rgba(59, 130, 246, 0.3);">{{
+                                _('\( n = \)') }} </span>
+                            <input type="number" id="numNeighbors" value="9" min="3" max="100"
+                                style="width: 100%; background: transparent; border: none; color: #ffffff; padding: 10px 15px; font-family: monospace; font-size: 1.2rem; font-weight: 600; outline: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-zone-container">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon-container">
+                            <i class="fas fa-file-csv upload-icon" id="uploadIcon"></i>
+                            <div class="upload-animation">
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                                <div class="upload-pulse"></div>
+                            </div>
+                        </div>
+                        <h4 class="upload-title" id="uploadTitle">{{ _('Drop your CSV file here') }}</h4>
+                        <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
+                        <div class="upload-formats">
+                            <span class="format-badge">{{ _('CSV') }}</span>
+                        </div>
+                        <div class="upload-size-limit">
+                            <i class="fas fa-info-circle"></i>
+                            <span>{{ _('Maximum file size: 10MB') }}</span>
+                        </div>
+                        <div class="upload-button">
+                            <i class="fas fa-folder-open"></i>
+                            <span>{{ _('Browse Files') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="file" id="csvFileInput" name="file" accept=".csv" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Loading Section -->
+        <div id="loadingSection" class="app-card loading-card hidden">
+            <div class="card-header">
+                <div class="card-icon gradient-icon processing">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <div class="card-title">
+                    <h3>{{ _('Calculating Neighbors') }}</h3>
+                    <p>{{ _('Processing regions and computing distances...') }}</p>
+                </div>
+            </div>
+            <div class="progress-content">
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="hidden">
+            <!-- Stats Container Row -->
+            <div id="statsContainer" class="stats-container" style="margin-bottom: 20px;">
+                <!-- Stats will be inserted here by JS -->
+            </div>
+
+            <!-- Full Width Workspace Layout -->
+            <div class="workspace-fullwidth">
+                <div class="app-card workspace-unified">
+                    <!-- Horizontal Controls Bar -->
+                    <div class="controls-bar"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(15, 23, 42, 0.3);">
+                        <div class="controls-group" style="display: flex; gap: 10px; align-items: center;">
+                            <div class="card-icon gradient-icon success"
+                                style="width: 32px; height: 32px; font-size: 0.9rem; padding: 0;">
+                                <i class="fas fa-check-circle" style="margin: 0; padding: 0;"></i>
+                            </div>
+                            <h3 style="font-size: 1.1rem; margin: 0; color: var(--text-primary);">{{ _('Neighbors
+                                Visualization') }}</h3>
+                        </div>
+                        <div class="zoom-controls">
+                            <button id="btnResetView" class="control-btn success small" title="{{ _('Reset View') }}">
+                                <i class="fas fa-expand-arrows-alt"></i> {{ _('Reset View') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Main Canvas Area -->
+                    <div class="canvas-area">
+                        <div class="canvas-wrapper interactive-canvas"
+                            style="position: relative; height: 70vh; width: 100%; background: #1a1f24; border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden;">
+
+                            <!-- Floating Metrics Overlay -->
+                            <div class="canvas-metrics-overlay"
+                                style="position: absolute; top: 15px; right: 15px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 16px; color: #e2e8f0; font-family: monospace; font-size: 0.9rem; z-index: 10; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);">
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Center ID:') }}</span>
+                                    <strong id="centerIdDisplay" style="color: #ef4444;">{{ _('None') }}</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Region:') }}</span>
+                                    <strong id="regionDisplay" style="color: #60a5fa;">-</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                                    <span style="color: #94a3b8;">{{ _('Neighbors Found:') }}</span>
+                                    <strong id="neighborsFoundDisplay" style="color: #10b981;">0</strong>
+                                </div>
+                                <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0;"></div>
+                                <div
+                                    style="display: flex; justify-content: space-between; gap: 20px; font-size: 0.85rem;">
+                                    <span style="color: #94a3b8;">{{ _('Cursor:') }}</span>
+                                    <strong id="coordinatesDisplay">{{ _('X: 0.00, Y: 0.00') }}</strong>
+                                </div>
+                            </div>
+
+                            <canvas id="cloudCanvas" style="display: block; cursor: crosshair;"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Options Bar (Export) -->
+                    <div class="bottom-options-bar"
+                        style="display: flex; justify-content: center; padding: 15px 20px; background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                        <a id="downloadNeighbors" href="#" class="control-btn primary" download
+                            style="display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 500;">
+                            <i class="fas fa-download"></i>
+                            {{ _('Download Neighbors CSV') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorSection" class="alert alert-error hidden"></div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-        const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
-    </script>
+    const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
+</script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/neighbors.js') }}"></script>
 {% endblock %}
