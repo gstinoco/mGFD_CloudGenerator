@@ -112,17 +112,17 @@
 
 ```python
 # Web framework
-Flask==3.1.1
-Werkzeug==3.1.3
+Flask==3.1.3
+Werkzeug==3.1.8
 
 # Computer vision / geometry
-opencv-python-headless==4.12.0.88
+opencv-python-headless==5.0.0.93
 shapely==2.1.1
 
 # Scientific computing
-numpy==2.2.6
-scipy==1.15.2
-matplotlib==3.10.0
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
 
 # Mathematical algorithms for generating clouds
 mGFD==0.12.1

@@ -34,3 +34,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed `ModuleNotFoundError: No module named 'cloud_modules.data_processing'` in `routes/viewer.py` by pointing to the newly refactored `read_cloud_data` function in `analysis_modules.neighbors`.
 - Fixed `ValueError: The truth value of an array with more than one element is ambiguous` in `routes/viewer.py` when verifying NumPy arrays in boolean logic statements (now checks `if points is None or len(points) == 0`).
 - Fixed HTTP 404 error on the homepage (`/`) by correcting the empty `main_bp` blueprint registration in `routes/__init__.py`.
+
+### Security
+- Upgraded `Werkzeug` to `3.1.8` to patch a Dependabot security alert (`safe_join()` vulnerability on Windows).
+
+### Dependencies
+- Upgraded `Flask` to `3.1.3`.
+- Upgraded `opencv-python-headless` to `5.0.0.93`.
+- Upgraded `numpy` to `2.5.3`.
+- Upgraded `scipy` to `1.18.1`.
+- Upgraded `matplotlib` to `3.11.2`.
