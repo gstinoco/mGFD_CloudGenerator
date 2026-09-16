@@ -142,6 +142,22 @@ source cloudgen_env/bin/activate  # On Windows: cloudgen_env\Scripts\activate
 pip install -r requirements.txt
 ```
 
+### 🐳 Docker Deployment (Production)
+
+For a production-ready environment avoiding OS-level dependency conflicts (especially with OpenCV and PyVista/VTK), use Docker:
+
+```bash
+git clone https://github.com/gstinoco/mGFD_CloudGenerator.git
+cd mGFD_CloudGenerator
+
+# Build and start the container in detached mode
+docker compose up -d --build
+
+# The application will be available at http://localhost:8000
+# To view logs: docker compose logs -f
+# To stop the application: docker compose down
+```
+
 ### :white_check_mark: Installation Verification
 
 ```bash

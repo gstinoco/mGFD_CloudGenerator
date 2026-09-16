@@ -1,0 +1,33 @@
+# Version control
+.git
+.gitignore
+
+# Environment and agents
+.agents
+.venv
+venv
+env
+cloudgen_env
+
+# Python caching
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+
+# Editor and IDE configurations
+.vscode
+.idea
+*.swp
+
+# Project runtime folders (keep container stateless)
+uploads/
+output/
+logs/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/

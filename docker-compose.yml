@@ -1,0 +1,14 @@
+services:
+  cloudgenerator:
+    build: .
+    container_name: mgfd-cloudgenerator
+    restart: unless-stopped
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+      - ./output:/app/output
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
