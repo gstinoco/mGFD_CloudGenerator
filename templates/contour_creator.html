@@ -315,7 +315,7 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
         }
     </script>
 <script>
-    const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
+    const BASE_URL = "{{ url_for('main.home').rstrip('/') }}";
     window.I18N = JSON.parse(document.getElementById('i18n-data').textContent);
 </script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>

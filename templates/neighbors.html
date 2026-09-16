@@ -292,7 +292,7 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-    const BASE_URL = "{{ url_for('main.home', _external=True).rstrip('/') }}";
+    const BASE_URL = "{{ url_for('main.home').rstrip('/') }}";
 </script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/neighbors.js') }}"></script>
