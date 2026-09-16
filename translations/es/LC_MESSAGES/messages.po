@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mGFD CloudGenerator 2.2\n"
 "Report-Msgid-Bugs-To: gerardo.tinoco@umich.mx\n"
-"POT-Creation-Date: 2026-09-16 13:18-0600\n"
+"POT-Creation-Date: 2026-09-16 13:27-0600\n"
 "PO-Revision-Date: 2026-08-03 21:17-0600\n"
 "Last-Translator: Gerardo Tinoco-Guerrero <gerardo.tinoco@umich.mx>\n"
 "Language: es\n"
@@ -221,8 +221,9 @@ msgid "MIT licensed for collaboration"
 msgstr "Licencia del MIT para colaboración"
 
 #: templates/about.html:142 templates/base.html:85
-msgid "v2.1"
-msgstr "v2.1"
+#, fuzzy
+msgid "v2.2"
+msgstr "v2.2"
 
 #: templates/about.html:143
 msgid "Latest Version"
