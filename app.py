@@ -54,6 +54,11 @@ from flask_babel import Babel                                                   
 
 app = Flask(__name__, static_url_path='/static')                                                                                        # Boot application instance
 
+# Add APP_VERSION to templates for Cache-Busting
+@app.context_processor
+def inject_app_version():
+    return dict(APP_VERSION='2.3')
+
 def get_locale():
     """
     get_locale
@@ -264,4 +269,4 @@ if __name__ == '__main__':                                                      
     cleanup_thread.start()                                                                                                              # Dispatch background worker daemon logic stream run
     app.logger.info("Started background file cleanup task")                                                                             # Announce success process startup operation message log
 
-    app.run(host='0.0.0.0', port=5001, debug=False)                                                                                     # Initialize application networking bind protocol port stream
+    app.run(host='0.0.0.0', port=5001, debug=True)                                                                                      # Initialize application networking bind protocol port stream

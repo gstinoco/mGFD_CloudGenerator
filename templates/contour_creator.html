@@ -1,276 +1,327 @@
-{#
-# contour_creator.html — Core functionality for contour_creator.html
-#
-# Overview:
-# This template provides the structure and UI elements for the contour_creator.html view.
-#
-# Credits:
-# All the codes presented below were developed by:
-# Dr. Gerardo Tinoco-Guerrero
-# Dr. Francisco Javier Domínguez-Mota
-# Dr. José Alberto Guzmán-Torres
-# Universidad Michoacana de San Nicolás de Hidalgo
-# gerardo.tinoco@umich.mx
-#
-# With the funding of:
-# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
-Innovación). México.
-# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
-Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
-# Aula CIMNE-Morelia. México.
-# SIIIA-MATH: Soluciones de Ingeniería. México.
-#
-# Date:
-# March, 2026.
-# Last Modification:
-# September, 2026.
-#}
-{% extends 'base.html' %}
+<!--
+contour_creator.html — Core functionality for contour_creator.html
 
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/tools.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/contour_creator.css') }}">
-{% endblock %}
+Overview:
+    HTML template for the contour_creator module.
+
+Credits:
+    All the codes presented below were developed by:
+        Dr. Gerardo Tinoco-Guerrero
+        Dr. Francisco Javier Domínguez-Mota
+        Dr. José Alberto Guzmán-Torres
+        Universidad Michoacana de San Nicolás de Hidalgo
+        gerardo.tinoco@umich.mx
+
+    With the funding of:
+        Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+        Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+        Aula CIMNE-Morelia. México.
+        SIIIA-MATH: Soluciones de Ingeniería. México.
+
+Date:
+    August, 2025.
+Last Modification:
+    September, 2026.
+-->
+{% extends 'base.html' %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-main">
-                <div class="hero-logo">
-                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                        class="logo-image">
-                </div>
-                <h1 class="hero-title">{{ _('ContourCreator') }}</h1>
-                <p class="hero-subtitle">{{ _('Transform images into precise geometric contours using advanced automatic
-                    segmentation algorithms. Perfect for computational modeling and point cloud generation
-                    workflows.') }}</p>
-                <div class="hero-features">
-                    <div class="feature-highlight">
-                        <i class="fas fa-magic"></i>
-                        <span>{{ _('Automatic Segmentation') }}</span>
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-vector-square"></i>
-                        <span>{{ _('Precise Contours') }}</span>
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-download"></i>
-                        <span>{{ _('Export Ready') }}</span>
-                    </div>
-                </div>
+<section
+    class="relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-40 bg-apple-light dark:bg-black min-h-screen flex items-center justify-center">
+
+    <!-- Animated Background Canvas -->
+    <canvas id="contour-bg-canvas" class="absolute inset-0 z-0 opacity-40"></canvas>
+
+    <!-- Background Glows -->
+    <div
+        class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/20 dark:bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2">
+    </div>
+    <div
+        class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-teal-500/20 dark:bg-teal-500/10 rounded-full blur-[100px] pointer-events-none translate-y-1/3">
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 text-center relative z-10 w-full">
+
+        <!-- Badge -->
+        <div
+            class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 mb-8 opacity-0 animate-[fade-in-up_0.8s_ease-out_forwards]">
+            <span class="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,1)]"></span>
+            {{ _('ContourCreator Module') }}
+        </div>
+
+        <!-- Main Typography -->
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black dark:text-white mb-6 max-w-5xl mx-auto drop-shadow-2xl leading-tight opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+            {{ _('Extract contours.') }} <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:via-teal-300 dark:to-white">{{ _('With
+                absolute precision.') }}</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards]">
+            {{ _('Transform images into precise geometric boundaries using advanced automatic segmentation algorithms.
+            Built exclusively for computational modeling and meshless workflows.') }}
+        </p>
+
+        <!-- Feature Pills -->
+        <div class="flex flex-wrap justify-center gap-3 md:gap-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
+            <div
+                class="flex items-center gap-2 rounded-full bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 backdrop-blur-sm transition-colors hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-magic text-blue-600 dark:text-blue-400"></i> {{ _('Auto-Segmentation') }}
+            </div>
+            <div
+                class="flex items-center gap-2 rounded-full bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 backdrop-blur-sm transition-colors hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-vector-square text-teal-600 dark:text-teal-400"></i> {{ _('Node Generation') }}
+            </div>
+            <div
+                class="flex items-center gap-2 rounded-full bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 backdrop-blur-sm transition-colors hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-download text-purple-600 dark:text-purple-400"></i> {{ _('Export Ready') }}
             </div>
         </div>
+    </div>
+
+    <!-- Fade out bottom -->
+    <div
+        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-100 dark:from-black to-transparent z-10 pointer-events-none">
     </div>
 </section>
 
-<!-- Main Application Section -->
-<section class="section-dark">
-    <div class="container">
-        <!-- Upload Section -->
-        <div class="app-card upload-card" id="uploadSection">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-cloud-upload-alt"></i>
+<!-- Main Workspace -->
+<section id="uploadSection" class="py-12 md:py-16 bg-gray-100 dark:bg-[#0a0a0a] min-h-[40vh] relative">
+    <div class="mx-auto max-w-5xl px-6">
+
+        <!-- Upload Section Card -->
+        <div class="premium-card bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-0 overflow-hidden shadow-xl dark:shadow-2xl relative">
+
+            <!-- Original Left-Aligned Card Header -->
+            <div
+                class="flex flex-col sm:flex-row items-center sm:items-start sm:justify-start gap-4 p-6 md:p-8 border-b border-black/5 dark:border-white/5 bg-white dark:bg-[#111]">
+                <div
+                    class="h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+                    <i class="fas fa-cloud-upload-alt text-xl"></i>
                 </div>
-                <div class="card-title">
-                    <h3>{{ _('Upload Image') }}</h3>
-                    <p>{{ _('Drag and drop your image or click to browse') }}</p>
+                <div class="text-center sm:text-left">
+                    <h3 class="text-xl font-bold text-black dark:text-white mb-1">{{ _('Upload Image') }}</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{{ _('Drag and drop your image or click to browse') }}</p>
                 </div>
             </div>
-            <div class="upload-zone-container">
-                <div class="upload-zone" id="uploadZone">
-                    <div class="upload-content" id="uploadContent">
-                        <div class="upload-icon-container">
-                            <i class="fas fa-cloud-upload-alt upload-icon" id="uploadIcon"></i>
-                            <div class="upload-animation">
-                                <div class="upload-pulse"></div>
-                                <div class="upload-pulse"></div>
-                                <div class="upload-pulse"></div>
-                            </div>
+
+            <!-- Upload Dropzone Area -->
+            <div class="p-6 md:p-8">
+                <div class="group relative rounded-2xl border-2 border-dashed border-black/10 dark:border-white/10 bg-white dark:bg-[#111] hover:bg-black/5 dark:hover:bg-white/5 hover:border-blue-500/50 transition-all duration-300 p-12 text-center cursor-pointer overflow-hidden"
+                    id="uploadZone">
+                    <div id="uploadContent" class="relative z-10">
+                        <div
+                            class="h-16 w-16 mx-auto rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 mb-6 group-hover:-translate-y-1 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-500/10 group-hover:border-blue-300 dark:group-hover:border-blue-500/30 transition-all">
+                            <i class="fas fa-cloud-upload-alt text-2xl" id="uploadIcon"></i>
                         </div>
-                        <h4 class="upload-title" id="uploadTitle">{{ _('Drop your image here') }}</h4>
-                        <p class="upload-subtitle" id="uploadSubtitle">{{ _('or click to browse files') }}</p>
-                        <div class="upload-formats">
-                            <span class="format-badge">{{ _('JPG') }}</span>
-                            <span class="format-badge">{{ _('PNG') }}</span>
-                        </div>
-                        <div class="upload-size-limit">
-                            <i class="fas fa-info-circle"></i>
-                            <span>{{ _('Maximum file size: 10MB') }}</span>
-                        </div>
-                        <div class="upload-button">
-                            <i class="fas fa-folder-open"></i>
-                            <span>{{ _('Browse Files') }}</span>
+                        <h4 id="uploadTitle" class="text-xl font-bold text-black dark:text-white mb-2">{{ _('Drop your image here') }}
+                        </h4>
+                        <p id="uploadSubtitle" class="text-gray-600 dark:text-gray-400 mb-8">{{ _('or click to browse files') }}</p>
+
+                        <div class="flex justify-center gap-3">
+                            <span
+                                class="rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 py-1 text-xs font-mono text-gray-600 dark:text-gray-400">{{
+                                _('JPG') }}</span>
+                            <span
+                                class="rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 py-1 text-xs font-mono text-gray-600 dark:text-gray-400">{{
+                                _('PNG') }}</span>
+                            <span
+                                class="rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 py-1 text-xs font-mono text-gray-600 dark:text-gray-400">{{
+                                _('Max 10MB') }}</span>
                         </div>
                     </div>
-                    <div class="upload-progress" id="uploadProgress" style="display: none;">
-                        <div class="progress-circle">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring-circle" stroke="#3b82f6" stroke-width="4"
-                                    fill="transparent" r="26" cx="30" cy="30" />
+
+                    <div id="uploadProgress" class="relative z-10 hidden py-8 text-center flex-col items-center justify-center w-full h-full">
+                        <div class="relative w-20 h-20 mx-auto mb-6">
+                            <!-- Background track -->
+                            <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="36" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="4" class="dark:stroke-[rgba(255,255,255,0.1)]"></circle>
+                                <circle class="progress-ring-circle transition-all duration-300 ease-out" 
+                                        cx="40" cy="40" r="36" fill="none" stroke="#3b82f6" stroke-width="4"
+                                        stroke-dasharray="226.19" stroke-dashoffset="226.19"></circle>
                             </svg>
-                            <span class="progress-text" id="progressText">0%</span>
-                        </div>
-                        <p class="progress-message" id="progressMessage">{{ _('Uploading image...') }}</p>
-                    </div>
-                    <div class="upload-success" id="uploadSuccess" style="display: none;">
-                        <div class="success-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h4>{{ _('Upload Successful!') }}</h4>
-                        <p id="uploadedFileName">{{ _('Image uploaded successfully') }}</p>
-                    </div>
-                    <div class="upload-error" id="uploadError" style="display: none;">
-                        <div class="error-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <h4>{{ _('Upload Error') }}</h4>
-                        <p id="errorMessage">{{ _('Please try again') }}</p>
-                        <button class="btn btn-secondary btn-small" onclick="resetUpload()">
-                            <i class="fas fa-redo"></i>
-                            {{ _('Try Again') }}
-                        </button>
-                    </div>
-                </div>
-                <input type="file" id="fileInput" accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp"
-                    style="display: none;">
-            </div>
-            <div class="upload-actions">
-                <button class="btn btn-secondary" id="clearButton" onclick="clearUpload()" style="display: none;">
-                    <i class="fas fa-times"></i>
-                    <span>{{ _('Clear') }}</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Image Processing Section -->
-        <div id="imageSection" class="hidden">
-            <!-- Full Width Workspace Layout -->
-            <div class="workspace-fullwidth">
-                <!-- Unified Workspace Container -->
-                <div class="app-card workspace-unified">
-                    <!-- Horizontal Controls Bar -->
-                    <div class="controls-bar">
-                        <div class="controls-group">
-                            <button class="control-btn primary" onclick="addRegion()" id="addRegionBtn" disabled>
-                                <i class="fas fa-plus-circle"></i>
-                                <span>{{ _('Add Region') }}</span>
-                            </button>
-                            <button class="control-btn refine" onclick="toggleRefineMode()" id="refineModeToggle"
-                                disabled>
-                                <i class="fas fa-edit"></i>
-                                <span>{{ _('Refine Selection') }}</span>
-                            </button>
-                            <button class="control-btn warning" onclick="clearAllRegions()" id="clearBtn" disabled>
-                                <i class="fas fa-trash-alt"></i>
-                                <span>{{ _('Clear All') }}</span>
-                            </button>
-
-                        </div>
-
-                        <div class="zoom-controls">
-                            <button class="zoom-btn" onclick="zoomOut()" title="{{ _('Zoom Out') }}">
-                                <i class="fas fa-search-minus"></i>
-                            </button>
-                            <span id="zoomLevel" class="zoom-level">100%</span>
-                            <button class="zoom-btn" onclick="zoomIn()" title="{{ _('Zoom In') }}">
-                                <i class="fas fa-search-plus"></i>
-                            </button>
-                            <button class="zoom-btn" onclick="resetZoom()" title="{{ _('Reset Zoom') }}">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Refine Controls -->
-                    <div class="refine-controls-bar" id="refineControls" style="display: none;">
-                        <div class="refine-instructions">
-                            <span class="refine-text">
-                                <i class="fas fa-info-circle"></i>
-                                {{ _('Click to add areas (+) or hold Shift to remove (-)') }}
-                            </span>
-                        </div>
-
-                        <div class="refine-tools">
-                            <div class="brush-size-control">
-                                <label>
-                                    <i class="fas fa-paint-brush"></i>
-                                    <input type="range" id="refineBrushSize" min="1" max="20" value="10"
-                                        onchange="updateBrushSize(this.value)">
-                                    <span id="brushSizeValue">{{ _('10') }}px</span>
-                                </label>
+                            <!-- Text in center -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="progressText" class="text-lg font-bold text-black dark:text-white font-mono">0%</span>
                             </div>
-
-                            <button class="refine-btn undo" onclick="undoLastStroke()" id="undoLastBtn" disabled>
-                                <i class="fas fa-undo-alt"></i>
-                                <span>{{ _('Undo Last') }}</span>
-                            </button>
-
-                            <button class="refine-btn clear" onclick="clearAllRefinements()">
-                                <i class="fas fa-undo"></i>
-                                <span>{{ _('Clear All') }}</span>
-                            </button>
-
-                            <button class="refine-btn apply" onclick="applyRefinements()" id="applyRefineBtn" disabled>
-                                <i class="fas fa-check"></i>
-                                <span>{{ _('Apply') }}</span>
-                            </button>
-
-                            <button class="refine-btn cancel" onclick="exitRefineMode()">
-                                <i class="fas fa-times"></i>
-                                <span>{{ _('Exit') }}</span>
-                            </button>
                         </div>
+                        <p id="progressMessage" class="text-lg font-bold text-gray-700 dark:text-gray-300">{{ _('Uploading image...') }}</p>
                     </div>
 
-                    <!-- Canvas Area -->
-                    <div class="canvas-container">
-                        <canvas id="imageCanvas"></canvas>
+                    <div id="uploadSuccess" class="relative z-10 hidden py-8">
+                        <div
+                            class="h-16 w-16 mx-auto rounded-2xl bg-green-100 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400 mb-6">
+                            <i class="fas fa-check-circle text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-black dark:text-white mb-2">{{ _('Upload Successful!') }}</h4>
+                        <p id="uploadedFileName" class="text-green-600 dark:text-green-400">{{ _('Image uploaded successfully') }}</p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Detected Regions Section -->
-            <div id="regionsDisplay" class="app-card regions-card hidden">
-                <div class="card-header"
-                    style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <div class="card-icon">
-                            <i class="fas fa-bullseye"></i>
+                    <div id="uploadError" class="relative z-10 hidden py-8">
+                        <div
+                            class="h-16 w-16 mx-auto rounded-2xl bg-red-100 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 flex items-center justify-center text-red-600 dark:text-red-400 mb-6">
+                            <i class="fas fa-exclamation-triangle text-2xl"></i>
                         </div>
-                        <div class="card-title">
-                            <h3 style="margin: 0; padding: 0;">{{ _('Detected Regions') }}</h3>
-                            <p style="margin: 0; padding: 0;">{{ _('Review and manage your contours') }}</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <div class="toggle-container" title="{{ _('Scale coordinates to [0, 1] range') }}">
-                            <span class="toggle-label">{{ _('Normalize Results') }}</span>
-                            <label class="switch">
-                                <input type="checkbox" id="normalizeCoords" checked>
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-
-                        <button class="control-btn success" onclick="saveAllCoordinates()" id="saveBtn" disabled
-                            style="height: 42px;">
-                            <i class="fas fa-download"></i>
-                            <span>{{ _('Export All') }}</span>
+                        <h4 class="text-lg font-bold text-black dark:text-white mb-2">{{ _('Upload Error') }}</h4>
+                        <p id="errorMessage" class="text-gray-600 dark:text-gray-400 mb-6">{{ _('Please try again') }}</p>
+                        <button
+                            class="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-500/20 border border-red-200 dark:border-red-500/30 px-6 py-2.5 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-500/30 transition-colors"
+                            onclick="event.stopPropagation(); resetUpload()">
+                            <i class="fas fa-redo"></i> {{ _('Try Again') }}
                         </button>
                     </div>
                 </div>
-                <div id="regionsList" class="regions-list-enhanced"></div>
+
+                <input type="file" id="fileInput" accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp"
+                    class="hidden">
+
+                <div class="text-right mt-6">
+                    <button id="clearButton"
+                        class="hidden inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                        onclick="clearUpload()">
+                        <i class="fas fa-times"></i> {{ _('Clear Image') }}
+                    </button>
+                </div>
+            </div> <!-- ends p-6 md:p-8 -->
+        </div> <!-- ends uploadSection -->
+    </div> <!-- ends mx-auto container -->
+</section> <!-- ends Main Workspace section -->
+
+<!-- Image Processing Workspace -->
+<section id="imageSection" class="hidden py-12 md:py-16 bg-gray-100 dark:bg-[#0a0a0a] min-h-[40vh] relative">
+
+    <div class="mx-auto w-full max-w-[1600px] px-6">
+        <div class="premium-card bg-white dark:bg-[#0a0a0a] border border-black/10 dark:border-white/10 p-0 overflow-hidden shadow-xl dark:shadow-2xl">
+
+
+            <!-- Main Toolbar -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-50 dark:bg-[#111] border-b border-black/10 dark:border-white/10 gap-4">
+                <div class="flex flex-wrap items-center gap-3">
+                    <button
+                        class="btn-primary py-2 px-4 shadow-[0_0_15px_rgba(59,130,246,0.3)] disabled:opacity-50 disabled:shadow-none"
+                        onclick="addRegion()" id="addRegionBtn" disabled>
+                        <i class="fas fa-plus-circle"></i> {{ _('Add Region') }}
+                    </button>
+                    <button
+                        class="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/20 transition-all disabled:opacity-50"
+                        onclick="toggleRefineMode()" id="refineModeToggle" disabled>
+                        <i class="fas fa-edit"></i> <span>{{ _('Refine Selection') }}</span>
+                    </button>
+                    <button
+                        class="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 px-4 py-2 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-500/20 transition-all disabled:opacity-50"
+                        onclick="clearAllRegions()" id="clearBtn" disabled>
+                        <i class="fas fa-trash-alt"></i> {{ _('Clear All') }}
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-2 bg-black/5 dark:bg-black/50 rounded-full border border-black/10 dark:border-white/10 p-1">
+                    <button
+                        class="h-8 w-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                        onclick="zoomOut()" title="{{ _('Zoom Out') }}">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <span id="zoomLevel" class="font-mono text-xs text-black dark:text-white px-3 border-x border-black/10 dark:border-white/10">100%</span>
+                    <button
+                        class="h-8 w-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                        onclick="zoomIn()" title="{{ _('Zoom In') }}">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button
+                        class="h-8 w-8 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors ml-1"
+                        onclick="resetZoom()" title="{{ _('Reset Zoom') }}">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                </div>
             </div>
 
+            <!-- Refine Controls Bar -->
+            <div id="refineControls" class="hidden p-4 bg-gray-50 dark:bg-[#111] border-b border-black/10 dark:border-white/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <span class="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
+                        <i class="fas fa-info-circle text-blue-600 dark:text-blue-400"></i> {{ _('Click to add areas (+) or hold Shift to
+                        remove (-)') }}
+                    </span>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex items-center gap-3 bg-black/5 dark:bg-black/50 px-4 py-2 rounded-full border border-black/10 dark:border-white/10">
+                            <i class="fas fa-paint-brush text-gray-500 dark:text-gray-400"></i>
+                            <input type="range" id="refineBrushSize" min="1" max="20" value="10"
+                                class="w-24 accent-blue-500" onchange="updateBrushSize(this.value)">
+                            <span id="brushSizeValue" class="font-mono text-sm text-blue-600 dark:text-blue-400 w-8">{{ _('10') }}px</span>
+                        </div>
+
+                        <button
+                            class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors disabled:opacity-50"
+                            onclick="undoLastStroke()" id="undoLastBtn" disabled>
+                            <i class="fas fa-undo-alt"></i> {{ _('Undo') }}
+                        </button>
+                        <button
+                            class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                            onclick="clearAllRefinements()">
+                            <i class="fas fa-times-circle"></i> {{ _('Clear') }}
+                        </button>
+                        <div class="w-px h-4 bg-black/20 dark:bg-white/20 mx-2"></div>
+                        <button
+                            class="inline-flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 px-4 py-1.5 text-sm font-medium hover:bg-green-200 dark:hover:bg-green-500/30 transition-colors disabled:opacity-50"
+                            onclick="applyRefinements()" id="applyRefineBtn" disabled>
+                            <i class="fas fa-check"></i> {{ _('Apply') }}
+                        </button>
+                        <button
+                            class="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/10 text-black dark:text-white px-4 py-1.5 text-sm font-medium hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
+                            onclick="exitRefineMode()">
+                            <i class="fas fa-times"></i> {{ _('Exit') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div id="workspaceContainer"
+                class="relative min-h-[500px] w-full bg-gray-100 dark:bg-[#0a0a0a] overflow-hidden flex items-center justify-center rounded-2xl border border-black/5 dark:border-white/5 shadow-inner dark:shadow-2xl p-4 cursor-crosshair">
+                <canvas id="imageCanvas" class="shadow-lg dark:shadow-2xl rounded-lg touch-none"></canvas>
+            </div>
         </div>
 
-        <!-- Floating Notifications Container -->
-        <div id="floatingNotifications" class="floating-notifications"></div>
+        <!-- Detected Regions Section -->
+        <div id="regionsDisplay" class="premium-card bg-white dark:bg-[#0a0a0a] border border-black/10 dark:border-white/10 mt-8 hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-black dark:text-white mb-2 flex items-center gap-3">
+                        <i class="fas fa-bullseye text-blue-600 dark:text-blue-500"></i> {{ _('Detected Regions') }}
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{ _('Review and manage your contours') }}</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <div class="relative flex items-center justify-center">
+                            <input type="checkbox" id="normalizeCoords" checked class="peer sr-only">
+                            <div
+                                class="h-5 w-5 rounded border border-black/30 dark:border-white/30 bg-white dark:bg-black peer-checked:bg-blue-600 dark:peer-checked:bg-blue-500 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 transition-all flex items-center justify-center shadow-inner">
+                                <i
+                                    class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all"></i>
+                            </div>
+                        </div>
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-medium group-hover:text-black dark:group-hover:text-white transition-colors">{{
+                            _('Normalize
+                            Results') }}</span>
+                    </label>
 
-        <div id="alertContainer" class="alert-container"></div>
+                    <button
+                        class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all disabled:opacity-50 disabled:shadow-none"
+                        onclick="saveAllCoordinates()" id="saveBtn" disabled>
+                        <i class="fas fa-download"></i> {{ _('Export All') }}
+                    </button>
+                </div>
+            </div>
+
+            <div id="regionsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
     </div>
+
+    <div id="floatingNotifications" class="fixed bottom-8 right-8 z-50 flex flex-col gap-4 pointer-events-none"></div>
+    <div id="alertContainer"></div>
 </section>
 {% endblock %}
 
@@ -301,6 +352,8 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
             "lastStrokeUndone": {{ _('Last stroke undone.') | tojson }},
             "allRefinementsCleared": {{ _('All refinements cleared.') | tojson }},
             "noRefinementsApply": {{ _('No refinements to apply.') | tojson }},
+            "nodeRetention": {{ _('Node Retention') | tojson }},
+            "nodesText": {{ _('nodes') | tojson }},
             "refinementApplied": {{ _('Refinement applied successfully.') | tojson }},
             "errorApplying": {{ _('Error applying refinement.') | tojson }},
             "noRegionsTitle": {{ _('No regions detected') | tojson }},
@@ -308,6 +361,17 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
             "regionPrefix": {{ _('Region') | tojson }},
             "tempRegionDetected": {{ _('Temporary region detected with {count} points. Click "Add Region" to confirm.') | tojson }},
             "areaAdded": {{ _('Area added.') | tojson }},
+            "uploadingFile": {{ _('Uploading {filename}...') | tojson }},
+            "fileUploadedSuccessfully": {{ _('File uploaded successfully!') | tojson }},
+            "dropImageHere": {{ _('Drop your image here') | tojson }},
+            "processImmediately": {{ _('We will process your file immediately') | tojson }},
+            "clickToBrowse": {{ _('or click to browse files') | tojson }},
+            "pleaseSelectFile": {{ _('Please select a file') | tojson }},
+            "imageUploadedSuccessfully": {{ _('Image uploaded successfully') | tojson }},
+            "errorUploadingFile": {{ _('Error uploading file:') | tojson }},
+            "successTitle": {{ _('Success') | tojson }},
+            "errorTitle": {{ _('Error') | tojson }},
+            "notificationTitle": {{ _('Notification') | tojson }},
             "areaRemoved": {{ _('Area removed.') | tojson }},
             "applying": {{ _(' Applying...') | tojson }},
             "nodeRetention": {{ _('Node Retention') | tojson }},
@@ -320,4 +384,92 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
 </script>
 <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/contour_creator.js') }}"></script>
+
+<!-- Hero Background Animation -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('contour-bg-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let points = [];
+
+        // Resize handler with high DPI support
+        function resize() {
+            width = canvas.parentElement.clientWidth;
+            height = canvas.parentElement.clientHeight;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            initPoints();
+        }
+
+        // Initialize random nodes
+        function initPoints() {
+            points = [];
+            // Density based on screen size
+            const numPoints = Math.min(Math.floor((width * height) / 12000), 150);
+
+            for (let i = 0; i < numPoints; i++) {
+                points.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    radius: Math.random() * 1.5 + 0.5
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Update positions & bounce off edges
+            points.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+            });
+
+            // Draw connections (Contours)
+            ctx.lineWidth = 1;
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dx = points[i].x - points[j].x;
+                    const dy = points[i].y - points[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    // Connect nearby nodes
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        const alpha = (1 - dist / 120) * 0.4;
+                        ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`; // Purple-500
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw Nodes
+            points.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.7)'; // Indigo-500
+                ctx.fill();
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+    });
+</script>
 {% endblock %}

@@ -1,257 +1,234 @@
-{#
-# base.html — Core functionality for base.html
-#
-# Overview:
-# This template provides the structure and UI elements for the base.html view.
-#
-# Credits:
-# All the codes presented below were developed by:
-# Dr. Gerardo Tinoco-Guerrero
-# Dr. Francisco Javier Domínguez-Mota
-# Dr. José Alberto Guzmán-Torres
-# Universidad Michoacana de San Nicolás de Hidalgo
-# gerardo.tinoco@umich.mx
-#
-# With the funding of:
-# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
-Innovación). México.
-# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
-Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
-# Aula CIMNE-Morelia. México.
-# SIIIA-MATH: Soluciones de Ingeniería. México.
-#
-# Date:
-# March, 2026.
-# Last Modification:
-# September, 2026.
-#}
+<!--
+base.html — Core functionality for base.html
+
+Overview:
+    HTML template for the base module.
+
+Credits:
+    All the codes presented below were developed by:
+        Dr. Gerardo Tinoco-Guerrero
+        Dr. Francisco Javier Domínguez-Mota
+        Dr. José Alberto Guzmán-Torres
+        Universidad Michoacana de San Nicolás de Hidalgo
+        gerardo.tinoco@umich.mx
+
+    With the funding of:
+        Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+        Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+        Aula CIMNE-Morelia. México.
+        SIIIA-MATH: Soluciones de Ingeniería. México.
+
+Date:
+    August, 2025.
+Last Modification:
+    September, 2026.
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.webp') }}">
+    <title>{{ _('mGFD: CloudGenerator v2.3') }}</title>
 
-    <!-- SEO Meta Tags -->
-    {% block meta %}
-    <title>{{ _('mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation') }}</title>
-    <meta name="description"
-        content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research, engineering, and data visualization.">
-    <meta name="keywords"
-        content="point cloud, contour creation, image processing, scientific visualization, cloud generation, data analysis, engineering tools, research software">
-    <meta name="author" content="Gerardo Tinoco-Guerrero, PhD.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.url }}">
-    <meta property="og:title" content="mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation">
-    <meta property="og:description"
-        content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research and engineering.">
-    <meta property="og:image" content="{{ url_for('static', filename='images/logo.webp', _external=True) }}">
-    <meta property="og:site_name" content="mGFD CloudGenerator">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ request.url }}">
-    <meta property="twitter:title" content="mGFD: CloudGenerator 2.2 | Advanced Point Cloud Generation">
-    <meta property="twitter:description"
-        content="Professional tool for generating point clouds and creating contours from images. Advanced algorithms for scientific research and engineering.">
-    <meta property="twitter:image" content="{{ url_for('static', filename='images/logo.webp', _external=True) }}">
-    {% endblock %}
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ request.url }}">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=2.3">
+    <!-- Tailwind CSS Output -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}?v={{ APP_VERSION }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     {% block styles %}{% endblock %}
 </head>
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="{{ url_for('main.home') }}" class="nav-logo">
-                <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="CloudGenerator Logo">
-                <div class="logo-text">
-                    <span class="logo-title">{{ _('&nbsp;') }}</span>
-                    <span class="logo-subtitle">{{ _('v2.2') }}</span>
-                </div>
+<body
+    class="flex min-h-screen flex-col bg-apple-light text-apple-dark dark:bg-black dark:text-white font-sans antialiased selection:bg-apple-blue selection:text-white">
+
+    <!-- Floating Navigation -->
+    <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4 pointer-events-none">
+        <nav
+            class="pointer-events-auto bg-white/70 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)] px-6 py-3 flex items-center justify-between w-[100%] max-w-[80%] xl:max-w-[85rem] transition-all duration-300">
+
+            <!-- Brand -->
+            <a href="{{ url_for('main.home') }}" class="flex items-center gap-4 transition-opacity hover:opacity-80">
+                <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="CloudGenerator Logo"
+                    class="filter dark:invert opacity-90" style="height: 60px; width: auto;">
+                <span
+                    class="hidden sm:inline-flex px-2 py-0.5 rounded bg-black/5 dark:bg-white/10 text-[10px] font-mono text-gray-600 dark:text-gray-400 border border-black/10 dark:border-white/10">v{{
+                    APP_VERSION }}</span>
             </a>
 
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="{{ url_for('main.home') }}" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        <span>{{ _('Home') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('main.home') }}#features" class="nav-link">
-                        <i class="fas fa-star"></i>
-                        <span>{{ _('Features') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('main.home') }}#workflow" class="nav-link">
-                        <i class="fas fa-cogs"></i>
-                        <span>{{ _('Workflow') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
-                        <i class="fas fa-tools"></i>
-                        <span>{{ _('Tools') }}</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ url_for('contour.contour_creator') }}" class="dropdown-link">
-                                <i class="fas fa-draw-polygon"></i>
-                                {{ _('ContourCreator') }}
-                            </a></li>
-                        <li><a href="{{ url_for('cloud.cloud_generator') }}" class="dropdown-link">
-                                <i class="fas fa-cloud"></i>
-                                {{ _('CloudGenerator') }}
-                            </a></li>
-                        <li><a href="{{ url_for('viewer.viewer') }}" class="dropdown-link">
-                                <i class="fas fa-eye"></i>
-                                {{ _('CloudViewer') }}
-                            </a></li>
-                        <li><a href="{{ url_for('neighbors.neighbors') }}" class="dropdown-link">
-                                <i class="fas fa-users"></i>
-                                {{ _('NeighborsCalculator') }}
-                            </a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('main.examples') }}" class="nav-link">
-                        <i class="fas fa-th-large"></i>
-                        <span>{{ _('Examples') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('main.about') }}" class="nav-link">
-                        <i class="fas fa-info-circle"></i>
-                        <span>{{ _('About') }}</span>
-                    </a>
-                </li>
-            </ul>
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                <a href="{{ url_for('contour.contour_creator') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    ContourCreator
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ url_for('cloud.cloud_generator') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    CloudGenerator
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ url_for('viewer.viewer') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    CloudViewer
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ url_for('neighbors.neighbors') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    NeighborsCalculator
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
+                </a>
 
-            <div class="nav-actions">
-                <div class="lang-switch-wrapper">
-                    <div class="lang-switch">
-                        {% set current_lang = request.cookies.get('lang', 'en') %}
-                        <div class="lang-slider {% if current_lang == 'es' %}es-active{% endif %}"></div>
-                        <a href="{{ url_for('main.set_language', lang='en') }}"
-                            class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</a>
-                        <a href="{{ url_for('main.set_language', lang='es') }}"
-                            class="lang-btn {% if current_lang == 'es' %}active{% endif %}">ES</a>
-                    </div>
-                </div>
-                <a href="{{ url_for('contour.contour_creator') }}" class="nav-cta">
-                    <i class="fas fa-rocket"></i>
-                    <span>{{ _('Get Started') }}</span>
+                <span class="w-[1px] h-4 bg-black/20 dark:bg-white/20"></span>
+
+                <a href="{{ url_for('main.examples') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    {{ _('Examples') }}
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ url_for('main.about') }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group">
+                    {{ _('About') }}
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all group-hover:w-full"></span>
                 </a>
             </div>
 
-            <div class="nav-toggle">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
-        </div>
-    </nav>
+            <!-- Actions -->
+            <div class="flex items-center gap-5">
+                {% set current_lang = request.cookies.get('lang', 'en') %}
+                <div
+                    class="flex items-center gap-3 text-xs font-medium text-gray-600 dark:text-gray-500 bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full border border-black/5 dark:border-white/5">
+                    <a href="{{ url_for('main.set_language', lang='en') }}"
+                        class="hover:text-black dark:hover:text-white transition-colors {% if current_lang == 'en' %}text-black dark:text-white{% endif %}">EN</a>
+                    <span class="w-[1px] h-3 bg-black/20 dark:bg-white/20"></span>
+                    <a href="{{ url_for('main.set_language', lang='es') }}"
+                        class="hover:text-black dark:hover:text-white transition-colors {% if current_lang == 'es' %}text-black dark:text-white{% endif %}">ES</a>
+                </div>
 
-    <!-- Main Content -->
-    <main>
+                <button id="theme-toggle"
+                    class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5"
+                    aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <a href="{{ url_for('contour.contour_creator') }}"
+                    class="hidden sm:inline-flex items-center justify-center rounded-full bg-apple-blue px-5 py-2 text-xs font-bold text-white transition-transform hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,102,204,0.3)] hover:shadow-[0_0_25px_rgba(0,102,204,0.6)]">
+                    {{ _('Start Now') }}
+                </a>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- Dynamic Content -->
+    <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo">
-                    </div>
-                    <p class="footer-description">
-                        {{ _('Advanced tool for generating point clouds that can be used with the meshless Generalized
-                        Finite Differences (mGFD) method.') }}
+    <!-- Clean Apple-style Footer -->
+    <footer
+        class="mt-auto relative overflow-hidden bg-white dark:bg-black pt-24 pb-8 text-sm text-gray-600 dark:text-gray-400 border-t border-black/5 dark:border-white/5">
+        <!-- Subtle Top Glow -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-black/10 dark:via-white/20 to-transparent">
+        </div>
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-blue-500/10 blur-3xl rounded-full"></div>
+
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="Logo"
+                        class="mb-6 opacity-90 dark:opacity-60 filter dark:invert dark:grayscale"
+                        style="height: 80px; width: auto;">
+                    <p class="leading-relaxed">
+                        {{ _('Built for computational modeling research with Meshless methods. Engineered at UMSNH.') }}
                     </p>
                 </div>
-                <div class="footer-section">
-                    <h3>{{ _('Quick Links') }}</h3>
-                    <ul>
-                        <li><a href="{{ url_for('contour.contour_creator') }}"><i class="fas fa-draw-polygon"></i>{{
-                                _('ContourCreator') }}</a></li>
-                        <li><a href="{{ url_for('cloud.cloud_generator') }}"><i class="fas fa-cloud"></i>{{
-                                _('CloudGenerator') }}</a></li>
-                        <li><a href="{{ url_for('viewer.viewer') }}"><i class="fas fa-eye"></i>{{ _('CloudViewer')
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-semibold text-black dark:text-white mb-4">{{ _('Tools') }}</h3>
+                    <ul class="space-y-3">
+                        <li><a href="{{ url_for('contour.contour_creator') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{ _('ContourCreator')
                                 }}</a></li>
-                        <li><a href="{{ url_for('neighbors.neighbors') }}"><i class="fas fa-users"></i>{{
+                        <li><a href="{{ url_for('cloud.cloud_generator') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{ _('CloudGenerator')
+                                }}</a></li>
+                        <li><a href="{{ url_for('viewer.viewer') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{
+                                _('CloudViewer') }}</a></li>
+                        <li><a href="{{ url_for('neighbors.neighbors') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{
                                 _('NeighborsCalculator') }}</a></li>
-                        <li><a href="{{ url_for('main.home') }}#features"><i class="fas fa-star"></i>{{ _('Features')
-                                }}</a></li>
-                        <li><a href="{{ url_for('main.home') }}#workflow"><i class="fas fa-cogs"></i>{{ _('Workflow')
-                                }}</a></li>
-                        <li><a href="{{ url_for('main.examples') }}"><i class="fas fa-th-large"></i>{{ _('Examples')
-                                }}</a></li>
-                        <li><a href="{{ url_for('main.about') }}"><i class="fas fa-info-circle"></i>{{ _('About') }}</a>
-                        </li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>{{ _('Research Areas') }}</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-project-diagram"></i>{{ _('Meshless Methods') }}</a></li>
-                        <li><a href="#"><i class="fas fa-calculator"></i>{{ _('Generalized Finite Difference Methods')
-                                }}</a></li>
-                        <li><a href="#"><i class="fas fa-laptop-code"></i>{{ _('Scientific Computing') }}</a></li>
-                        <li><a href="#"><i class="fas fa-robot"></i>{{ _('Artificial Intelligence Applications') }}</a>
-                        </li>
+
+                <div>
+                    <h3 class="font-semibold text-black dark:text-white mb-4">{{ _('Information') }}</h3>
+                    <ul class="space-y-3">
+                        <li><a href="{{ url_for('main.examples') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{
+                                _('Examples') }}</a></li>
+                        <li><a href="{{ url_for('main.about') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{ _('About
+                                the Project') }}</a></li>
+                        <li><a href="{{ url_for('main.privacy_notice') }}"
+                                class="hover:text-black dark:hover:text-white transition-colors">{{
+                                _('Privacy Notice') }}</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>{{ _('Sponsored by') }}</h3>
-                    <div class="sponsor-logos">
-                        <a href="http://siiia.com.mx/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                            <img src="{{ url_for('static', filename='images/siiia.webp') }}"
-                                alt="SIIIA MATH: Soluciones en Ingeniería" class="sponsor-logo">
-                            <span class="sponsor-name">{{ _('SIIIA MATH') }}</span>
+
+                <!-- Sponsors -->
+                <div>
+                    <h3 class="font-semibold text-black dark:text-white mb-4">{{ _('Sponsored by') }}</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://umich.mx/" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-center p-3 bg-black/5 dark:bg-white rounded-xl transition-all hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 group">
+                            <img src="{{ url_for('static', filename='images/umsnh.webp') }}" alt="UMSNH"
+                                class="h-7 w-auto mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity">
                         </a>
-                        <a href="https://umich.mx/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                            <img src="{{ url_for('static', filename='images/umsnh.webp') }}"
-                                alt="Universidad Michoacana de San Nicolás de Hidalgo" class="sponsor-logo">
-                            <span class="sponsor-name">{{ _('UMSNH') }}</span>
+                        <a href="https://secihti.mx/" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-center p-3 bg-black/5 dark:bg-white rounded-xl transition-all hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 group">
+                            <img src="{{ url_for('static', filename='images/secihti.webp') }}" alt="SECIHTI"
+                                class="h-7 w-auto mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity">
                         </a>
-                        <a href="https://secihti.mx/" target="_blank" rel="noopener noreferrer" class="sponsor-item">
-                            <img src="{{ url_for('static', filename='images/secihti.webp') }}"
-                                alt="Secretaría de Ciencia, Tecnología e Innovación" class="sponsor-logo">
-                            <span class="sponsor-name">{{ _('SECIHTI') }}</span>
+                        <a href="http://siiia.com.mx/" target="_blank" rel="noopener noreferrer"
+                            class="col-span-2 flex items-center justify-center p-3 bg-black/5 dark:bg-white rounded-xl transition-all hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 group">
+                            <img src="{{ url_for('static', filename='images/siiia_horizontal.png') }}" alt="SIIIA"
+                                class="h-8 w-auto mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity">
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p>{{ _('&copy; 2025 mGFD CloudGenerator. Built for computational modeling research with Meshless
-                        methods.') }}</p>
-                    <div class="footer-links">
-                        <a href="{{ url_for('main.privacy_notice') }}">{{ _('Privacy Notice') }}</a>
-                    </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center border-t border-black/10 dark:border-white/10 pt-8">
+                <p>&copy; 2025 mGFD CloudGenerator. {{ _('All rights reserved.') }}</p>
+                <div class="mt-4 md:mt-0 flex gap-6">
+                    <a href="{{ url_for('main.privacy_notice') }}"
+                        class="hover:text-black dark:hover:text-white transition-colors">{{
+                        _('Privacy Policy') }}</a>
+                    <a href="https://github.com/gstinoco/mGFD_CloudGenerator" target="_blank"
+                        class="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
                 </div>
             </div>
         </div>
     </footer>
-    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+
+    <!-- Common Scripts -->
+    <script src="{{ url_for('static', filename='js/theme.js') }}?v={{ APP_VERSION }}"></script>
+    <script src="{{ url_for('static', filename='js/toast.js') }}?v={{ APP_VERSION }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}?v={{ APP_VERSION }}"></script>
     {% block scripts %}{% endblock %}
 </body>
 

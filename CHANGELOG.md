@@ -5,7 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-09-20
+
+### Added
+- **Native Light/Dark Mode:** Introduced a persistent and interactive theme toggle allowing users to switch between a premium dark aesthetic and a clean, "Apple Minimalist" light mode.
+- **Modern Notification System:** Replaced intrusive browser alerts with sleek, non-blocking Toast notifications across all core tools.
+- **Asynchronous Feedback:** Added global loading overlays and spinners to provide immediate, clear visual feedback during computationally heavy operations.
+
+### Changed
+- **Global UI/UX Overhaul:** Re-engineered the entire application interface (Home, ContourCreator, CloudGenerator, CloudViewer, and NeighborsCalculator) using Tailwind CSS to deliver a cohesive, modern, and responsive user experience.
+- **Informational Pages Redesign:** Rebuilt the About, Examples, and Privacy Notice pages using a glassmorphic aesthetic and responsive grid layouts, adapting them perfectly to both light and dark themes.
+- **Privacy & Compliance:** Substantially updated the Privacy Notice to explicitly outline compliance with international data protection frameworks (LFPDPPP, GDPR, ARCO rights) and AI model usage policies.
+- **Internationalization (i18n):** Achieved 100% translation coverage for English and Spanish, resolving missing text nodes and modernizing the language selection dropdown.
+
+### Technical & Architecture
+- **CSS Architecture:** Migrated from monolithic, hardcoded legacy CSS files to a utility-first architecture utilizing semantic design tokens.
+- **Cache-Busting Mechanism:** Implemented a global versioning strategy (`APP_VERSION`) to automatically invalidate stale browser caches for static assets upon new releases.
 ## [2.2.0] - 2026-09-16
+### Changed
+- **CloudGenerator UI Redesign**: Completely overhauled the workspace layout to match the ContourCreator workflow. Implemented a two-step process: Upload/Format card first, followed by a full-width Configuration Workspace upon successful upload.
+- **CloudGenerator Forms Fix**: Reverted generic generated options form to match the actual original backend variables (`regionesInsideOption`, `generationMethodOption`, `densityMultiplierOption`) maintaining the new Bento-grid UI.
+- **CloudGenerator State Fix**: Fixed bug preventing the transition from Upload state to Options state by using correct IDs and classes instead of deprecated inline styles.
+
 
 ### Added
 - Integration with the core `mGFD` library for mathematical algorithms and spatial data structures.

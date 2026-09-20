@@ -1,276 +1,251 @@
-{#
-# privacy_notice.html — Core functionality for privacy_notice.html
-#
-# Overview:
-# This template provides the structure and UI elements for the privacy_notice.html view.
-#
-# Credits:
-# All the codes presented below were developed by:
-# Dr. Gerardo Tinoco-Guerrero
-# Dr. Francisco Javier Domínguez-Mota
-# Dr. José Alberto Guzmán-Torres
-# Universidad Michoacana de San Nicolás de Hidalgo
-# gerardo.tinoco@umich.mx
-#
-# With the funding of:
-# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
-Innovación). México.
-# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
-Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
-# Aula CIMNE-Morelia. México.
-# SIIIA-MATH: Soluciones de Ingeniería. México.
-#
-# Date:
-# March, 2026.
-# Last Modification:
-# September, 2026.
-#}
-{% extends 'base.html' %}
+<!--
+privacy_notice.html — Core functionality for privacy_notice.html
 
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/privacy_notice.css') }}">
-{% endblock %}
+Overview:
+    HTML template for the privacy_notice module.
+
+Credits:
+    All the codes presented below were developed by:
+        Dr. Gerardo Tinoco-Guerrero
+        Dr. Francisco Javier Domínguez-Mota
+        Dr. José Alberto Guzmán-Torres
+        Universidad Michoacana de San Nicolás de Hidalgo
+        gerardo.tinoco@umich.mx
+
+    With the funding of:
+        Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+        Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+        Aula CIMNE-Morelia. México.
+        SIIIA-MATH: Soluciones de Ingeniería. México.
+
+Date:
+    August, 2025.
+Last Modification:
+    September, 2026.
+-->
+{% extends 'base.html' %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-main">
-                <div class="hero-logo">
-                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                        class="logo-image">
+<section class="hero-informative min-h-screen flex items-center justify-center border-b border-black/10 dark:border-white/10 relative">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 text-center">
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 mb-8 opacity-0 animate-[fade-in-up_0.8s_ease-out_forwards]">
+            <span class="flex h-2 w-2 rounded-full bg-apple-blue shadow-[0_0_10px_rgba(0,102,204,1)]"></span>
+            {{ _('Information') }}
+        </div>
+
+        <!-- Main Typography -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black dark:text-white mb-6 max-w-5xl mx-auto drop-shadow-2xl leading-tight opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+            {{ _('Privacy Notice') }} <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:via-teal-300 dark:to-white">{{ _('mGFD CloudGenerator') }}</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards]">
+            {{ _('Your privacy and intellectual property are our highest priorities. This notice explains how mGFD CloudGenerator securely collects, processes, and protects your personal information and uploaded datasets in compliance with international standards (such as GDPR) and the Mexican Federal Law on Protection of Personal Data (LFPDPPP).') }}
+        </p>
+    </div>
+
+    <!-- Fade out bottom -->
+    <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-apple-light dark:from-black to-transparent z-10 pointer-events-none"></div>
+</section>
+
+<section class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Column 1 -->
+            <div class="flex flex-col gap-8">
+                
+                <div class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(99,102,241,0.1)] hover:border-indigo-500/30">
+                    <div class="border-b border-black/10 dark:border-white/10 pb-6 mb-8">
+                        <h3 class="flex items-center gap-3 text-2xl font-semibold text-black dark:text-white mb-2"><i class="fas fa-id-card text-indigo-600 dark:text-indigo-400"></i> {{ _('Data Controller Information') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">{{ _('Who is responsible for your personal data') }}</p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-building mt-1 text-xl text-blue-600 dark:text-blue-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Institution') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Universidad Michoacana de San Nicolás de Hidalgo (UMSNH), Faculty of Physical-Mathematical Sciences') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-user-tie mt-1 text-xl text-teal-600 dark:text-teal-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Responsible Person') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Dr. Gerardo Tinoco-Guerrero, Principal Researcher and Project Lead') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-envelope mt-1 text-xl text-sky-600 dark:text-sky-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Contact Information') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    {{ _('Email:') }} <a href="mailto:gerardo.tinoco@umich.mx" class="text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 hover:underline transition-colors">{{ _('gerardo.tinoco@umich.mx') }}</a><br>
+                                    {{ _('Address: Morelia, Michoacán, México') }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="hero-title">{{ _('Privacy Notice') }}</h1>
-                <p class="hero-subtitle">
-                    {{ _('Your privacy is important to us. This notice explains how mGFD CloudGenerator 2.2 collects,
-                    uses, and protects your personal information in compliance with applicable data protection laws.')
-                    }}
-                </p>
-                <div class="hero-features">
-                    <div class="feature-highlight">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>{{ _('Data Protection') }}</span>
+
+                <div class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(99,102,241,0.1)] hover:border-indigo-500/30">
+                    <div class="border-b border-black/10 dark:border-white/10 pb-6 mb-8">
+                        <h3 class="flex items-center gap-3 text-2xl font-semibold text-black dark:text-white mb-2"><i class="fas fa-database text-indigo-600 dark:text-indigo-400"></i> {{ _('Data We Collect') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">{{ _('Information collected when you use our platform') }}</p>
                     </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-lock"></i>
-                        <span>{{ _('Secure Processing') }}</span>
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-user-check"></i>
-                        <span>{{ _('Your Rights') }}</span>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <div class="text-2xl font-bold text-blue-600/50 dark:text-blue-400/50 w-8">1</div>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('1. Technical Data') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('We collect IP address, browser type, device information, and usage patterns for system optimization and security purposes. This information helps us maintain the stability and security of our services.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <div class="text-2xl font-bold text-teal-600/50 dark:text-teal-400/50 w-8">2</div>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('2. Uploaded Files') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Images, geometries, and data files you upload are strictly used for the execution of your requested algorithms. These files are processed in volatile memory or temporarily stored, and are automatically and permanently deleted immediately after processing is complete. We do not use your proprietary data to train third-party AI models, nor do we share it with external entities.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <div class="text-2xl font-bold text-sky-600/50 dark:text-sky-400/50 w-8">3</div>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('3. Usage Analytics') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('We collect anonymous usage statistics to improve our services and understand user behavior patterns. This data is aggregated and cannot be used to identify individual users.') }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(99,102,241,0.1)] hover:border-indigo-500/30">
+                    <div class="border-b border-black/10 dark:border-white/10 pb-6 mb-8">
+                        <h3 class="flex items-center gap-3 text-2xl font-semibold text-black dark:text-white mb-2"><i class="fas fa-shield-alt text-indigo-600 dark:text-indigo-400"></i> {{ _('Data Security & Retention') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">{{ _('How we protect and manage your information') }}</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-lock mt-1 text-xl text-blue-600 dark:text-blue-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Encryption and Security') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('All data transmissions are encrypted using industry-standard SSL/TLS protocols to ensure secure communication. Our servers are protected by firewalls and regular security updates.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-hourglass-half mt-1 text-xl text-teal-600 dark:text-teal-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Data Retention') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Uploaded structural and image files are destroyed post-processing. System technical logs are retained for 90 days exclusively for security audits and bug fixing. Aggregated, fully anonymized usage statistics may be kept indefinitely for academic reporting and research justifications.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-key mt-1 text-xl text-sky-600 dark:text-sky-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Access Control') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Access to personal data is restricted to authorized personnel only and is granted on a need-to-know basis for legitimate business purposes.') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Column 2 -->
+            <div class="flex flex-col gap-8">
+                
+                <div class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(99,102,241,0.1)] hover:border-indigo-500/30">
+                    <div class="border-b border-black/10 dark:border-white/10 pb-6 mb-8">
+                        <h3 class="flex items-center gap-3 text-2xl font-semibold text-black dark:text-white mb-2"><i class="fas fa-tasks text-indigo-600 dark:text-indigo-400"></i> {{ _('How We Use Your Data') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">{{ _('Legitimate purposes for data processing') }}</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-cogs mt-1 text-xl text-blue-600 dark:text-blue-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Service Provision') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('We use your data to provide cloud generation and contour creation services as requested by users. This includes processing uploaded files and generating the requested outputs.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-chart-line mt-1 text-xl text-teal-600 dark:text-teal-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Service Improvement') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('We analyze usage patterns to improve the performance and functionality of our tools. This helps us identify areas for enhancement and optimize user experience.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-clipboard-check mt-1 text-xl text-sky-600 dark:text-sky-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Security & Compliance') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('We process data to ensure system security, prevent abuse, and comply with legal obligations. This includes monitoring for suspicious activities and maintaining audit logs.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-microscope mt-1 text-xl text-indigo-600 dark:text-indigo-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Research Purposes') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('With explicit consent, we may use anonymous data for academic research and scientific publications. Individual users cannot be identified from this research data.') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(99,102,241,0.1)] hover:border-indigo-500/30">
+                    <div class="border-b border-black/10 dark:border-white/10 pb-6 mb-8">
+                        <h3 class="flex items-center gap-3 text-2xl font-semibold text-black dark:text-white mb-2"><i class="fas fa-user-check text-indigo-600 dark:text-indigo-400"></i> {{ _('Your Privacy Rights') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">{{ _('Rights you have regarding your personal data') }}</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-search mt-1 text-xl text-blue-600 dark:text-blue-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Right of Access') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('You have the right to know what personal data we have about you and how it\'s being used. You can request a copy of your personal data at any time.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-edit mt-1 text-xl text-teal-600 dark:text-teal-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Right of Rectification') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('You have the right to correct or update any inaccurate or incomplete personal data we hold about you.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-trash-alt mt-1 text-xl text-sky-600 dark:text-sky-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Right of Cancellation') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('You have the right to request permanent deletion of your personal data logs when they are no longer necessary for the purposes for which they were collected.') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                            <i class="fas fa-ban mt-1 text-xl text-indigo-600 dark:text-indigo-400"></i>
+                            <div>
+                                <h4 class="text-black dark:text-white font-medium mb-2">{{ _('Right of Opposition') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('You have the right to object to certain types of data processing for legitimate reasons, particularly for direct marketing purposes.') }}</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-600/10 dark:bg-blue-500/10 border-l-4 border-blue-600 dark:border-blue-500 p-6 rounded-r-lg mt-8 shadow-[0_5px_15px_rgba(0,102,204,0.05)] dark:shadow-[0_5px_15px_rgba(0,102,204,0.1)]">
+                            <h4 class="text-black dark:text-white font-medium mb-2 flex items-center gap-2"><i class="fas fa-envelope-open-text text-blue-600 dark:text-blue-400"></i> {{ _('Exercising Your Rights') }}</h4>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed m-0">{{ _('To exercise any of these rights, please contact us at <a href="mailto:gerardo.tinoco@umich.mx" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:underline transition-colors">gerardo.tinoco@umich.mx</a>. We will respond to your request within 30 days.')|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Data Controller Section -->
-<section class="section-light">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Data Controller Information') }}</h2>
-            <p class="section-subtitle">{{ _('Who is responsible for your personal data') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('Institution') }}</h3>
-                <p>{{ _('Universidad Michoacana de San Nicolás de Hidalgo (UMSNH), Faculty of Physical-Mathematical
-                    Sciences') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Responsible Person') }}</h3>
-                <p>{{ _('Dr. Gerardo Tinoco-Guerrero, Principal Researcher and Project Lead') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Contact Information') }}</h3>
-                <p>{{ _('Email:') }} <a href="mailto:gerardo.tinoco@umich.mx">{{ _('gerardo.tinoco@umich.mx') }}</a><br>
-                    {{ _('Address: Morelia, Michoacán, México') }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Data Collection Section -->
-<section class="section-dark">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Data We Collect') }}</h2>
-            <p class="section-subtitle">{{ _('Information collected when you use our platform') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('1. Technical Data') }}</h3>
-                <p>{{ _('We collect IP address, browser type, device information, and usage patterns for system
-                    optimization and security purposes. This information helps us maintain the stability and security of
-                    our services.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('2. Uploaded Files') }}</h3>
-                <p>{{ _('Images and data files you upload for processing are temporarily stored on our servers. These
-                    files are automatically deleted after processing is complete to protect your privacy.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('3. Usage Analytics') }}</h3>
-                <p>{{ _('We collect anonymous usage statistics to improve our services and understand user behavior
-                    patterns. This data is aggregated and cannot be used to identify individual users.') }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Purposes Section -->
-<section class="section-light">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('How We Use Your Data') }}</h2>
-            <p class="section-subtitle">{{ _('Legitimate purposes for data processing') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('Service Provision') }}</h3>
-                <p>{{ _('We use your data to provide cloud generation and contour creation services as requested by
-                    users. This includes processing uploaded files and generating the requested outputs.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Service Improvement') }}</h3>
-                <p>{{ _('We analyze usage patterns to improve the performance and functionality of our tools. This helps
-                    us identify areas for enhancement and optimize user experience.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Security & Compliance') }}</h3>
-                <p>{{ _('We process data to ensure system security, prevent abuse, and comply with legal obligations.
-                    This includes monitoring for suspicious activities and maintaining audit logs.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Research Purposes') }}</h3>
-                <p>{{ _('With explicit consent, we may use anonymous data for academic research and scientific
-                    publications. Individual users cannot be identified from this research data.') }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Your Rights Section -->
-<section class="section-dark">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Your Privacy Rights') }}</h2>
-            <p class="section-subtitle">{{ _('Rights you have regarding your personal data') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('Right of Access') }}</h3>
-                <p>{{ _('You have the right to know what personal data we have about you and how it\'s being used. You
-                    can request a copy of your personal data at any time.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Right of Rectification') }}</h3>
-                <p>{{ _('You have the right to correct or update any inaccurate or incomplete personal data we hold
-                    about you.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Right of Cancellation') }}</h3>
-                <p>{{ _('You have the right to request deletion of your personal data when it\'s no longer necessary for
-                    the purposes for which it was collected.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Right of Opposition') }}</h3>
-                <p>{{ _('You have the right to object to certain types of data processing for legitimate reasons,
-                    particularly for direct marketing purposes.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Exercising Your Rights') }}</h3>
-                <p>{{ _('To exercise any of these rights, please contact us at <a
-                        href="mailto:gerardo.tinoco@umich.mx">gerardo.tinoco@umich.mx</a>. We will respond to your
-                    request within 30 days.')|safe }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Data Security Section -->
-<section class="section-light">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Data Security & Retention') }}</h2>
-            <p class="section-subtitle">{{ _('How we protect and manage your information') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('Encryption and Security') }}</h3>
-                <p>{{ _('All data transmissions are encrypted using industry-standard SSL/TLS protocols to ensure secure
-                    communication. Our servers are protected by firewalls and regular security updates.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Data Retention') }}</h3>
-                <p>{{ _('Uploaded files are automatically deleted after processing. Technical logs are retained for 90
-                    days for security purposes. Anonymous usage statistics may be retained indefinitely for research
-                    purposes.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Access Control') }}</h3>
-                <p>{{ _('Access to personal data is restricted to authorized personnel only and is granted on a
-                    need-to-know basis for legitimate business purposes.') }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section class="section-dark">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Contact & Updates') }}</h2>
-            <p class="section-subtitle">{{ _('How to reach us and stay informed') }}</p>
-        </div>
-
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>{{ _('Contact Information') }}</h3>
-                <p>{{ _('If you have any questions about this Privacy Notice or our data practices, please contact us:')
-                    }}</p>
-                <ul>
-                    <li>{{ _('Email:') }} <a href="mailto:gerardo.tinoco@umich.mx">{{ _('gerardo.tinoco@umich.mx')
-                            }}</a></li>
-                    <li>{{ _('Institution: Universidad Michoacana de San Nicolás de Hidalgo') }}</li>
-                    <li>{{ _('Faculty: Physical-Mathematical Sciences') }}</li>
-                    <li>{{ _('Location: Morelia, Michoacán, México') }}</li>
-                </ul>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Updates to This Notice') }}</h3>
-                <p>{{ _('We may update this Privacy Notice from time to time to reflect changes in our practices or
-                    legal requirements. The effective date at the top of this page indicates when the notice was last
-                    updated.') }}</p>
-            </div>
-
-            <div class="privacy-section">
-                <h3>{{ _('Effective Date') }}</h3>
-                <p>{{ _('This Privacy Notice is effective as of May 2025 and applies to all data collected from that
-                    date forward.') }}</p>
-            </div>
-        </div>
     </div>
 </section>
 {% endblock %}

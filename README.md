@@ -1,18 +1,32 @@
-# mGFD CloudGenerator 2.2 :cloud:
+# mGFD CloudGenerator 2.3 :cloud:
 
 <div align="center">
 
 <img src="docs/logo/logo.png" alt="mGFD CloudGenerator logo" width="680" style="margin: 20px 0;">
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/gstinoco/mGFD_CloudGenerator) [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/) [![Flask](https://img.shields.io/badge/Flask-3.1.1-000000.svg?logo=flask)](https://flask.palletsprojects.com/) [![OpenCV](https://img.shields.io/badge/OpenCV-4.12.0-red.svg?logo=opencv)](https://opencv.org/) [![NumPy](https://img.shields.io/badge/NumPy-2.2.6-013243.svg?logo=numpy)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.15.2-8CAAE6.svg?logo=scipy)](https://scipy.org/) [![Shapely](https://img.shields.io/badge/Shapely-2.1.1-2E8B57.svg)](https://shapely.readthedocs.io/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.0-11557C.svg)](https://matplotlib.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg?style=for-the-badge&logo=github)](https://github.com/gstinoco/mGFD_CloudGenerator) [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/) [![Flask](https://img.shields.io/badge/Flask-3.1.3-000000.svg?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/) [![OpenCV](https://img.shields.io/badge/OpenCV-5.0.0-red.svg?style=for-the-badge&logo=opencv)](https://opencv.org/) [![NumPy](https://img.shields.io/badge/NumPy-2.5.3-013243.svg?style=for-the-badge&logo=numpy)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.18.1-8CAAE6.svg?style=for-the-badge&logo=scipy)](https://scipy.org/) [![mGFD](https://img.shields.io/badge/mGFD-0.12.1-8A2BE2.svg?style=for-the-badge)](https://pypi.org/project/mGFD/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **Web platform for generating 2D unstructured point clouds for meshless mGFD workflows**
 
 *From images to contours to classified point clouds — with visualization and neighbor analysis*
 
-### :link: Quick Links
-[![🌐 Live Demo](https://img.shields.io/badge/🌐-Live%20Demo-brightgreen)](https://malla.umich.mx/CloudGenerator/) [![📝 Changelog](https://img.shields.io/badge/📝-Changelog-gray)](CHANGELOG.md) [![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🗂️ Dataset](https://img.shields.io/badge/🗂️-Dataset-blue)](#file_cabinet-dataset-structure) [![📈 Benchmarks](https://img.shields.io/badge/📈-Benchmarks-purple)](#chart_with_upwards_trend-performance-benchmarks) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team) [![🤝 Contribute](https://img.shields.io/badge/🤝-Contributing-orange)](#handshake-contributing) [![🏭 Partners](https://img.shields.io/badge/🏭-Industry%20Partners-0B1B3A)](#factory-industry-partners-supporting-innovation) [![🙏 Thanks](https://img.shields.io/badge/🙏-Acknowledgments-darkgreen)](#pray-acknowledgments)
+<!-- <img src="docs/logo/app_demo.gif" alt="mGFD CloudGenerator Demo" width="800" style="margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"> -->
 
+> :tada: **New in v2.3**: Completely redesigned with a premium **Tailwind CSS** aesthetic, native **Light/Dark mode**, fully responsive UI, seamless **English/Spanish** localization (i18n), and fully **Dockerized** for instant deployment.
+
+</div>
+
+### :link: Quick Navigation
+
+<div align="center">
+  <a href="https://malla.umich.mx/CloudGenerator/"><img src="https://img.shields.io/badge/🌐_Live_Demo-brightgreen?style=for-the-badge" alt="Live Demo" style="margin: 4px;"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/📝_Changelog-gray?style=for-the-badge" alt="Changelog" style="margin: 4px;"></a>
+  <a href="#rocket-quick-start--usage-workflows"><img src="https://img.shields.io/badge/🚀_Quick_Start-green?style=for-the-badge" alt="Quick Start" style="margin: 4px;"></a>
+  <a href="#package-installation--setup"><img src="https://img.shields.io/badge/📦_Install-blue?style=for-the-badge" alt="Install" style="margin: 4px;"></a>
+  <a href="#open_file_folder-project-architecture--data-storage"><img src="https://img.shields.io/badge/🗂️_Architecture_&_Data-blue?style=for-the-badge" alt="Architecture" style="margin: 4px;"></a>
+  <a href="#books-mathematical-model"><img src="https://img.shields.io/badge/🧮_Mathematical_Model-purple?style=for-the-badge" alt="Model" style="margin: 4px;"></a>
+  <a href="#chart_with_upwards_trend-performance-benchmarks"><img src="https://img.shields.io/badge/📈_Benchmarks-purple?style=for-the-badge" alt="Benchmarks" style="margin: 4px;"></a>
+  <a href="#movie_camera-visualizations"><img src="https://img.shields.io/badge/🎬_Visualizations-purple?style=for-the-badge" alt="Visualizations" style="margin: 4px;"></a>
 </div>
 
 ---
@@ -21,39 +35,37 @@
 - [Overview](#star2-overview)
 - [Features](#sparkles-features)
 - [Installation & Setup](#package-installation--setup)
-- [Quick Start](#rocket-quick-start)
-- [Usage Guide](#book-usage-guide)
+- [Quick Start & Usage Workflows](#rocket-quick-start--usage-workflows)
 - [Visualizations](#movie_camera-visualizations)
 - [API Documentation](#gear-api-documentation)
 - [Data Formats](#file_cabinet-data-formats)
-- [Project Architecture](#open_file_folder-project-architecture)
+- [Project Architecture & Data Storage](#open_file_folder-project-architecture--data-storage)
 - [Mathematical Model](#books-mathematical-model)
-- [Dataset Structure](#file_cabinet-dataset-structure)
 - [Performance Benchmarks](#chart_with_upwards_trend-performance-benchmarks)
 - [Contributing](#handshake-contributing)
 - [Research Team](#scientist-research-team)
-- [Industry Partners Supporting Innovation](#factory-industry-partners-supporting-innovation)
+- [Institutional Partners & Acknowledgments](#handshake-institutional-partners--acknowledgments)
 - [Scientific References](#books-scientific-references)
 - [Citation & License](#memo-citation--license)
-- [Acknowledgments](#pray-acknowledgments)
-- [Contact](#email-contact--support)
+- [Contact & Support](#email-contact--support)
 - [FAQ](#speech_balloon-faq)
 
 ---
 
 ## :star2: Overview
 
-**mGFD CloudGenerator 2.2** is a Flask-based web platform that converts **images → contours → classified point clouds** designed for **meshless Generalized Finite Differences (mGFD)** workflows. It provides interactive contour extraction, multi-region management (including interior holes), cloud generation with two distribution strategies, high-quality visualizations (PNG/SVG), and region-aware neighbor computation.
+**mGFD CloudGenerator 2.3** is a Flask-based web platform that converts **images → contours → classified point clouds** designed for **meshless Generalized Finite Differences (mGFD)** workflows. Completely redesigned with a premium, modern minimalist **Tailwind CSS** aesthetic, it features full Native Light/Dark mode support, 100% English/Spanish localization, and robust tools for contour extraction, multi-region management, and cloud generation.
 
 > :globe_with_meridians: **Try it now!** Live demo: **https://malla.umich.mx/CloudGenerator/**
 
 ### :wrench: Key Capabilities
 - **:art: ContourCreator**: Single-click region detection (Flood Fill), interactive refinement, brush editing, and optional GrabCut.
 - **:cloud: CloudGenerator**: Regular (grid-like) and Natural (Poisson disk sampling) distributions, optional contour reduction, multi-region support.
-- **:eye: CloudViewer**: Upload a CSV (contours or clouds) and instantly generate PNG/SVG visualizations.
+- **:eye: CloudViewer**: Upload a CSV (contours or clouds) and instantly generate PNG/SVG visualizations with smooth glassmorphic UI.
 - **:users: NeighborsCalculator**: Compute k-nearest neighbors constrained by region boundaries (cKDTree-based).
 - **:floppy_disk: Export & Reproducibility**: Standardized CSV formats + verification on export for integrity.
-- **:globe_with_meridians: Internationalization (i18n)**: Full English and Spanish localization seamlessly integrated into a premium user interface.
+- **:nail_care: UI & UX**: Native Light/Dark Mode toggle, asynchronous Toast notifications, Cache-Busting mechanism, and global loading overlays.
+- **:whale: Production-Ready**: Fully Dockerized to ensure consistent execution environments and bypass complex OS-level scientific dependencies.
 
 ### :microscope: Typical Applications
 
@@ -170,153 +182,40 @@ Local server default:
 
 ---
 
-## :rocket: Quick Start
-
-<table>
-  <thead>
-    <tr>
-      <th align="left" width="170">Step</th>
-      <th align="left">What to do</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>1) Run</b></td>
-      <td>
-        <pre><code>python app.py</code></pre>
-      </td>
-    </tr>
-    <tr>
-      <td><b>2) Open</b></td>
-      <td>
-        Go to <code>http://127.0.0.1:5000/</code>
-      </td>
-    </tr>
-    <tr>
-      <td><b>3) Workflow</b></td>
-      <td>
-        <b>ContourCreator</b> → export contours CSV → <b>CloudGenerator</b> → export cloud CSV + PNG/SVG → optional <b>NeighborsCalculator</b>.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-## :book: Usage Guide
+## :rocket: Quick Start & Usage Workflows
 
 <div align="center">
 
-*Practical workflows for ContourCreator, CloudGenerator, CloudViewer, and NeighborsCalculator*
+*Practical workflows for the mGFD CloudGenerator toolset.*
 
 </div>
 
-### :art: ContourCreator (Image → Contours)
+### :zap: Getting Started
+1. **Run the server**: 
+   - **Local**: `python app.py` (opens at `http://127.0.0.1:5000/`)
+   - **Docker** :whale:: `docker compose up -d` (opens at `http://localhost:8000/`)
+2. **General Workflow**: **ContourCreator** → export contours CSV → **CloudGenerator** → export cloud CSV + PNG/SVG → optional **NeighborsCalculator**.
 
-<table>
-  <thead>
-    <tr>
-      <th align="left" width="170">Step</th>
-      <th align="left">What to do</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>1) Upload</b></td>
-      <td>Upload an image (PNG/JPG/JPEG/GIF/BMP). Max request size is <b>16 MB</b>.</td>
-    </tr>
-    <tr>
-      <td><b>2) Detect</b></td>
-      <td>Click inside a region to extract it with Flood Fill (adaptive tolerance).</td>
-    </tr>
-    <tr>
-      <td><b>3) Refine</b></td>
-      <td>Use positive/negative seeds and brush tools to add/remove pixels from the mask.</td>
-    </tr>
-    <tr>
-      <td><b>4) Export</b></td>
-      <td>Export a <b>single region</b> or <b>all regions</b> to CSV with normalized coordinates.</td>
-    </tr>
-  </tbody>
-</table>
+### :art: ContourCreator (Image → Contours)
+- **1) Upload**: Upload an image (PNG/JPG/JPEG/GIF/BMP). Max request size is **16 MB**.
+- **2) Detect**: Click inside a region to extract it with Flood Fill (adaptive tolerance).
+- **3) Refine**: Use positive/negative seeds and brush tools to add/remove pixels from the mask.
+- **4) Export**: Export a **single region** or **all regions** to CSV with normalized coordinates.
 
 ### :cloud: CloudGenerator (Contours CSV → Classified Cloud)
-
-<table>
-  <thead>
-    <tr>
-      <th align="left" width="170">Step</th>
-      <th align="left">What to do</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>1) Upload CSV</b></td>
-      <td>Upload a contour CSV (<code>x,y,region</code> recommended for multi-region).</td>
-    </tr>
-    <tr>
-      <td><b>2) Choose method</b></td>
-      <td><b>Regular</b> (grid-like) or <b>Natural</b> (Poisson disk sampling).</td>
-    </tr>
-    <tr>
-      <td><b>3) Options</b></td>
-      <td>Enable <b>contour reduction</b> and/or generate points inside interior regions (holes).</td>
-    </tr>
-    <tr>
-      <td><b>4) Outputs</b></td>
-      <td>
-        <b>CSV:</b> <code>x,y,region,classification</code><br/>
-        <b>Images:</b> <code>.png</code> and <code>.svg</code> visualizations
-      </td>
-    </tr>
-  </tbody>
-</table>
+- **1) Upload CSV**: Upload a contour CSV (`x,y,region` recommended for multi-region).
+- **2) Choose method**: **Regular** (grid-like) or **Natural** (Poisson disk sampling).
+- **3) Options**: Enable **contour reduction** and/or generate points inside interior regions (holes).
+- **4) Outputs**: Download **CSV** (`x,y,region,classification`) and **Images** (`.png` and `.svg`).
 
 ### :eye: CloudViewer (CSV → Visualization)
-
-<table>
-  <thead>
-    <tr>
-      <th align="left" width="170">Step</th>
-      <th align="left">What to do</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>1) Upload CSV</b></td>
-      <td>Upload a contour or cloud CSV.</td>
-    </tr>
-    <tr>
-      <td><b>2) Inspect</b></td>
-      <td>Get PNG/SVG renderings and point counts for fast validation.</td>
-    </tr>
-  </tbody>
-</table>
+- **1) Upload CSV**: Upload a contour or cloud CSV.
+- **2) Inspect**: Get PNG/SVG renderings and point counts for fast validation.
 
 ### :users: NeighborsCalculator (Cloud CSV → Neighbors)
-
-<table>
-  <thead>
-    <tr>
-      <th align="left" width="170">Step</th>
-      <th align="left">What to do</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>1) Upload Cloud CSV</b></td>
-      <td>Upload a cloud CSV containing <code>x,y,region,classification</code>.</td>
-    </tr>
-    <tr>
-      <td><b>2) Set k</b></td>
-      <td>Select the number of neighbors (<code>nvec</code>, default is 9).</td>
-    </tr>
-    <tr>
-      <td><b>3) Compute</b></td>
-      <td>Neighbors are computed within each region only (no cross-region links).</td>
-    </tr>
-  </tbody>
-</table>
+- **1) Upload Cloud CSV**: Upload a cloud CSV containing `x,y,region,classification`.
+- **2) Set k**: Select the number of neighbors (`nvec`, default is 9).
+- **3) Compute**: Neighbors are computed within each region only (no cross-region links).
 
 ---
 
@@ -328,37 +227,24 @@ The repository includes sample inputs and outputs under [static/examples/](stati
 
 <div align="center">
 
-<table>
-  <tr>
-    <td align="center">
-      <b>Balkhash</b><br/>
-      <sub>Input image</sub><br/><br/>
-      <img src="static/examples/Balkhash.png" alt="Balkhash input" width="220"><br/><br/>
-      <sub>Cloud preview</sub><br/><br/>
-      <img src="static/examples/Balkhash_cloud.png" alt="Balkhash cloud" width="220"><br/><br/>
-      <a href="static/examples/Balkhash_contours.csv"><code>Balkhash_contours.csv</code></a> ·
-      <a href="static/examples/Balkhash_cloud.csv"><code>Balkhash_cloud.csv</code></a>
-    </td>
-    <td align="center">
-      <b>Caspio</b><br/>
-      <sub>Input image</sub><br/><br/>
-      <img src="static/examples/Caspio.png" alt="Caspio input" width="220"><br/><br/>
-      <sub>Cloud preview</sub><br/><br/>
-      <img src="static/examples/Caspio_cloud.png" alt="Caspio cloud" width="220"><br/><br/>
-      <a href="static/examples/Caspio_contours.csv"><code>Caspio_contours.csv</code></a> ·
-      <a href="static/examples/Caspio_cloud.csv"><code>Caspio_cloud.csv</code></a>
-    </td>
-    <td align="center">
-      <b>Titicaca</b><br/>
-      <sub>Input image</sub><br/><br/>
-      <img src="static/examples/Titicaca.png" alt="Titicaca input" width="220"><br/><br/>
-      <sub>Cloud preview</sub><br/><br/>
-      <img src="static/examples/Titicaca_cloud.png" alt="Titicaca cloud" width="220"><br/><br/>
-      <a href="static/examples/Titicaca_contours.csv"><code>Titicaca_contours.csv</code></a> ·
-      <a href="static/examples/Titicaca_cloud.csv"><code>Titicaca_cloud.csv</code></a>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <b>Balkhash</b><br/>
+  <img src="static/examples/Balkhash.png" alt="Balkhash input" width="250" style="margin-right: 10px;">
+  <img src="static/examples/Balkhash_cloud.png" alt="Balkhash cloud" width="250"><br/>
+  <a href="static/examples/Balkhash_contours.csv"><code>Balkhash_contours.csv</code></a> • <a href="static/examples/Balkhash_cloud.csv"><code>Balkhash_cloud.csv</code></a>
+  <br/><br/><br/>
+  
+  <b>Caspio</b><br/>
+  <img src="static/examples/Caspio.png" alt="Caspio input" width="250" style="margin-right: 10px;">
+  <img src="static/examples/Caspio_cloud.png" alt="Caspio cloud" width="250"><br/>
+  <a href="static/examples/Caspio_contours.csv"><code>Caspio_contours.csv</code></a> • <a href="static/examples/Caspio_cloud.csv"><code>Caspio_cloud.csv</code></a>
+  <br/><br/><br/>
+
+  <b>Titicaca</b><br/>
+  <img src="static/examples/Titicaca.png" alt="Titicaca input" width="250" style="margin-right: 10px;">
+  <img src="static/examples/Titicaca_cloud.png" alt="Titicaca cloud" width="250"><br/>
+  <a href="static/examples/Titicaca_contours.csv"><code>Titicaca_contours.csv</code></a> • <a href="static/examples/Titicaca_cloud.csv"><code>Titicaca_cloud.csv</code></a>
+</div>
 
 </div>
 
@@ -423,7 +309,7 @@ x,y,region,classification
 
 ---
 
-## :open_file_folder: Project Architecture
+## :open_file_folder: Project Architecture & Data Storage
 
 ```
 :package: mGFD_CloudGenerator/
@@ -431,28 +317,26 @@ x,y,region,classification
 ├── requirements.txt                        # Python dependencies
 │
 ├── contour_modules/                        # ContourCreator (segmentation + contour extraction)
-│   └── detection.py
-│
-├── analysis_modules/                       # Post-processing tools
-│   └── neighbors.py                        # Region-constrained kNN neighbor computation
+├── analysis_modules/                       # Post-processing tools (NeighborsCalculator)
 │
 ├── templates/                              # Web UI (Jinja2)
 ├── static/                                 # Frontend assets + examples gallery
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   └── examples/
 │
 ├── logs/                                   # local rotating logs
-│
 └── docs/                                   # Project branding + team images
-    ├── logo/
-    └── team/
 ```
 
-Runtime directories created automatically on startup (local mode):
-- `uploads/` (temporary uploads)
-- `output/` (generated CSV/PNG/SVG)
+### :open_file_folder: Runtime Directories (Local Mode)
+
+The server automatically creates these folders to manage data during operation:
+- `uploads/`: Temporary uploaded images and CSV files.
+- `output/`: Generated CSV, PNG, and SVG artifacts.
+
+**Typical Output Artifacts**:
+- Contours: `<region_name>_<timestamp>.csv`
+- Clouds: `<input>_cloud_<timestamp>.csv`
+
+> **Note**: The server periodically runs automatic cleanup on `uploads/` and `output/` to prevent disk growth.
 
 ---
 
@@ -466,13 +350,13 @@ ContourCreator works in **normalized coordinates** and exports points to the Car
 
 | Concept | UI / Image Space | Exported Space |
 |--------|-------------------|----------------|
-| Range | $[0,1] \\times [0,1]$ (normalized canvas) | $[0,1] \\times [0,1]$ |
+| Range | $[0,1] \times [0,1]$ (normalized canvas) | $[0,1] \times [0,1]$ |
 | Origin | top-left | bottom-left |
 | Y axis | downwards | upwards (inverted) |
 
 The export transformation applied to each point is:
 
-$$x' = \\mathrm{clip}(x \\cdot s_x, 0, 1), \\quad y' = \\mathrm{clip}((1 - y) \\cdot s_y, 0, 1)$$
+$$x' = \mathrm{clip}(x \cdot s_x, 0, 1), \quad y' = \mathrm{clip}((1 - y) \cdot s_y, 0, 1)$$
 
 Where $(s_x, s_y)$ are scaling factors derived from the source image size:
 
@@ -499,32 +383,7 @@ Nodes are exported with metadata:
 
 Neighbor computation is performed **per region** using a KD-tree search. This prevents cross-region connectivity that would be invalid for disconnected domains or holes.
 
----
 
-## :file_cabinet: Dataset Structure
-
-This repository is organized as a web application plus reusable Python modules. When running locally, files are generated in a small set of runtime folders:
-
-```
-uploads/                               # temporary uploaded images/CSVs
-output/                                # generated CSV/PNG/SVG artifacts
-logs/                                  # local rotating logs
-static/examples/                       # versioned example inputs/outputs
-```
-
-### :package: Output Artifacts
-
-Typical filenames (written under `output/`):
-- Contour exports: `<region_name>_<timestamp>.csv`
-- Multi-region exports: `<base>_all_regions_<timestamp>.csv`
-- Regular clouds: `<input>_cloud_<timestamp>.csv` + PNG/SVG visualizations
-- Natural clouds: `<input>_cloud_natural_<timestamp>.csv` + PNG/SVG visualizations
-
-### :hourglass_flowing_sand: Automatic Cleanup
-
-The server periodically removes old files from `uploads/` and `output/` to avoid disk growth in long-running deployments.
-
----
 
 ## :chart_with_upwards_trend: Performance Benchmarks
 
@@ -537,7 +396,7 @@ The application is designed for interactive workloads and scales well for typica
 | Segmentation | Flood Fill / interactive refinement | ~ proportional to affected pixels |
 | Cloud generation (Regular) | grid sampling + polygon checks | ~ proportional to generated points |
 | Cloud generation (Natural) | Poisson disk sampling | ~ proportional to generated points (higher constant) |
-| Neighbors | KD-tree kNN per region | ~ $O(n \\log n)$ per region |
+| Neighbors | KD-tree kNN per region | ~ $O(n \log n)$ per region |
 | Visualization/Export | CSV + PNG/SVG | ~ proportional to points |
 
 ---
@@ -584,16 +443,18 @@ git checkout -b feature/your-feature-name
 <div align="center">
 
 ### :star2: Meet the Team
-*Researchers and graduate students advancing meshless computational methods*
+*Researchers, students, and collaborators advancing meshless computational methods*
+
+<br>
 
 </div>
 
-### :busts_in_silhouette: Main Researchers
+### :busts_in_silhouette: Core Researchers
 
-<table align="center">
+<table align="center" width="100%" cellspacing="0" cellpadding="8">
   <thead>
     <tr>
-      <th align="center" width="120">Photo</th>
+      <th align="center" width="140"></th>
       <th align="left">Researcher</th>
       <th align="left">Affiliation</th>
       <th align="left">Contact</th>
@@ -601,241 +462,236 @@ git checkout -b feature/your-feature-name
   </thead>
   <tbody>
     <tr>
-      <td align="center" width="120">
-        <img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="96" height="96" style="border-radius: 50%;">
+      <td align="center" width="140">
+        <img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco-Guerrero" width="100" height="100" style="border-radius: 50%; border: 3px solid #38B2AC;">
       </td>
       <td>
-        <b>Dr. Gerardo Tinoco Guerrero</b> :mexico:<br/>
-        <sub>Numerical Methods &amp; Computational Mathematics</sub>
+        <b>Dr. Gerardo Tinoco-Guerrero</b> :mexico:<br/>
+        <sub>Ph.D. in Physical Engineering Sciences</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+        <a href="http://www.siiia.com.mx"><img alt="SIIIA MATH" src="https://img.shields.io/badge/🏢_SIIIA_MATH-0B1B3A?style=for-the-badge"></a><br/>
+        <a href="http://www.umich.mx"><img alt="UMSNH" src="https://img.shields.io/badge/🎓_UMSNH-1A3A6B?style=for-the-badge"></a>
       </td>
       <td>
-        <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
-        <a href="https://orcid.org/0000-0003-3119-770X"><img alt="ORCID 0000-0003-3119-770X" src="https://img.shields.io/badge/ORCID-0000--0003--3119--770X-green"></a><br/>
-        <a href="https://www.researchgate.net/profile/Gerardo-Tinoco-Guerrero"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
+        <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a><br/>
+        <a href="https://orcid.org/0000-0003-3119-770X"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-0000--0003--3119--770X-green?style=for-the-badge&logo=orcid"></a><br/>
+        <a href="https://www.researchgate.net/profile/Gerardo-Tinoco-Guerrero"><img alt="ResearchGate" src="https://img.shields.io/badge/ResearchGate-teal?style=for-the-badge&logo=researchgate"></a>
       </td>
     </tr>
     <tr>
-      <td align="center" width="120">
-        <img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="96" height="96" style="border-radius: 50%;">
+      <td align="center" width="140">
+        <img src="docs/team/jagt.webp" alt="Dr. J. Alberto Guzmán-Torres" width="100" height="100" style="border-radius: 50%; border: 3px solid #38B2AC;">
       </td>
       <td>
-        <b>Dr. Francisco Javier Domínguez Mota</b> :mexico:<br/>
-        <sub>Applied Mathematics &amp; Finite Difference Methods</sub>
+        <b>Dr. J. Alberto Guzmán-Torres</b> :mexico:<br/>
+        <sub>Ph.D. in Physical Engineering Sciences</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+        <a href="http://www.siiia.com.mx"><img alt="SIIIA MATH" src="https://img.shields.io/badge/🏢_SIIIA_MATH-0B1B3A?style=for-the-badge"></a><br/>
+        <a href="http://www.umich.mx"><img alt="UMSNH" src="https://img.shields.io/badge/🎓_UMSNH-1A3A6B?style=for-the-badge"></a>
       </td>
       <td>
-        <a href="mailto:francisco.mota@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
-        <a href="https://orcid.org/0000-0001-6837-172X"><img alt="ORCID 0000-0001-6837-172X" src="https://img.shields.io/badge/ORCID-0000--0001--6837--172X-green"></a><br/>
-        <a href="https://www.researchgate.net/profile/Francisco-Dominguez-Mota"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
+        <a href="mailto:jose.alberto.guzman@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a><br/>
+        <a href="https://orcid.org/0000-0002-9309-9390"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-0000--0002--9309--9390-green?style=for-the-badge&logo=orcid"></a><br/>
+        <a href="https://www.researchgate.net/profile/Jose-Guzman-Torres"><img alt="ResearchGate" src="https://img.shields.io/badge/ResearchGate-teal?style=for-the-badge&logo=researchgate"></a>
       </td>
     </tr>
     <tr>
-      <td align="center" width="120">
-        <img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="96" height="96" style="border-radius: 50%;">
+      <td align="center" width="140">
+        <img src="docs/team/dmota.webp" alt="Dr. Francisco J. Domínguez-Mota" width="100" height="100" style="border-radius: 50%; border: 3px solid #38B2AC;">
       </td>
       <td>
-        <b>Dr. José Alberto Guzmán Torres</b> :mexico:<br/>
-        <sub>Engineering Applications &amp; Artificial Intelligence</sub>
+        <b>Dr. Francisco J. Domínguez-Mota</b> :mexico:<br/>
+        <sub>Ph.D. in Mathematical Sciences</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+        <a href="http://www.siiia.com.mx"><img alt="SIIIA MATH" src="https://img.shields.io/badge/🏢_SIIIA_MATH-0B1B3A?style=for-the-badge"></a><br/>
+        <a href="http://www.umich.mx"><img alt="UMSNH" src="https://img.shields.io/badge/🎓_UMSNH-1A3A6B?style=for-the-badge"></a>
       </td>
       <td>
-        <a href="mailto:jose.alberto.guzman@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
-        <a href="https://orcid.org/0000-0002-9309-9390"><img alt="ORCID 0000-0002-9309-9390" src="https://img.shields.io/badge/ORCID-0000--0002--9309--9390-green"></a><br/>
-        <a href="https://www.researchgate.net/profile/Jose-Guzman-Torres"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="120">
-        <img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="96" height="96" style="border-radius: 50%;">
-      </td>
-      <td>
-        <b>Dr. Heriberto Árias Rojas</b> :mexico:<br/>
-        <sub>Engineering Applications</sub>
-      </td>
-      <td>
-        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:heriberto.arias@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
-        <a href="https://orcid.org/0000-0002-7641-8310"><img alt="ORCID 0000-0002-7641-8310" src="https://img.shields.io/badge/ORCID-0000--0002--7641--8310-green"></a><br/>
-        <a href="https://www.researchgate.net/profile/Heriberto-Arias-Rojas"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
+        <a href="mailto:francisco.mota@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a><br/>
+        <a href="https://orcid.org/0000-0001-6837-172X"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-0000--0001--6837--172X-green?style=for-the-badge&logo=orcid"></a><br/>
+        <a href="https://www.researchgate.net/profile/Francisco-Dominguez-Mota"><img alt="ResearchGate" src="https://img.shields.io/badge/ResearchGate-teal?style=for-the-badge&logo=researchgate"></a>
       </td>
     </tr>
   </tbody>
 </table>
 
-### :mortar_board: Ph.D. Research Students
+### :handshake: Collaborators & Alumni
 
-<table align="center">
+<table align="center" width="100%" cellspacing="0" cellpadding="8">
   <thead>
     <tr>
-      <th align="center" width="120">Photo</th>
+      <th align="center" width="140"></th>
+      <th align="left">Researcher</th>
+      <th align="left">Contact & Profiles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" width="140">
+        <img src="docs/team/harias.webp" alt="Dr. Heriberto Arias-Rojas" width="100" height="100" style="border-radius: 50%; border: 3px solid #CA6702;">
+      </td>
+      <td>
+        <b>Dr. Heriberto Arias-Rojas</b> :mexico:<br/>
+        <sub>Ph.D. in Physical Engineering Sciences</sub><br/>
+        <br/>
+        <img alt="Collaborator" src="https://img.shields.io/badge/🤝_Collaborator-CA6702?style=for-the-badge">
+      </td>
+      <td>
+        <a href="mailto:heriberto.arias@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a><br/>
+        <a href="https://orcid.org/0000-0002-7641-8310"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-0000--0002--7641--8310-green?style=for-the-badge&logo=orcid"></a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="140">
+        <img src="docs/team/gpj.webp" alt="Gabriela Pedraza-Jimenez" width="100" height="100" style="border-radius: 50%; border: 3px solid #2E8B57;">
+      </td>
+      <td>
+        <b>Gabriela Pedraza-Jimenez</b><br/>
+        <sub>Ph.D. in Physical Engineering Sciences</sub><br/>
+        <br/>
+        <img alt="Alumni" src="https://img.shields.io/badge/🎓_Alumni-2E8B57?style=for-the-badge">
+      </td>
+      <td>
+        <a href="mailto:2220157h@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### :mortar_board: Students
+
+<table align="center" width="100%" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th align="center" width="120"></th>
       <th align="left">Student</th>
-      <th align="left">Institution</th>
+      <th align="left">Program</th>
       <th align="left">Contact</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/gpj.webp" alt="Gabriela Pedraza-Jiménez" width="96" height="96" style="border-radius: 50%;">
+        <img src="docs/team/eci.webp" alt="Eli Chagolla-Inzunza" width="80" height="80" style="border-radius: 50%; border: 2px solid #8CAAE6;">
       </td>
-      <td>
-        <b>Gabriela Pedraza-Jiménez</b><br/>
-        <img alt="Ph.D. Research Student" src="https://img.shields.io/badge/Ph.D.-Research%20Student-2E8B57?style=flat-square">
-      </td>
-      <td>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:2220157h@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
-      </td>
+      <td><b>Eli Chagolla-Inzunza</b></td>
+      <td><img alt="Ph.D. Candidate" src="https://img.shields.io/badge/Ph.D._Candidate-8CAAE6?style=for-the-badge"></td>
+      <td><a href="mailto:1137626b@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a></td>
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/eci.webp" alt="Eli Chagolla-Inzunza" width="96" height="96" style="border-radius: 50%;">
+        <img src="docs/team/jlgf.webp" alt="Jorge L. González-Figueroa" width="80" height="80" style="border-radius: 50%; border: 2px solid #38B2AC;">
       </td>
-      <td>
-        <b>Eli Chagolla-Inzunza</b><br/>
-        <img alt="Ph.D. Research Student" src="https://img.shields.io/badge/Ph.D.-Research%20Student-2E8B57?style=flat-square">
-      </td>
-      <td>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:1137626b@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-### :mortar_board: M.Sc. Research Students
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center" width="120">Photo</th>
-      <th align="left">Student</th>
-      <th align="left">Institution</th>
-      <th align="left">Contact</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center" width="120">
-        <img src="docs/team/jlgf.webp" alt="Jorge L. González-Figueroa" width="96" height="96" style="border-radius: 50%;">
-      </td>
-      <td>
-        <b>Jorge L. González-Figueroa</b><br/>
-        <img alt="M.Sc. Research Student" src="https://img.shields.io/badge/M.Sc.-Research%20Student-green?style=flat-square">
-      </td>
-      <td>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:1718717h@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
-      </td>
+      <td><b>Jorge L. González-Figueroa</b></td>
+      <td><img alt="M.Sc. Student" src="https://img.shields.io/badge/M.Sc._Student-38B2AC?style=for-the-badge"></td>
+      <td><a href="mailto:1718717h@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a></td>
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/cnmb.webp" alt="Christopher N. Magaña-Barocio" width="96" height="96" style="border-radius: 50%;">
+        <img src="docs/team/cnmb.webp" alt="C. Nolan Magaña-Barocio" width="80" height="80" style="border-radius: 50%; border: 2px solid #38B2AC;">
       </td>
-      <td>
-        <b>Christopher N. Magaña-Barocio</b><br/>
-        <img alt="M.Sc. Research Student" src="https://img.shields.io/badge/M.Sc.-Research%20Student-green?style=flat-square">
-      </td>
-      <td>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:1339846k@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
-      </td>
+      <td><b>C. Nolan Magaña-Barocio</b></td>
+      <td><img alt="M.Sc. Student" src="https://img.shields.io/badge/M.Sc._Student-38B2AC?style=for-the-badge"></td>
+      <td><a href="mailto:1339846k@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a></td>
     </tr>
-  </tbody>
-</table>
-
-### :mortar_board: Undergraduate Research Students
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center" width="120">Photo</th>
-      <th align="left">Student</th>
-      <th align="left">Institution</th>
-      <th align="left">Contact</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/mgfl.webp" alt="Maria Goretti Fraga Lopez" width="96" height="96" style="border-radius: 50%;">
+        <img src="docs/team/mgfl.webp" alt="Maria Goretti Fraga-Lopez" width="80" height="80" style="border-radius: 50%; border: 2px solid #2E8B57;">
       </td>
-      <td>
-        <b>Maria Goretti Fraga-Lopez</b><br/>
-        <img alt="Undergraduate Research Student" src="https://img.shields.io/badge/Undergraduate-Research%20Student-green?style=flat-square">
-      </td>
-      <td>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
-      </td>
-      <td>
-        <a href="mailto:1702174b@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
-      </td>
+      <td><b>Maria Goretti Fraga-Lopez</b></td>
+      <td><img alt="Undergraduate" src="https://img.shields.io/badge/Undergraduate-2E8B57?style=for-the-badge"></td>
+      <td><a href="mailto:1702174b@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧_Email-blue?style=for-the-badge"></a></td>
     </tr>
   </tbody>
 </table>
 
 ---
 
-## :factory: Industry Partners Supporting Innovation
+## :handshake: Institutional Partners & Acknowledgments
 
 <div align="center">
 
-### :star2: Industry Partners Supporting Innovation
-*Collaboration between academia and industry to accelerate real-world impact*
+*We extend our gratitude to the institutions, companies, and government entities supporting this research and open-source development.*
 
-</div>
+<br/>
 
-<div align="center">
-
-<table align="center" width="70%">
-<tr>
-<td align="center">
-
-### :factory: **SIIIA MATH**
-#### *Soluciones de Ingeniería, México*
-
-<div align="center">
-
-[![Website](https://img.shields.io/badge/🌐-Visit%20Website-blue?style=for-the-badge)](http://www.siiia.com.mx)
-[![Type](https://img.shields.io/badge/📊-R%26D%20Company-orange?style=flat-square)](http://www.siiia.com.mx)
-[![Location](https://img.shields.io/badge/📍-Morelia,%20Mexico-green?style=flat-square)](http://www.siiia.com.mx)
-
-</div>
-
-**🎯 Focus areas:**
-- Mathematical modeling & simulation
-- AI/ML engineering solutions
-- Technology transfer and applied R&amp;D
-
-<div align="center">
-
-[![Contact](https://img.shields.io/badge/📧-Partnership%20Contact-0B1B3A?style=for-the-badge)](mailto:gtinoco@siiia.com.mx)
-
-</div>
-
-</td>
-</tr>
+<table align="center" width="100%" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th align="center" width="25%">Institution</th>
+      <th align="left" width="25%">Type</th>
+      <th align="left" width="50%">Key Support & Collaboration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img src="docs/partners/umsnh.webp" alt="UMSNH Logo" height="60"><br/>
+        <br/>
+        <a href="http://www.umich.mx"><img alt="Website" src="https://img.shields.io/badge/🌐_Website-darkred?style=for-the-badge"></a>
+      </td>
+      <td>
+        <img alt="University" src="https://img.shields.io/badge/🎓_University-1A3A6B?style=for-the-badge"><br/>
+        <br/>
+        <sub>Michoacán, Mexico</sub>
+      </td>
+      <td>
+        • Academic foundation and research infrastructure<br/>
+        • Scientific training and graduate supervision
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="docs/partners/secihti.webp" alt="SECIHTI Logo" height="50"><br/>
+        <br/>
+        <a href="https://secihti.mx/"><img alt="Website" src="https://img.shields.io/badge/🌐_Website-darkgreen?style=for-the-badge"></a>
+      </td>
+      <td>
+        <img alt="Government" src="https://img.shields.io/badge/🏛️_Government-2D6A4F?style=for-the-badge"><br/>
+        <br/>
+        <sub>Federal, Mexico</sub>
+      </td>
+      <td>
+        • Support for science and technology initiatives<br/>
+        • Research funding and innovation promotion
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="docs/partners/siiia_vertical.png" alt="SIIIA MATH Logo" height="60"><br/>
+        <br/>
+        <a href="http://www.siiia.com.mx"><img alt="Website" src="https://img.shields.io/badge/🌐_Website-blue?style=for-the-badge"></a>
+      </td>
+      <td>
+        <img alt="Industry R&D" src="https://img.shields.io/badge/🏭_Industry_R&D-0B1B3A?style=for-the-badge"><br/>
+        <br/>
+        <sub>Morelia, Mexico</sub>
+      </td>
+      <td>
+        • Mathematical modeling, AI/ML engineering<br/>
+        • Technology transfer and applied R&D
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="docs/partners/cimne.webp" alt="CIMNE Logo" height="60"><br/>
+        <br/>
+        <a href="https://aulas.cimne.com/aula/aula-morelia/"><img alt="Website" src="https://img.shields.io/badge/🌐_Website-orange?style=for-the-badge"></a>
+      </td>
+      <td>
+        <img alt="Research Center" src="https://img.shields.io/badge/🌿_Research_Center-EE9B00?style=for-the-badge"><br/>
+        <br/>
+        <sub>Spain / Mexico</sub>
+      </td>
+      <td>
+        • International collaboration in numerical methods<br/>
+        • Computational engineering research environment
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 </div>
@@ -846,7 +702,14 @@ git checkout -b feature/your-feature-name
 
 ### :books: Core Publications (GFD / mGFD Background)
 
-1. **Tinoco-Guerrero, G.**, Domínguez-Mota, F. J., Guzmán-Torres, J. A., & Tinoco-Ruiz, J. G. (2022). *"Numerical Solution of Diffusion Equation using a Method of Lines and Generalized Finite Differences."* **Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería**, 38(2). [DOI: 10.23967/j.rimni.2022.06.003](http://dx.doi.org/10.23967/j.rimni.2022.06.003)
+1. **Tinoco-Guerrero, G.**, Domínguez-Mota, F. J., Guzmán-Torres, J. A., Pedraza-Jiménez, G., & Tinoco-Ruiz, J. G. (2025). *"mGFD: A meshless generalized finite difference method."* **Computers & Mathematics with Applications**.  
+   :link: **[View on ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0898122125003232)**
+
+2. Pedraza-Jiménez, G., **Tinoco-Guerrero, G.**, Domínguez-Mota, F. J., Guzmán-Torres, J. A., & Tinoco-Ruiz, J. G. (2025). *"mGFD: CloudGenerator."* **Software Impacts**.  
+   :link: **[View on ScienceDirect](https://www.sciencedirect.com/science/article/pii/S266596382400109X)**
+
+3. **Tinoco-Guerrero, G.**, Domínguez-Mota, F. J., Guzmán-Torres, J. A., & Tinoco-Ruiz, J. G. (2022). *"Numerical Solution of Diffusion Equation using a Method of Lines and Generalized Finite Differences."* **Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería**, 38(2).  
+   :link: **[DOI: 10.23967/j.rimni.2022.06.003](http://dx.doi.org/10.23967/j.rimni.2022.06.003)**
 
 ### :trophy: Project Highlights
 
@@ -861,17 +724,17 @@ git checkout -b feature/your-feature-name
 If you use this software in your research, please cite:
 
 ```bibtex
-@software{tinoco2025mGFD_cloudgenerator,
-  title={mGFD CloudGenerator 2.1: Web platform for generating 2D unstructured point clouds},
+@software{tinoco2026mGFD_cloudgenerator,
+  title={mGFD CloudGenerator 2.3: Web platform for generating 2D unstructured point clouds},
   author={Tinoco-Guerrero, Gerardo and 
           Domínguez-Mota, Francisco Javier and 
           Guzmán-Torres, José Alberto and
           Arias-Rojas, Heriberto},
-  year={2025},
+  year={2026},
   institution={Universidad Michoacana de San Nicolás de Hidalgo},
   organization={SIIIA MATH: Soluciones en ingeniería},
   url={https://github.com/gstinoco/mGFD_CloudGenerator},
-  version={2.1},
+  version={2.3},
   note={Web-based preprocessing tool for meshless mGFD workflows: image-to-contour extraction, multi-region handling, point-cloud generation (regular/Poisson), node classification, and region-constrained neighbor analysis}
 }
 ```
@@ -909,154 +772,6 @@ SOFTWARE.
 
 ---
 
-## :pray: Acknowledgments
-
-<div align="center">
-
-### :heart: Special Thanks
-*We extend our gratitude to the institutions and partners supporting this research and open-source development*
-
-</div>
-
-### :classical_building: Institutional Support
-
-<table align="center" width="100%" cellspacing="14">
-  <tr>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🎓 Universidad Michoacana de San Nicolás de Hidalgo (UMSNH)</b><br/>
-          <sub>Academic institution, Mexico</sub><br/><br/>
-          <a href="http://www.umich.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkred?style=flat-square"></a>
-          <img alt="Type: University" src="https://img.shields.io/badge/🏷️%20Type-University-1A3A6B?style=flat-square">
-          <img alt="Support: Infrastructure" src="https://img.shields.io/badge/🤝%20Support-Infrastructure-2E8B57?style=flat-square">
-        </div>
-        <br/>
-        <b>Key support</b>
-        <ul>
-          <li>Academic foundation and research infrastructure</li>
-          <li>Scientific training and supervision environment</li>
-        </ul>
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🏛️ Secretariat of Science, Humanities, Technology and Innovation(SECIHTI)</b><br/>
-          <sub> State Secretariat, Mexico</sub><br/><br/>
-          <a href="https://secihti.mx/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkgreen?style=flat-square"></a>
-          <img alt="Type: Government" src="https://img.shields.io/badge/🏷️%20Type-Government-2D6A4F?style=flat-square">
-          <img alt="Support: Funding and Innovation" src="https://img.shields.io/badge/🤝%20Support-Funding%20%26%20Innovation-40916C?style=flat-square">
-        </div>
-        <br/>
-        <b>Key support</b>
-        <ul>
-          <li>Support for science and technology initiatives</li>
-          <li>Funding and innovation promotion</li>
-        </ul>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🌿 Centre Internacional de Mètodes Numèrics en Enginyeria (CIMNE)</b><br/>
-          <sub>Industry, Spain</sub><br/><br/>
-          <a href="https://aulas.cimne.com/aula/aula-morelia/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-orange?style=flat-square"></a>
-          <img alt="Type: Research Center" src="https://img.shields.io/badge/🏷️%20Type-Research%20Center-EE9B00?style=flat-square">
-          <img alt="Support: Collaboration" src="https://img.shields.io/badge/🤝%20Support-Collaboration-CA6702?style=flat-square">
-        </div>
-        <br/>
-        <b>Key support</b>
-        <ul>
-          <li>International collaboration in numerical methods</li>
-          <li>Computational engineering research environment</li>
-        </ul>
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🏭 SIIIA MATH: Soluciones en Ingeniería</b><br/>
-          <sub>Industry, México</sub><br/><br/>
-          <a href="http://www.siiia.com.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-blue?style=flat-square"></a>
-          <img alt="Type: Industry Partner" src="https://img.shields.io/badge/🏷️%20Type-Industry%20Partner-0B1B3A?style=flat-square">
-          <img alt="Support: Technology Transfer" src="https://img.shields.io/badge/🤝%20Support-Technology%20Transfer-1D3557?style=flat-square">
-        </div>
-        <br/>
-        <b>Key support</b>
-        <ul>
-          <li>Industry-driven applied research and development</li>
-          <li>Technology transfer and practical engineering impact</li>
-        </ul>
-      </div>
-    </td>
-  </tr>
-</table>
-
-### :building_with_garden: Research Centers & Collaborations
-
-<div align="center">
-
-<table align="center" width="100%" cellspacing="14">
-  <tr>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🌿 Aula CIMNE-Morelia</b><br/>
-          <sub>Research collaboration space</sub><br/><br/>
-          <a href="https://aulas.cimne.com/aula/aula-morelia/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-orange?style=flat-square"></a>
-          <img alt="Area: Numerical Methods" src="https://img.shields.io/badge/🧮%20Area-Numerical%20Methods-EE9B00?style=flat-square">
-          <img alt="Collaboration: Applied Computing" src="https://img.shields.io/badge/🤝%20Collaboration-Applied%20Computing-CA6702?style=flat-square">
-        </div>
-        <br/>
-        <b>Collaboration highlights</b>
-        <ul>
-          <li>Numerical methods and computational engineering environment</li>
-          <li>Academic–industry collaboration and training activities</li>
-        </ul>
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-        <div align="center">
-          <b>🎓 UMSNH</b><br/>
-          <sub>Academic collaboration</sub><br/><br/>
-          <a href="http://www.umich.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkred?style=flat-square"></a>
-          <img alt="Type: University" src="https://img.shields.io/badge/🏷️%20Type-University-1A3A6B?style=flat-square">
-          <img alt="Support: Research Infrastructure" src="https://img.shields.io/badge/🤝%20Support-Research%20Infrastructure-2E8B57?style=flat-square">
-        </div>
-        <br/>
-        <b>Collaboration highlights</b>
-        <ul>
-          <li>Institutional infrastructure supporting research and training</li>
-          <li>Graduate formation and supervision for scientific computing</li>
-        </ul>
-      </div>
-    </td>
-  </tr>
-</table>
-
-</div>
-
-### :computer: Technology Communities
-
-<div align="center">
-
-| :package: Framework | :busts_in_silhouette: Community | :star: Contribution |
-|:---:|:---:|:---:|
-| [![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=flat-square&logo=opencv)](https://opencv.org/) | **OpenCV Community** | Computer vision and image processing |
-| [![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?style=flat-square&logo=flask)](https://flask.palletsprojects.com/) | **Flask Development Team** | Web framework |
-| [![NumPy](https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=flat-square&logo=numpy)](https://numpy.org/) | **NumPy Community** | Array computing foundation |
-| [![SciPy](https://img.shields.io/badge/SciPy-Scientific%20Computing-8CAAE6?style=flat-square&logo=scipy)](https://scipy.org/) | **SciPy Community** | Numerical algorithms |
-| [![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=flat-square)](https://matplotlib.org/) | **Matplotlib Community** | Scientific visualization |
-| [![Shapely](https://img.shields.io/badge/Shapely-Geometry-2E8B57?style=flat-square)](https://shapely.readthedocs.io/) | **Shapely Development Team** | Computational geometry |
-
-</div>
-
----
-
 ## :email: Contact & Support
 
 <div align="center">
@@ -1065,98 +780,18 @@ SOFTWARE.
 
 [![Issues](https://img.shields.io/badge/🧩-GitHub%20Issues-24292f?style=flat-square&logo=github)](https://github.com/gstinoco/mGFD_CloudGenerator/issues)
 [![Email](https://img.shields.io/badge/📧-Email%20Support-blue?style=flat-square)](mailto:gerardo.tinoco@umich.mx)
+[![Collaboration](https://img.shields.io/badge/🤝-Request%20Collaboration-2E8B57?style=flat-square)](mailto:gerardo.tinoco@umich.mx?subject=mGFD%20CloudGenerator%20Collaboration)
 
 </div>
 
-<table align="center" width="100%" cellspacing="14">
-  <tr>
-    <td valign="top" style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-      <div align="center">
-        <b>Primary Contact</b><br/>
-        <sub>Research group coordination</sub>
-      </div>
-      <br/>
-      <b>Dr. Gerardo Tinoco Guerrero</b><br/>
-      <sub>Morelia, Michoacán, México</sub>
-      <br/><br/>
-      <div align="center">
-        <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧-Email-blue?style=flat-square"></a>
-        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/🏢%20Company-SIIIA%20MATH-0B1B3A?style=flat-square"></a>
-        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/🎓%20University-UMSNH-1A3A6B?style=flat-square"></a>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-      <div align="center">
-        <b>Technical Support</b><br/>
-        <sub>Bug reports, questions, and collaboration requests</sub>
-      </div>
-      <br/>
-      <div align="center">
-        <a href="https://github.com/gstinoco/mGFD_CloudGenerator/issues"><img alt="Open an Issue" src="https://img.shields.io/badge/🧩-Open%20Issue-24292f?style=flat-square&logo=github"></a>
-        <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Send Email" src="https://img.shields.io/badge/📧-Send%20Email-blue?style=flat-square"></a>
-        <a href="mailto:gerardo.tinoco@umich.mx?subject=mGFD%20CloudGenerator%20Collaboration"><img alt="Request Collaboration" src="https://img.shields.io/badge/🤝-Request%20Collaboration-2E8B57?style=flat-square"></a>
-      </div>
-      <br/>
-      <ul>
-        <li><b>Issues</b> for bugs and feature requests</li>
-        <li><b>Email</b> for technical inquiries</li>
-        <li><b>Collaboration</b> for partnerships and joint projects</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-      <div align="center">
-        <b>Collaboration Opportunities</b><br/>
-        <sub>Research and engineering partnerships</sub>
-      </div>
-      <br/>
-      <table width="100%">
-        <tr>
-          <td width="50%"><b>🧮 Meshless Methods</b><br/><sub>mGFD discretizations, boundary handling, point cloud quality</sub></td>
-          <td width="50%"><b>📐 Computational Geometry</b><br/><sub>polygon processing, hole handling, robust point-in-region tests</sub></td>
-        </tr>
-        <tr>
-          <td width="50%"><b>🖼️ Computer Vision</b><br/><sub>segmentation workflows, contour extraction from images</sub></td>
-          <td width="50%"><b>🌐 Scientific Web Tools</b><br/><sub>reproducible preprocessing platforms for simulation pipelines</sub></td>
-        </tr>
-        <tr>
-          <td width="50%"><b>🌊 CFD / Engineering</b><br/><sub>node generation for complex domains and multi-region problems</sub></td>
-          <td width="50%"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-      <div align="center">
-        <b>Student Opportunities</b><br/>
-        <sub>Projects and training in scientific computing</sub>
-      </div>
-      <br/>
-      <ul>
-        <li><b>Graduate Programs</b>: research opportunities with the team</li>
-        <li><b>Undergraduate Projects</b>: thesis topics in computational engineering</li>
-        <li><b>Internships</b>: scientific computing, numerical methods, and applied modeling</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
-      <div align="center">
-        <b>Institutional Affiliations</b>
-      </div>
-      <br/>
-      <div align="center">
-        <a href="http://www.siiia.com.mx"><img alt="SIIIA MATH" src="https://img.shields.io/badge/🏢-SIIIA%20MATH-0B1B3A?style=flat-square"></a>
-        <a href="http://www.umich.mx"><img alt="UMSNH" src="https://img.shields.io/badge/🎓-UMSNH-1A3A6B?style=flat-square"></a>
-        <img alt="Research Group" src="https://img.shields.io/badge/🔬-Numerical%20Methods%20%26%20Scientific%20Computing-555?style=flat-square">
-      </div>
-    </td>
-  </tr>
-</table>
+**Dr. Gerardo Tinoco Guerrero** (Primary Contact)  
+*Morelia, Michoacán, México*
+
+- **Bug Reports & Feature Requests**: Please use the [GitHub Issues](https://github.com/gstinoco/mGFD_CloudGenerator/issues) tab.
+- **Technical Support & Questions**: Reach out via [email](mailto:gerardo.tinoco@umich.mx).
+- **Research Collaboration**: We are open to partnerships in Meshless Methods, Computational Geometry, and Scientific Web Tools.
+
+*Affiliations*: [SIIIA MATH](http://www.siiia.com.mx) • [UMSNH](http://www.umich.mx)
 
 ---
 

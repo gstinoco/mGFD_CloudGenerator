@@ -1,564 +1,385 @@
-{#
-# about.html — Core functionality for about.html
-#
-# Overview:
-# This template provides the structure and UI elements for the about.html view.
-#
-# Credits:
-# All the codes presented below were developed by:
-# Dr. Gerardo Tinoco-Guerrero
-# Dr. Francisco Javier Domínguez-Mota
-# Dr. José Alberto Guzmán-Torres
-# Universidad Michoacana de San Nicolás de Hidalgo
-# gerardo.tinoco@umich.mx
-#
-# With the funding of:
-# Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e
-Innovación). México.
-# Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad
-Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
-# Aula CIMNE-Morelia. México.
-# SIIIA-MATH: Soluciones de Ingeniería. México.
-#
-# Date:
-# March, 2026.
-# Last Modification:
-# September, 2026.
-#}
-{% extends 'base.html' %}
+<!--
+about.html — Core functionality for about.html
 
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/tools.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
-{% endblock %}
+Overview:
+    HTML template for the about module.
+
+Credits:
+    All the codes presented below were developed by:
+        Dr. Gerardo Tinoco-Guerrero
+        Dr. Francisco Javier Domínguez-Mota
+        Dr. José Alberto Guzmán-Torres
+        Universidad Michoacana de San Nicolás de Hidalgo
+        gerardo.tinoco@umich.mx
+
+    With the funding of:
+        Secretary of Science, Humanities, Technology and Innovation, SECIHTI (Secretaria de Ciencia, Humanidades, Tecnología e Innovación). México.
+        Coordination of Scientific Research, CIC-UMSNH (Coordinación de la Investigación Científica de la Universidad Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
+        Aula CIMNE-Morelia. México.
+        SIIIA-MATH: Soluciones de Ingeniería. México.
+
+Date:
+    August, 2025.
+Last Modification:
+    September, 2026.
+-->
+{% extends 'base.html' %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-main">
-                <div class="hero-logo">
-                    <img src="{{ url_for('static', filename='images/logo_w.webp') }}" alt="CloudGenerator Logo"
-                        class="logo-image">
-                </div>
-                <h1 class="hero-title">{{ _('About the Project') }}</h1>
-                <p class="hero-subtitle">
-                    {{ _('Meet the team behind mGFD CloudGenerator 2.2 - A complete platform for generating unstructured
-                    point clouds from images and geometric contours, designed for meshless Generalized Finite
-                    Difference Method (mGFD) applications and numerical simulations.') }}
-                </p>
-                <div class="hero-features">
-                    <div class="feature-highlight">
-                        <i class="fas fa-users"></i>
-                        <span>{{ _('Expert Team') }}</span>
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-code"></i>
-                        <span>{{ _('Open Source') }}</span>
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>{{ _('Research-Based') }}</span>
-                    </div>
-                </div>
-            </div>
+<section class="hero-informative min-h-screen flex items-center justify-center border-b border-black/10 dark:border-white/10 relative">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 text-center">
+
+        <!-- Badge -->
+        <div
+            class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 mb-8 opacity-0 animate-[fade-in-up_0.8s_ease-out_forwards]">
+            <span class="flex h-2 w-2 rounded-full bg-apple-blue shadow-[0_0_10px_rgba(0,102,204,1)]"></span>
+            {{ _('Information') }}
         </div>
+
+        <!-- Main Typography -->
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black dark:text-white mb-6 max-w-5xl mx-auto drop-shadow-2xl leading-tight opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+            {{ _('About the Project') }} <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:via-teal-300 dark:to-white">{{ _('mGFD
+                CloudGenerator') }}</span>
+        </h1>
+
+        <p
+            class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards]">
+            {{ _('Meet the team behind mGFD CloudGenerator - A complete platform for generating unstructured point
+            clouds from images and geometric contours, designed for meshless Generalized Finite Difference Method (mGFD)
+            applications and numerical simulations.') }}
+        </p>
+    </div>
+
+    <!-- Fade out bottom -->
+    <div
+        class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-apple-light dark:from-black to-transparent z-10 pointer-events-none">
     </div>
 </section>
 
 <!-- Project Overview Section -->
-<section class="section-dark features">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Project Overview') }}</h2>
-        </div>
+<section class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Project Summary Dashboard -->
-        <div class="project-dashboard">
-            <div class="dashboard-header">
-                <div class="project-logo">
-                    <div class="logo-circle">
+        <h2 class="text-3xl font-bold text-black dark:text-white text-center mb-12">{{ _('Project Overview') }}</h2>
+
+        <div
+            class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 mb-16 shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-black/10 dark:border-white/10 pb-8 mb-8">
+                <div class="flex items-center gap-6">
+                    <div
+                        class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 shadow-lg">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-name">{{ _('mGFD CloudGenerator 2.2') }}</h3>
-                        <p class="project-tagline">{{ _('Advanced Point Cloud Generation for Meshless Methods') }}</p>
+                    <div>
+                        <h3 class="text-2xl font-bold text-black dark:text-white m-0">{{ _('mGFD CloudGenerator') }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 m-0">{{ _('Advanced Point Cloud Generation for Meshless Methods') }}</p>
                     </div>
                 </div>
-                <div class="project-status">
-                    <div class="status-badge active">
-                        <i class="fas fa-check-circle"></i>
-                        <a href="https://github.com/gstinoco/CloudGen" target="_blank"
-                            style="color: inherit; text-decoration: none;">
-                            <span>{{ _('Production Ready') }}</span>
-                        </a>
-                    </div>
-                    <div class="status-badge live">
-                        <i class="fas fa-globe"></i>
-                        <a href="https://malla.umich.mx/CloudGenerator/" target="_blank"
-                            style="color: inherit; text-decoration: none;">
-                            <span>{{ _('Live Demo') }}</span>
-                        </a>
-                    </div>
+                <div class="flex gap-3">
+                    <a href="https://github.com/gstinoco/CloudGen" target="_blank"
+                        class="px-4 py-2 bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-black/10 dark:border-white/10 rounded-full text-sm font-medium hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                        <i class="fas fa-check-circle text-teal-600 dark:text-teal-400 mr-1"></i> {{ _('Production Ready') }}
+                    </a>
+                    <a href="https://malla.umich.mx/CloudGenerator/" target="_blank"
+                        class="px-4 py-2 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 rounded-full text-sm font-medium hover:bg-blue-500/20 transition-colors">
+                        <i class="fas fa-globe mr-1"></i> {{ _('Live Demo') }}
+                    </a>
                 </div>
             </div>
 
             <!-- Key Metrics Grid -->
-            <div class="metrics-grid">
-                <div class="metric-card primary">
-                    <div class="metric-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <div class="metric-content">
-                        <div class="metric-number">4</div>
-                        <div class="metric-label">{{ _('Core Modules') }}</div>
-                        <div class="metric-description">{{ _('Integrated tools for complete workflow') }}</div>
-                    </div>
-                    <div class="metric-progress">
-                        <div class="progress-bar" style="width: 100%;"></div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div
+                    class="bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/10 dark:border-white/10 border-l-4 border-l-blue-500 transition-transform hover:-translate-y-1 hover:bg-black/10 dark:hover:bg-white/10 backdrop-blur-md">
+                    <div class="text-4xl font-bold text-black dark:text-white mb-2">4</div>
+                    <div class="font-semibold text-blue-600 dark:text-blue-400 mb-1">{{ _('Core Modules') }}</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ _('A fully integrated suite for point cloud generation and
+                        preprocessing.') }}</div>
                 </div>
-
-                <div class="metric-card success">
-                    <div class="metric-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="metric-content">
-                        <div class="metric-number">100%</div>
-                        <div class="metric-label">{{ _('Open Source') }}</div>
-                        <div class="metric-description">{{ _('MIT licensed for collaboration') }}</div>
-                    </div>
-                    <div class="metric-progress">
-                        <div class="progress-bar" style="width: 100%;"></div>
-                    </div>
+                <div
+                    class="bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/10 dark:border-white/10 border-l-4 border-l-teal-500 dark:border-l-teal-400 transition-transform hover:-translate-y-1 hover:bg-black/10 dark:hover:bg-white/10 backdrop-blur-md">
+                    <div class="text-4xl font-bold text-black dark:text-white mb-2">100%</div>
+                    <div class="font-semibold text-teal-600 dark:text-teal-400 mb-1">{{ _('Open Source') }}</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ _('Proudly MIT licensed to foster open scientific
+                        collaboration.') }}</div>
                 </div>
-
-                <div class="metric-card info">
-                    <div class="metric-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="metric-content">
-                        <div class="metric-number">{{ _('v2.2') }}</div>
-                        <div class="metric-label">{{ _('Latest Version') }}</div>
-                        <div class="metric-description">{{ _('Enhanced performance & features') }}</div>
-                    </div>
-                    <div class="metric-progress">
-                        <div class="progress-bar" style="width: 95%;"></div>
-                    </div>
+                <div
+                    class="bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/10 dark:border-white/10 border-l-4 border-l-sky-500 dark:border-l-sky-400 transition-transform hover:-translate-y-1 hover:bg-black/10 dark:hover:bg-white/10 backdrop-blur-md">
+                    <div class="text-4xl font-bold text-black dark:text-white mb-2">{{ _('v2.3') }}</div>
+                    <div class="font-semibold text-sky-600 dark:text-sky-400 mb-1">{{ _('Latest Version') }}</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ _('Packed with enhanced performance and cutting-edge
+                        features.') }}</div>
                 </div>
             </div>
 
-            <!-- Feature Highlights -->
-            <div class="feature-highlights">
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-draw-polygon"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('ContourCreator') }}</h4>
-                        <p>{{ _('Interactive contour generation with real-time visualization') }}</p>
-                    </div>
-                </div>
-
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('CloudGenerator') }}</h4>
-                        <p>{{ _('Optimized point cloud generation for mGFD applications') }}</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-draw-polygon text-2xl text-blue-600 dark:text-blue-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('ContourCreator') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Draw geometries seamlessly. Experience
+                            interactive contour generation backed by real-time visualization.') }}</p>
                     </div>
                 </div>
-
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('CloudViewer') }}</h4>
-                        <p>{{ _('Visualize generated clouds with high-quality 2D plots') }}</p>
-                    </div>
-                </div>
-
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('NeighborsCalculator') }}</h4>
-                        <p>{{ _('Calculate connectivity and K-nearest neighbors') }}</p>
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-cloud text-2xl text-teal-600 dark:text-teal-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('CloudGenerator') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('The core engine. Engineered for highly
+                            optimized point cloud generation specifically tailored for mGFD applications.') }}</p>
                     </div>
                 </div>
-
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('Advanced Analytics') }}</h4>
-                        <p>{{ _('Comprehensive visualization and analysis tools') }}</p>
-                    </div>
-                </div>
-
-                <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-download"></i>
-                    </div>
-                    <div class="highlight-content">
-                        <h4>{{ _('Multiple Formats') }}</h4>
-                        <p>{{ _('Export in CSV, PNG, SVG and other standard formats') }}</p>
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-eye text-2xl text-sky-600 dark:text-sky-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('CloudViewer') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('See your data clearly. Render generated
+                            point clouds instantly with high-quality, interactive 2D plotting.') }}</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Research Team Section -->
-<section class="section-light">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Research Team') }}</h2>
-        </div>
-
-        <!-- Researchers Category -->
-        <div class="team-category">
-            <h3 class="category-title">{{ _('Researchers') }}</h3>
-            <div class="team-grid">
-                <!-- Researcher 1 -->
-                <div class="team-member researcher">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/gtinoco.webp') }}"
-                            alt="Gerardo Tinoco-Guerrero" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Gerardo Tinoco-Guerrero') }}</div>
-                    <div class="member-role">{{ _('Ph.D. in Physical Engineering Sciences') }}</div>
-                    <div class="member-contact">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:gerardo.tinoco@umich.mx">{{ _('gerardo.tinoco@umich.mx') }}</a>
-                    </div>
-                    <div class="member-social">
-                        <a href="https://orcid.org/0000-0003-3119-770X" target="_blank" title="{{ _('ORCID') }}"><i
-                                class="fab fa-orcid"></i></a>
-                        <a href="https://www.researchgate.net/profile/Gerardo-Tinoco-Guerrero" target="_blank"
-                            title="{{ _('ResearchGate') }}"><i class="fab fa-researchgate"></i></a>
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-users text-2xl text-blue-600 dark:text-blue-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('NeighborsCalculator') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Advanced topology. Instantly calculate
+                            node connectivity and K-nearest neighbors for complex point distributions.') }}</p>
                     </div>
                 </div>
-
-                <!-- Researcher 2 -->
-                <div class="team-member researcher">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/jagt.webp') }}"
-                            alt="J. Alberto Guzmán-Torres" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('J. Alberto Guzmán-Torres') }}</div>
-                    <div class="member-role">{{ _('Ph.D. in Physical Engineering Sciences') }}</div>
-                    <div class="member-contact">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:jose.alberto.guzman@umich.mx">{{ _('jose.alberto.guzman@umich.mx') }}</a>
-                    </div>
-                    <div class="member-social">
-                        <a href="https://orcid.org/0000-0002-9309-9390" target="_blank" title="{{ _('ORCID') }}"><i
-                                class="fab fa-orcid"></i></a>
-                        <a href="https://www.researchgate.net/profile/Jose-Guzman-Torres" target="_blank"
-                            title="{{ _('ResearchGate') }}"><i class="fab fa-researchgate"></i></a>
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-chart-line text-2xl text-teal-600 dark:text-teal-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('Advanced Analytics') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Deep insights. Unlock comprehensive
+                            visualization and numerical analysis tools to validate your models.') }}</p>
                     </div>
                 </div>
-
-                <!-- Researcher 3 -->
-                <div class="team-member researcher">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/dmota.webp') }}"
-                            alt="Francisco J. Domínguez-Mota" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Francisco J. Domínguez-Mota') }}</div>
-                    <div class="member-role">{{ _('Ph.D. in Mathematical Sciences') }}</div>
-                    <div class="member-contact">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:francisco.mota@umich.mx">{{ _('francisco.mota@umich.mx') }}</a>
-                    </div>
-                    <div class="member-social">
-                        <a href="https://orcid.org/0000-0001-6837-172X" target="_blank" title="{{ _('ORCID') }}"><i
-                                class="fab fa-orcid"></i></a>
-                        <a href="https://www.researchgate.net/profile/Francisco-Dominguez-Mota" target="_blank"
-                            title="{{ _('ResearchGate') }}"><i class="fab fa-researchgate"></i></a>
-                    </div>
-                </div>
-
-                <!-- Researcher 4 -->
-                <div class="team-member researcher">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/harias.webp') }}"
-                            alt="Heriberto Arias-Rojas" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Heriberto Arias-Rojas') }}</div>
-                    <div class="member-role">{{ _('Ph.D. in Physical Engineering Sciences') }}</div>
-                    <div class="member-contact">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:heriberto.arias@umich.mx">{{ _('heriberto.arias@umich.mx') }}</a>
-                    </div>
-                    <div class="member-social">
-                        <a href="https://orcid.org/0000-0002-7641-8310" target="_blank" title="{{ _('ORCID') }}"><i
-                                class="fab fa-orcid"></i></a>
-                        <a href="https://www.researchgate.net/profile/Heriberto-Arias-Rojas" target="_blank"
-                            title="{{ _('ResearchGate') }}"><i class="fab fa-researchgate"></i></a>
+                <div
+                    class="flex gap-4 p-4 rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/5 dark:hover:border-white/5">
+                    <i class="fas fa-download text-2xl text-sky-600 dark:text-sky-400"></i>
+                    <div>
+                        <h4 class="text-black dark:text-white font-medium mb-1">{{ _('Multiple Formats') }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ _('Universal compatibility. Export your data
+                            seamlessly in CSV, PNG, SVG, and other industry-standard formats.') }}</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Students Category -->
-        <div class="team-category">
-            <h3 class="category-title">{{ _('Students') }}</h3>
-            <div class="team-grid">
-                <!-- Student 1 -->
-                <div class="team-member student">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/gpj.webp') }}"
-                            alt="Gabriela Pedraza-Jimenez" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Gabriela Pedraza-Jimenez') }}</div>
-                    <div class="member-role">{{ _('Ph.D. candidate') }}</div>
-                </div>
+        <h2 class="text-3xl font-bold text-black dark:text-white text-center mb-12">{{ _('Research Team') }}</h2>
 
-                <!-- Student 2 -->
-                <div class="team-member student">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/eci.webp') }}" alt="Eli Chagolla-Inzunza"
-                            width="100" height="100">
+        <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 border-b border-black/10 dark:border-white/10 pb-2 mb-8">{{ _('Core Researchers') }}
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Researcher 1 -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
                     </div>
-                    <div class="member-name">{{ _('Eli Chagolla-Inzunza') }}</div>
-                    <div class="member-role">{{ _('Ph.D. candidate') }}</div>
+                    <img src="{{ url_for('static', filename='images/team/gtinoco.webp') }}"
+                        alt="Gerardo Tinoco-Guerrero"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
                 </div>
-
-                <!-- Student 3 -->
-                <div class="team-member student">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/jlgf.webp') }}"
-                            alt="Jorge L. González-Figueroa" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Jorge L. González-Figueroa') }}</div>
-                    <div class="member-role">{{ _('M.Sc. student') }}</div>
-                </div>
-
-                <!-- Student 4 -->
-                <div class="team-member student">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/cnmb.webp') }}"
-                            alt="C. Nolan Magaña-Barocio" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('C. Nolan Magaña-Barocio') }}</div>
-                    <div class="member-role">{{ _('M.Sc. student') }}</div>
-                </div>
-
-                <!-- Student 5 -->
-                <div class="team-member student">
-                    <div class="member-avatar">
-                        <img src="{{ url_for('static', filename='images/team/mgfl.webp') }}"
-                            alt="Maria Goretti Fraga-Lopez" width="100" height="100">
-                    </div>
-                    <div class="member-name">{{ _('Maria Goretti Fraga-Lopez') }}</div>
-                    <div class="member-role">{{ _('Undergraduate student') }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Technology Stack Section -->
-<section class="section-dark tech-stack">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Technology Stack') }}</h2>
-        </div>
-
-        <div class="tech-grid">
-            <div class="tech-category backend-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h4>{{ _('Backend') }}</h4>
-                </div>
-                <div class="tech-badges">
-                    <div class="tech-badge primary">
-                        <i class="fab fa-python"></i>
-                        <span>{{ _('Python 3.8+') }}</span>
-                    </div>
-                    <div class="tech-badge primary">
-                        <i class="fas fa-flask"></i>
-                        <span>{{ _('Flask') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-calculator"></i>
-                        <span>{{ _('NumPy') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-table"></i>
-                        <span>{{ _('Pandas') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-eye"></i>
-                        <span>{{ _('OpenCV') }}</span>
-                    </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Gerardo Tinoco-Guerrero') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. in Physical Engineering Sciences') }}</p>
+                <a href="mailto:gerardo.tinoco@umich.mx"
+                    class="block text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-4 transition-colors"><i
+                        class="fas fa-envelope mr-1"></i> {{ _('gerardo.tinoco@umich.mx') }}</a>
+                <div class="flex justify-center gap-4">
+                    <a href="https://orcid.org/0000-0003-3119-770X" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-orcid"></i></a>
+                    <a href="https://www.researchgate.net/profile/Gerardo-Tinoco-Guerrero" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-researchgate"></i></a>
                 </div>
             </div>
 
-            <div class="tech-category frontend-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-palette"></i>
+            <!-- Researcher 2 -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
                     </div>
-                    <h4>{{ _('Frontend') }}</h4>
+                    <img src="{{ url_for('static', filename='images/team/jagt.webp') }}" alt="J. Alberto Guzmán-Torres"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
                 </div>
-                <div class="tech-badges">
-                    <div class="tech-badge primary">
-                        <i class="fab fa-html5"></i>
-                        <span>{{ _('HTML5 & CSS3') }}</span>
-                    </div>
-                    <div class="tech-badge primary">
-                        <i class="fab fa-js-square"></i>
-                        <span>{{ _('JavaScript ES6+') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-draw-polygon"></i>
-                        <span>{{ _('Canvas API') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>{{ _('Responsive Design') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-magic"></i>
-                        <span>{{ _('Modern UI/UX') }}</span>
-                    </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('J. Alberto Guzmán-Torres') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. in Physical Engineering Sciences') }}</p>
+                <a href="mailto:jose.alberto.guzman@umich.mx"
+                    class="block text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-4 transition-colors"><i
+                        class="fas fa-envelope mr-1"></i> {{ _('jose.alberto.guzman@umich.mx') }}</a>
+                <div class="flex justify-center gap-4">
+                    <a href="https://orcid.org/0000-0002-9309-9390" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-orcid"></i></a>
+                    <a href="https://www.researchgate.net/profile/Jose-Guzman-Torres" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-researchgate"></i></a>
                 </div>
             </div>
 
-            <div class="tech-category scientific-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-atom"></i>
+            <!-- Researcher 3 -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
                     </div>
-                    <h4>{{ _('Scientific') }}</h4>
+                    <img src="{{ url_for('static', filename='images/team/dmota.webp') }}"
+                        alt="Francisco J. Domínguez-Mota"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
                 </div>
-                <div class="tech-badges">
-                    <div class="tech-badge primary">
-                        <i class="fas fa-chart-line"></i>
-                        <span>{{ _('Matplotlib') }}</span>
-                    </div>
-                    <div class="tech-badge primary">
-                        <i class="fas fa-square-root-alt"></i>
-                        <span>{{ _('SciPy') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-brain"></i>
-                        <span>{{ _('Adaptive Algorithms') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-shapes"></i>
-                        <span>{{ _('Computational Geometry') }}</span>
-                    </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Francisco J. Domínguez-Mota') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. in Mathematical Sciences') }}</p>
+                <a href="mailto:francisco.mota@umich.mx"
+                    class="block text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-4 transition-colors"><i
+                        class="fas fa-envelope mr-1"></i> {{ _('francisco.mota@umich.mx') }}</a>
+                <div class="flex justify-center gap-4">
+                    <a href="https://orcid.org/0000-0001-6837-172X" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-orcid"></i></a>
+                    <a href="https://www.researchgate.net/profile/Francisco-Dominguez-Mota" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-researchgate"></i></a>
                 </div>
             </div>
 
-            <div class="tech-category tools-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h4>{{ _('Tools') }}</h4>
-                </div>
-                <div class="tech-badges">
-                    <div class="tech-badge primary">
-                        <i class="fab fa-git-alt"></i>
-                        <span>{{ _('Git') }}</span>
-                    </div>
-                    <div class="tech-badge primary">
-                        <i class="fas fa-laptop"></i>
-                        <span>{{ _('Cross-platform') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-file-csv"></i>
-                        <span>{{ _('CSV') }}</span>
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-image"></i>
-                        <span>{{ _('PNG/SVG') }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Participating Institutions Section -->
-<section class="section-light participating-institutions">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Participating Institutions') }}</h2>
-            <p class="section-subtitle">{{ _('Collaborating organizations driving scientific innovation') }}</p>
         </div>
 
-        <div class="institutions-grid">
-            <div class="institution-item">
-                <a href="http://www.siiia.com.mx" target="_blank">
-                    <img src="{{ url_for('static', filename='images/siiia_b.webp') }}"
-                        alt="SIIIA MATH: Soluciones en Ingeniería" loading="lazy" class="institution-logo">
-                </a>
-            </div>
-
-            <div class="institution-item">
-                <a href="https://www.umich.mx/" target="_blank">
-                    <img src="{{ url_for('static', filename='images/umsnh.webp') }}"
-                        alt="Universidad Michoacana de San Nicolás de Hidalgo" loading="lazy" class="institution-logo">
-                </a>
-            </div>
-
-            <div class="institution-item">
-                <a href="http://aulacimnemorelia.org.mx/" target="_blank">
-                    <img src="{{ url_for('static', filename='images/cimne.webp') }}" alt="Aula CIMNE-Morelia"
-                        loading="lazy" class="institution-logo">
-                </a>
-            </div>
-
-            <div class="institution-item">
-                <a href="https://www.secihti.mx/" target="_blank">
-                    <img src="{{ url_for('static', filename='images/secihti.webp') }}"
-                        alt="Secretaría de Ciencias, Humanidades, Tecnología e Innovación" loading="lazy"
-                        class="institution-logo">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Citation Section -->
-<section class="section-dark citation-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Citation & References') }}</h2>
-            <p class="section-subtitle">{{ _('If you use mGFD CloudGenerator in your research, please cite the software
-                and related publications.') }}</p>
-        </div>
-        <div class="citation-grid-single">
-            <div class="citation-card">
-                <div class="citation-header">
-                    <div class="citation-icon">
-                        <i class="fas fa-code"></i>
+        <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 border-b border-black/10 dark:border-white/10 pb-2 mb-8">{{ _('Collaborators &
+            Alumni') }}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+            <!-- Heriberto -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
                     </div>
-                    <h4>{{ _('Software Citation') }}</h4>
+                    <img src="{{ url_for('static', filename='images/team/harias.webp') }}" alt="Heriberto Arias-Rojas"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
                 </div>
-                <div class="citation-content">
-                    <p class="citation-text">{{ _('Tinoco-Guerrero, G., Domínguez-Mota, F. J., Guzmán-Torres, J. A., &
-                        Arias-Rojas, H. (2025). mGFD CloudGenerator 2.2: Web platform for generating 2D unstructured
-                        point clouds.') }}</p>
-                    <div class="code-block-container">
-                        <button class="copy-btn" onclick="copyBibtex('software-bib')" title="{{ _('Copy BibTeX') }}"><i
-                                class="fas fa-copy"></i></button>
-                        <pre><code id="software-bib" class="language-bibtex">@software{tinoco2025mGFD_cloudgenerator,
-  title={mGFD CloudGenerator 2.2: Web platform for generating 2D unstructured point clouds},
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Heriberto Arias-Rojas') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. in Physical Engineering Sciences') }}</p>
+                <a href="mailto:heriberto.arias@umich.mx"
+                    class="block text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-4 transition-colors"><i
+                        class="fas fa-envelope mr-1"></i> {{ _('heriberto.arias@umich.mx') }}</a>
+                <div class="flex justify-center gap-4">
+                    <a href="https://orcid.org/0000-0002-7641-8310" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-orcid"></i></a>
+                    <a href="https://www.researchgate.net/profile/Heriberto-Arias-Rojas" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-xl"><i
+                            class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+
+            <!-- Gabriela -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/team/gpj.webp') }}" alt="Gabriela Pedraza-Jimenez"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
+                </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Gabriela Pedraza-Jimenez') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. in Physical Engineering Sciences') }}</p>
+            </div>
+        </div>
+
+        <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 border-b border-black/10 dark:border-white/10 pb-2 mb-8">{{ _('Students') }}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <!-- Students -->
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/team/eci.webp') }}" alt="Eli Chagolla-Inzunza"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
+                </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Eli Chagolla-Inzunza') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Ph.D. candidate') }}</p>
+            </div>
+
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/team/jlgf.webp') }}"
+                        alt="Jorge L. González-Figueroa"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
+                </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Jorge L. González-Figueroa') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('M.Sc. student') }}</p>
+            </div>
+
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/team/cnmb.webp') }}" alt="C. Nolan Magaña-Barocio"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
+                </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('C. Nolan Magaña-Barocio') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('M.Sc. student') }}</p>
+            </div>
+
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10 hover:border-blue-500/50 group">
+                <div class="relative inline-block mb-4">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/team/mgfl.webp') }}" alt="Maria Goretti Fraga-Lopez"
+                        class="relative z-10 w-28 h-28 rounded-full object-cover border-4 border-white/50 dark:border-white/10 group-hover:border-blue-500/50 transition-colors duration-300">
+                </div>
+                <h4 class="text-black dark:text-white font-semibold mb-1">{{ _('Maria Goretti Fraga-Lopez') }}</h4>
+                <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mb-3">{{ _('Undergraduate student') }}</p>
+            </div>
+        </div>
+
+        <!-- Citation & References -->
+        <h2 class="text-3xl font-bold text-black dark:text-white text-center mb-12">{{ _('Citation & References') }}</h2>
+        <div
+            class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-2xl p-8 mb-16 shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+            <div class="flex items-center gap-3 mb-6">
+                <i class="fas fa-code text-2xl text-blue-600 dark:text-blue-400"></i>
+                <h3 class="text-2xl font-semibold text-black dark:text-white m-0">{{ _('Software Citation') }}</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                {{ _('Tinoco-Guerrero, G., Domínguez-Mota, F. J., Guzmán-Torres, J. A., & Arias-Rojas, H. (2025). mGFD
+                CloudGenerator 2.3: Web platform for generating 2D unstructured point clouds.') }}
+            </p>
+            <div class="bibtex-box">
+                <button class="bibtex-copy copy-btn" onclick="copyBibtex('software-bib')"
+                    title="{{ _('Copy BibTeX') }}">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <pre><code id="software-bib">@software{tinoco2025mGFD_cloudgenerator,
+  title={mGFD CloudGenerator 2.3: Web platform for generating 2D unstructured point clouds},
   author={Tinoco-Guerrero, Gerardo and 
           Domínguez-Mota, Francisco Javier and 
           Guzmán-Torres, José Alberto and
@@ -567,166 +388,115 @@ Michoacana de San Nicolás de Hidalgo, CIC-UMSNH). México.
   institution={Universidad Michoacana de San Nicolás de Hidalgo},
   organization={SIIIA MATH: Soluciones en ingeniería},
   url={https://github.com/gstinoco/mGFD_CloudGenerator},
-  version={2.2}
+  version={2.3}
 }</code></pre>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Contact and Collaboration Section -->
-<section class="section-light contact-collaboration">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">{{ _('Contact and Collaboration') }}</h2>
-            <p class="section-subtitle">{{ _('Connect with our research team and contribute to the advancement of
-                meshless
-                computational methods') }}</p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-item research-contact">
-                <div class="contact-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                <h4>{{ _('Research Collaboration') }}</h4>
-                <p class="contact-description">{{ _('Partner with us on academic research, algorithm development, and
-                    scientific applications.') }}</p>
-                <div class="contact-details">
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>{{ _('gerardo.tinoco@umich.mx') }}</span>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-university"></i>
-                        <span>{{ _('Academic Partnerships') }}</span>
-                    </div>
-                </div>
-                <div class="contact-tags">
-                    <span class="contact-tag">{{ _('CFD Research') }}</span>
-                    <span class="contact-tag">{{ _('Algorithm Development') }}</span>
-                    <span class="contact-tag">{{ _('Publications') }}</span>
+        <!-- Contact & Collaboration Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-xl p-8 transition-transform hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-microscope text-3xl text-blue-600 dark:text-blue-400 mb-6"></i>
+                <h4 class="text-lg font-bold text-black dark:text-white mb-3">{{ _('Research Collaboration') }}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{{ _('Drive innovation forward. Partner with us to
+                    explore novel mGFD applications, develop cutting-edge algorithms, and push the boundaries of
+                    scientific computing.') }}</p>
+                <div class="flex flex-col gap-2 text-sm">
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i class="fas fa-envelope w-4 text-center"></i>
+                        <a href="mailto:gerardo.tinoco@umich.mx"
+                            class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors">{{ _('gerardo.tinoco@umich.mx')
+                            }}</a></span>
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i
+                            class="fas fa-university w-4 text-center"></i> {{ _('Academic Partnerships') }}</span>
                 </div>
             </div>
 
-            <div class="contact-item development-contact">
-                <div class="contact-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h4>{{ _('Development & Contributions') }}</h4>
-                <p class="contact-description">{{ _('Join our open-source community. Contribute code, report bugs,
-                    suggest
-                    features, or help improve the platform.') }}</p>
-                <div class="contact-details">
-                    <div class="contact-method">
-                        <i class="fab fa-github"></i>
-                        <span>{{ _('GitHub Repository') }}</span>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-bug"></i>
-                        <span>{{ _('Issue Tracking') }}</span>
-                    </div>
-                </div>
-                <div class="contact-tags">
-                    <span class="contact-tag">{{ _('Open Source') }}</span>
-                    <span class="contact-tag">{{ _('Bug Reports') }}</span>
-                    <span class="contact-tag">{{ _('Feature Requests') }}</span>
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-xl p-8 transition-transform hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-code text-3xl text-teal-600 dark:text-teal-400 mb-6"></i>
+                <h4 class="text-lg font-bold text-black dark:text-white mb-3">{{ _('Development') }}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{{ _('Shape the future of CloudGenerator. Join our
+                    open-source community to contribute code, build new features, and refine the core architecture.') }}
+                </p>
+                <div class="flex flex-col gap-2 text-sm">
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i class="fab fa-github w-4 text-center"></i> <a
+                            href="https://github.com/gstinoco/CloudGen" target="_blank"
+                            class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors">{{ _('GitHub Repository')
+                            }}</a></span>
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i class="fas fa-bug w-4 text-center"></i> {{
+                        _('Issue Tracking') }}</span>
                 </div>
             </div>
 
-            <div class="contact-item documentation-contact">
-                <div class="contact-icon">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <h4>{{ _('Documentation & Support') }}</h4>
-                <p class="contact-description">{{ _('Help us improve documentation, create tutorials, share use cases,
-                    or
-                    get technical support for your projects.') }}</p>
-                <div class="contact-details">
-                    <div class="contact-method">
-                        <i class="fas fa-question-circle"></i>
-                        <span>{{ _('Technical Support') }}</span>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-edit"></i>
-                        <span>{{ _('Documentation') }}</span>
-                    </div>
-                </div>
-                <div class="contact-tags">
-                    <span class="contact-tag">{{ _('Tutorials') }}</span>
-                    <span class="contact-tag">{{ _('Use Cases') }}</span>
-                    <span class="contact-tag">{{ _('Support') }}</span>
+            <div
+                class="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md rounded-xl p-8 transition-transform hover:-translate-y-1 hover:bg-black/5 dark:hover:bg-white/10">
+                <i class="fas fa-book-open text-3xl text-sky-600 dark:text-sky-400 mb-6"></i>
+                <h4 class="text-lg font-bold text-black dark:text-white mb-3">{{ _('Documentation') }}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{{ _('Master the platform. Access comprehensive
+                    guides, share your unique use cases, or connect with our team for dedicated technical support.') }}
+                </p>
+                <div class="flex flex-col gap-2 text-sm">
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i
+                            class="fas fa-question-circle w-4 text-center"></i> {{ _('Technical Support') }}</span>
+                    <span class="flex items-center gap-3 text-gray-600 dark:text-gray-400"><i class="fas fa-edit w-4 text-center"></i> {{
+                        _('Documentation') }}</span>
                 </div>
             </div>
         </div>
 
-        <div class="collaboration-cta">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h3>{{ _('Ready to Collaborate?') }}</h3>
-                    <p>{{ _('Join our growing community of researchers, developers, and computational scientists working
-                        together to advance meshless methods.') }}</p>
-                </div>
-                <div class="cta-actions">
-                    <a href="mailto:gerardo.tinoco@umich.mx" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
-                        {{ _('Get in Touch') }}
-                    </a>
-                    <a href="https://github.com/gstinoco/CloudGen" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i>
-                        {{ _('View on GitHub') }}
-                    </a>
-                    <a href="https://malla.umich.mx/CloudGenerator/" class="btn btn-accent" target="_blank">
-                        <i class="fas fa-external-link-alt"></i>
-                        {{ _('Live Demo') }}
-                    </a>
-                </div>
-            </div>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-20">
+            <a href="mailto:gerardo.tinoco@umich.mx"
+                class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-apple-blue dark:bg-blue-600 text-white rounded-full font-semibold transition-all hover:bg-blue-600 dark:hover:bg-blue-500 hover:-translate-y-0.5">
+                <i class="fas fa-envelope"></i> {{ _('Get in Touch') }}
+            </a>
+            <a href="https://github.com/gstinoco/CloudGen" target="_blank"
+                class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-black/5 dark:bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10 rounded-full font-semibold transition-all hover:bg-black/10 dark:hover:bg-white/20 hover:-translate-y-0.5">
+                <i class="fab fa-github"></i> {{ _('View on GitHub') }}
+            </a>
         </div>
 
-        <div class="license-info">
-            <div class="license-content">
-                <div class="license-icon">
-                    <i class="fab fa-osi"></i>
-                </div>
-                <div class="license-text">
-                    <h4>{{ _('Open Source License') }}</h4>
-                    <p>{{ _('This project is released under the <strong>MIT License</strong>, ensuring freedom to use,
-                        modify, and distribute. We welcome contributions from the global research community.')|safe }}
-                    </p>
-                </div>
-                <div class="license-badge">
-                    <a href="https://github.com/gstinoco/CloudGen/blob/v2.2/LICENSE" target="_blank"
-                        style="color: inherit; text-decoration: none;">
-                        <span class="badge">{{ _('MIT Licensed') }}</span>
-                    </a>
-                    <a href="https://github.com/gstinoco/CloudGen" target="_blank"
-                        style="color: inherit; text-decoration: none;">
-                        <span class="badge">{{ _('Open Source') }}</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Participating Institutions Section -->
+        <h2 class="text-3xl font-bold text-black dark:text-white text-center mb-12">{{ _('Participating Institutions') }}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+            <a href="http://www.siiia.com.mx" target="_blank"
+                class="bg-white/60 backdrop-blur-md border border-white/40 p-6 rounded-2xl shadow-lg flex items-center justify-center hover:-translate-y-1 hover:bg-white/80 hover:border-blue-400/50 hover:shadow-blue-500/20 transition-all duration-300 group">
+                <img src="{{ url_for('static', filename='images/siiia_vertical.png') }}" alt="SIIIA MATH"
+                    class="h-20 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+            </a>
+            <a href="https://www.umich.mx/" target="_blank"
+                class="bg-white/60 backdrop-blur-md border border-white/40 p-6 rounded-2xl shadow-lg flex items-center justify-center hover:-translate-y-1 hover:bg-white/80 hover:border-blue-400/50 hover:shadow-blue-500/20 transition-all duration-300 group">
+                <img src="{{ url_for('static', filename='images/umsnh.webp') }}" alt="UMSNH"
+                    class="h-28 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+            </a>
+            <a href="http://aulacimnemorelia.org.mx/" target="_blank"
+                class="bg-white/60 backdrop-blur-md border border-white/40 p-6 rounded-2xl shadow-lg flex items-center justify-center hover:-translate-y-1 hover:bg-white/80 hover:border-blue-400/50 hover:shadow-blue-500/20 transition-all duration-300 group">
+                <img src="{{ url_for('static', filename='images/cimne.webp') }}" alt="CIMNE"
+                    class="h-24 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+            </a>
+            <a href="https://www.secihti.mx/" target="_blank"
+                class="bg-white/60 backdrop-blur-md border border-white/40 p-6 rounded-2xl shadow-lg flex items-center justify-center hover:-translate-y-1 hover:bg-white/80 hover:border-blue-400/50 hover:shadow-blue-500/20 transition-all duration-300 group">
+                <img src="{{ url_for('static', filename='images/secihti.webp') }}" alt="SECIHTI"
+                    class="h-20 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+            </a>
         </div>
+
     </div>
 </section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-
     function copyBibtex(id) {
         const code = document.getElementById(id).innerText;
         navigator.clipboard.writeText(code).then(() => {
             const btn = document.querySelector('.copy-btn');
             const originalIcon = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.classList.add('copied');
+            btn.style.color = 'var(--success-base)';
             setTimeout(() => {
                 btn.innerHTML = originalIcon;
-                btn.classList.remove('copied');
+                btn.style.color = 'white';
             }, 2000);
         });
     }

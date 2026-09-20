@@ -202,8 +202,21 @@ def examples():                                                                 
             'cloud_svg':    'Zirahuen_cloud.svg',                                                                                       # Filename of the generated point cloud SVG
             'contours_csv': 'Zirahuen_contours.csv',                                                                                    # Filename of the generated contours CSV data
             'cloud_csv':    'Zirahuen_cloud.csv'                                                                                        # Filename of the generated point cloud CSV data
+        },                                                                                                                              # End dictionary for lake example data
+        {                                                                                                                               # Begin dictionary for specific lake example data
+            'name':         'Ladoga',                                                                                                   # Internal identifier for the lake example
+            'title':        _('Lake Ladoga'),                                                                                           # Localized display title for the lake example
+            'description':  _('A freshwater lake located in the Republic of Karelia and Leningrad Oblast in northwestern Russia.'),     # Localized description of the lake example
+            'image':        'Ladoga.png',                                                                                               # Filename of the original lake image
+            'cloud_image':  'Ladoga_cloud.png',                                                                                         # Filename of the generated point cloud image
+            'cloud_svg':    'Ladoga_cloud.svg',                                                                                         # Filename of the generated point cloud SVG
+            'contours_csv': 'Ladoga_contours.csv',                                                                                      # Filename of the generated contours CSV data
+            'cloud_csv':    'Ladoga_cloud.csv'                                                                                          # Filename of the generated point cloud CSV data
         }                                                                                                                               # End dictionary for the final lake example data
     ]                                                                                                                                   # End of static case studies catalog list
+    
+    examples_list.sort(key=lambda x: x['name'])                                                                                         # Sort examples alphabetically to avoid preference bias
+    
     return render_template('examples.html', examples=examples_list)                                                                     # Render and return populated template
 
 @main_bp.route('/about')                                                                                                                # Bind routing endpoint decorator URI handler

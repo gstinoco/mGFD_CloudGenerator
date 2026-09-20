@@ -247,3 +247,4 @@ flask_session/
 
 # Vercel
 .vercel
+node_modules/
