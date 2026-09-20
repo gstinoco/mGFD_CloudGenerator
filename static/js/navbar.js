@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {                     
      
      Features:
      - Detects clicks on navigation links (excluding dropdown toggles)
-     - Closes mobile menu only on mobile devices (≤768px width)
+     - Closes mobile menu only on mobile devices (≤1280px width)
      - Restores body scrolling after menu closure
      - Maintains desktop navigation behavior unchanged
      
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {                     
     const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');                                                     // Initialize immutable variable state reference
     navLinks.forEach(link => {                                                                                                         // Execute sequential evaluation stream node
         link.addEventListener('click', function () {                                                                                   // Bind event listener DOM state
-            if (window.innerWidth <= 768) {                                                                                            // Evaluate boolean condition check logic
+            if (window.innerWidth <= 1280) {                                                                                            // Evaluate boolean condition check logic
                 navToggle.classList.remove('active');                                                                                  // Modify element class list collection
                 navMenu.classList.remove('active');                                                                                    // Modify element class list collection
                 document.body.style.overflow = '';                                                                                     // Modify element visual style property
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {                     
      */
     dropdownToggles.forEach(toggle => {                                                                                                // Execute sequential evaluation stream node
         toggle.addEventListener('click', function (e) {                                                                                // Bind event listener DOM state
-            if (window.innerWidth <= 768) {                                                                                            // Evaluate boolean condition check logic
+            if (window.innerWidth <= 1280) {                                                                                            // Evaluate boolean condition check logic
                 e.preventDefault();                                                                                                    // Execute sequential statement instruction block
                 const dropdown = this.closest('.dropdown');                                                                            // Initialize immutable variable state reference
                 dropdown.classList.toggle('active');                                                                                   // Modify element class list collection
@@ -162,13 +162,13 @@ document.addEventListener('DOMContentLoaded', function () {                     
      - Detects clicks outside the navbar container
      - Closes mobile menu only when it's currently active
      - Restores body scrolling after menu closure
-     - Mobile-specific behavior (≤768px width)
+     - Mobile-specific behavior (≤1280px width)
      
      @since 2025-05-01
      @lastModified 2026-01-21
      */
     document.addEventListener('click', function (e) {                                                                                  // Bind event listener DOM state
-        if (window.innerWidth <= 768) {                                                                                                // Evaluate boolean condition check logic
+        if (window.innerWidth <= 1280) {                                                                                                // Evaluate boolean condition check logic
             if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {                                                  // Evaluate boolean condition check logic
                 navToggle.classList.remove('active');                                                                                  // Modify element class list collection
                 navMenu.classList.remove('active');                                                                                    // Modify element class list collection
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {                     
      @lastModified 2026-01-21
      */
     window.addEventListener('resize', function () {                                                                                    // Bind event listener DOM state
-        if (window.innerWidth > 768) {                                                                                                 // Evaluate boolean condition check logic
+        if (window.innerWidth > 1280) {                                                                                                 // Evaluate boolean condition check logic
             if (navToggle) navToggle.classList.remove('active');                                                                       // Modify element class list collection
             if (navMenu) navMenu.classList.remove('active');                                                                           // Modify element class list collection
             document.body.style.overflow = '';                                                                                         // Modify element visual style property
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {                     
                     });                                                                                                                // Terminate block scope execution context
 
                                                                                                                                        // Close mobile menu if open
-                    if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {                                            // Evaluate boolean condition check logic
+                    if (window.innerWidth <= 1280 && navMenu.classList.contains('active')) {                                            // Evaluate boolean condition check logic
                         navToggle.classList.remove('active');                                                                          // Modify element class list collection
                         navMenu.classList.remove('active');                                                                            // Modify element class list collection
                         document.body.style.overflow = '';                                                                             // Modify element visual style property
