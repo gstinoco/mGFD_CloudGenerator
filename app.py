@@ -52,7 +52,7 @@ from flask import Flask, request, jsonify, send_from_directory, url_for         
 
 from flask_babel import Babel                                                                                                           # Localization suite library
 
-app = Flask(__name__, static_url_path='/static')                                                                                        # Boot application instance
+app = Flask(__name__, static_url_path='/assets')                                                                                        # Boot application instance
 
 # Add APP_VERSION to templates for Cache-Busting
 @app.context_processor
